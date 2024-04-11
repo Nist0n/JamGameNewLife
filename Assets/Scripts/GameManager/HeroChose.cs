@@ -19,7 +19,7 @@ public class HeroChose : MonoBehaviour
     private Transform _selection;
     private Transform _enemySelection;
     private RaycastHit _raycastHit;
-    private Knight _hero;
+    private Character _hero;
     private List<GameObject> _queue;
     private GameObject _temp;
 
@@ -113,7 +113,7 @@ public class HeroChose : MonoBehaviour
             {
                 List[сurrentCharacter].GetComponent<MeshRenderer>().material = highlightMaterial;
                 _heroIsSelected = true;
-                _hero = List[сurrentCharacter].GetComponent<Knight>();
+                _hero = List[сurrentCharacter].GetComponent<Character>();
             }
         }
         else
@@ -130,7 +130,7 @@ public class HeroChose : MonoBehaviour
         int rand = Random.Range(0, HeroesGroup.Count);
         HeroesGroup[rand].GetComponent<MeshRenderer>().material = highlightMaterial;
         yield return new WaitForSeconds(1);
-        HeroesGroup[rand].GetComponent<Knight>().GetDamage(List[сurrentCharacter].GetComponent<Knight>().Damage);
+        HeroesGroup[rand].GetComponent<Character>().GetDamage(List[сurrentCharacter].GetComponent<Character>().Damage);
         сurrentCharacter += 1;
         HeroesGroup[rand].GetComponent<MeshRenderer>().material = originalMaterial;
         _stageStarted = false;
@@ -143,7 +143,7 @@ public class HeroChose : MonoBehaviour
             _count = 0;
             for (int i = 0; i < List.Count - 1; i++)
             {
-                if (List[i].GetComponent<Knight>().Speed == List[i + 1].GetComponent<Knight>().Speed)
+                if (List[i].GetComponent<Character>().Speed == List[i + 1].GetComponent<Character>().Speed)
                 {
                     if (List[i].CompareTag("enemy") && List[i + 1].CompareTag("hero"))
                     {
@@ -154,7 +154,7 @@ public class HeroChose : MonoBehaviour
                     }
                 }
 
-                if (List[i].GetComponent<Knight>().Speed < List[i + 1].GetComponent<Knight>().Speed)
+                if (List[i].GetComponent<Character>().Speed < List[i + 1].GetComponent<Character>().Speed)
                 {
                     _temp = List[i];
                     List[i] = List[i + 1];
@@ -231,7 +231,7 @@ public class HeroChose : MonoBehaviour
                 if (_enemySelection.CompareTag("enemy") && CanAttack == true)
                 {
                     CanAttack = false;
-                    _enemySelection.GetComponent<Knight>().GetDamage(_hero.Damage);
+                    _enemySelection.GetComponent<Character>().GetDamage(_hero.Damage);
                     List[сurrentCharacter].GetComponent<MeshRenderer>().material = originalMaterial;
                     _stageStarted = false;
                     _heroIsSelected = false;

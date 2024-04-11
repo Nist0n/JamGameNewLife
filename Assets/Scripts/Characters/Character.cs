@@ -4,14 +4,32 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Knight : MonoBehaviour
-{
-    [SerializeField] private int health;
-
+public class Character : MonoBehaviour
+{  
     private HeroChose _heroChose;
+    private Class _class;
     
+    public enum Classes
+    {
+        knight,
+        archer,
+        mage,
+        peasant,
+        horseman
+    }
+    
+    public int Health;
     public int Speed;
     public int Damage;
+
+    private void Awake()
+    {
+        _class = GetComponent<Class>();
+
+        Health = _class.Health;
+        Damage = _class.Damage;
+        Speed = _class.Speed;
+    }
 
     private void Start()
     {
@@ -20,12 +38,12 @@ public class Knight : MonoBehaviour
 
     public void GetDamage(int damageNum)
     {
-        health -= damageNum;
+        Health -= damageNum;
     }
 
     private void Update()
     {
-        if (health <= 0)
+        if (Health <= 0)
         {
             Destroy(gameObject);
             try
