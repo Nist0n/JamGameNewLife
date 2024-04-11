@@ -1,13 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Knight : MonoBehaviour
 {
     public int Damage;
     [SerializeField] private int health;
-    [SerializeField] private int speed;
+
+    private HeroChose _heroChose;
+    
+    public int Speed;
+
+    private void Start()
+    {
+        _heroChose = FindObjectOfType<HeroChose>();
+    }
 
     public void GetDamage(int damageNum)
     {
@@ -18,6 +27,17 @@ public class Knight : MonoBehaviour
     {
         if (health <= 0)
         {
+            Destroy(gameObject);
+            try
+            {
+                _heroChose.List.Remove(gameObject);
+                _heroChose.EnemiesGroup.Remove(gameObject);
+                _heroChose.HeroesGroup.Remove(gameObject);
+            }
+            catch
+            {
+                Exception exception;
+            }
         }
     }
 }

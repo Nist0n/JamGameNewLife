@@ -1,8 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class HeroChose : MonoBehaviour
 {
@@ -10,7 +13,7 @@ public class HeroChose : MonoBehaviour
     [SerializeField] private Material highlightMaterialForEnemy;
     [SerializeField] private Material selectionMaterial;
 
-    private Material _originalMaterial;
+    [SerializeField] private Material originalMaterial;
     private Material _originalMaterialEnemy;
     private Transform _highlight;
     private Transform _highlightEnemy;
@@ -18,25 +21,81 @@ public class HeroChose : MonoBehaviour
     private Transform _enemySelection;
     private RaycastHit _raycastHit;
     private Knight _hero;
-    private GameObject[] _enemies;
+    public GameObject[] Enemies;
+    public GameObject[] Heroes;
+    public List<GameObject> EnemiesGroup;
+    public List<GameObject> HeroesGroup;
+    private List<GameObject> _queue;
+    public List<GameObject> List;
 
     private bool _heroIsSelected = false;
     private float _coolDown = 1f;
     private float _timer;
+    public int CurrentCharacter = 0;
+    private int _count = 1;
+    private bool _stageStarted = false;
+    private GameObject _temp;
     public bool CanAttack { get; private set; }
 
     private void Start()
     {
-        _enemies = GameObject.FindGameObjectsWithTag("enemy");
+        Enemies = GameObject.FindGameObjectsWithTag("enemy");
+        Heroes = GameObject.FindGameObjectsWithTag("hero");
+
+        List.AddRange(Enemies);
+        EnemiesGroup.AddRange(Enemies);
+        List.AddRange(Heroes);
+        HeroesGroup.AddRange(Heroes);
+
+        while (_count != 0)
+        {
+            _count = 0;
+            for (int i = 0; i < List.Count - 1; i++)
+            {
+                if (List[i].GetComponent<Knight>().Speed == List[i + 1].GetComponent<Knight>().Speed)
+                {
+                    if (List[i].CompareTag("enemy") && List[i + 1].CompareTag("hero"))
+                    {
+                        _temp = List[i];
+                        List[i] = List[i + 1];
+                        List[i + 1] = _temp;
+                        _count = 1;
+                    }
+                }
+                if (List[i].GetComponent<Knight>().Speed < List[i + 1].GetComponent<Knight>().Speed)
+                {
+                    _temp = List[i];
+                    List[i] = List[i + 1];
+                    List[i + 1] = _temp;
+                    _count = 1;
+                }
+            }
+        }
+
+        foreach (var var in List)
+        {
+            Debug.Log(var.GetComponent<Knight>().Speed);
+            Debug.Log(var);
+        }
     }
 
     private void Update()
     {
         CDAttack();
+
+        if (HeroesGroup.Count == 0)
+        {
+            SceneManager.LoadScene(1);
+        }
+
+        if (EnemiesGroup.Count == 0)
+        {
+            SceneManager.LoadScene(1);
+        }
         
         if (_highlight != null)
         {
-            _highlight.GetComponent<MeshRenderer>().material = _originalMaterial;
+            _highlight.GetComponent<MeshRenderer>().material = originalMaterial;
             _highlight = null;
         }
         
@@ -47,62 +106,36 @@ public class HeroChose : MonoBehaviour
         }
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out _raycastHit))
+        if (!_stageStarted)
         {
-            _highlight = _raycastHit.transform;
-            if (_highlight.CompareTag("hero") && _highlight != _selection)
+            _stageStarted = true;
+            StartBattle();
+        }
+
+        if (CurrentCharacter < List.Count)
+        {
+            if (List[CurrentCharacter].CompareTag("hero"))
             {
-                if (_highlight.GetComponent<MeshRenderer>().material != highlightMaterial)
+                foreach (var enemy in EnemiesGroup)
                 {
-                    _originalMaterial = _highlight.GetComponent<MeshRenderer>().material;
-                    _highlight.GetComponent<MeshRenderer>().material = highlightMaterial;
+                    enemy.GetComponent<MeshRenderer>().material = highlightMaterial;
                 }
             }
             else
             {
-                _highlight = null;
+                foreach (var enemy in EnemiesGroup)
+                {
+                    enemy.GetComponent<MeshRenderer>().material = originalMaterial;
+                }
             }
         }
-
-        if (Input.GetKey(KeyCode.Mouse0) && !EventSystem.current.IsPointerOverGameObject())
+        else
         {
-            if (_selection != null)
-            {
-                _selection.GetComponent<MeshRenderer>().material = _originalMaterial;
-                _selection = null;
-                foreach (var enemy in _enemies)
-                {
-                    enemy.GetComponent<MeshRenderer>().material = _originalMaterial;
-                }
-            }
-
-            if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out _raycastHit))
-            {
-                _selection = _raycastHit.transform;
-                if (_selection.CompareTag("hero"))
-                {
-                    _heroIsSelected = true;
-                    _hero = _selection.GetComponent<Knight>();
-                    _selection.GetComponent<MeshRenderer>().material = selectionMaterial;
-                    foreach (var enemy in _enemies)
-                    {
-                        enemy.GetComponent<MeshRenderer>().material = highlightMaterial;
-                    }
-                }
-                else
-                {
-                    _selection = null;
-                    _heroIsSelected = false;
-                }
-            }
-
-            if (_selection == null)
-            {
-                _heroIsSelected = false;
-            }
+            CurrentCharacter = 0;
+            StartBattle();
         }
-        
-        if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out _raycastHit))
+
+        if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out _raycastHit) && _hero != null && List[CurrentCharacter].CompareTag("hero"))
         {
             _highlightEnemy = _raycastHit.transform;
             if (_highlightEnemy.CompareTag("enemy") && _highlightEnemy != _selection && _heroIsSelected == true)
@@ -119,11 +152,11 @@ public class HeroChose : MonoBehaviour
             }
         }
         
-        if (Input.GetKey(KeyCode.Mouse0) && !EventSystem.current.IsPointerOverGameObject() && _hero != null)
+        if (Input.GetKey(KeyCode.Mouse0) && !EventSystem.current.IsPointerOverGameObject() && _hero != null && List[CurrentCharacter].CompareTag("hero"))
         {
             if (_enemySelection != null)
             {
-                _enemySelection.GetComponent<MeshRenderer>().material = _originalMaterial;
+                _enemySelection.GetComponent<MeshRenderer>().material = originalMaterial;
                 _enemySelection = null;
             }
 
@@ -134,6 +167,14 @@ public class HeroChose : MonoBehaviour
                 {
                     CanAttack = false;
                     _enemySelection.GetComponent<Knight>().GetDamage(_hero.Damage);
+                    List[CurrentCharacter].GetComponent<MeshRenderer>().material = originalMaterial;
+                    _stageStarted = false;
+                    _heroIsSelected = false;
+                    CurrentCharacter += 1;
+                    if (CurrentCharacter >= List.Count)
+                    {
+                        CurrentCharacter = 0;
+                    }
                 }
                 else
                 {
@@ -159,5 +200,40 @@ public class HeroChose : MonoBehaviour
 
         CanAttack = true;
         _timer = 0;
+    }
+
+    private void StartBattle()
+    {
+        if (CurrentCharacter < List.Count)
+        {
+            if (List[CurrentCharacter].CompareTag("enemy"))
+            {
+                StartCoroutine(EnemyAttack());
+            }
+            else
+            {
+                List[CurrentCharacter].GetComponent<MeshRenderer>().material = highlightMaterial;
+                _heroIsSelected = true;
+                _hero = List[CurrentCharacter].GetComponent<Knight>();
+            }
+        }
+        else
+        {
+            CurrentCharacter = 0;
+            _stageStarted = false;
+        }
+    }
+
+    IEnumerator EnemyAttack()
+    {
+        yield return new WaitForSeconds(1);
+        List[CurrentCharacter].GetComponent<MeshRenderer>().material = highlightMaterial;
+        int rand = Random.Range(0, HeroesGroup.Count);
+        HeroesGroup[rand].GetComponent<MeshRenderer>().material = highlightMaterial;
+        yield return new WaitForSeconds(1);
+        HeroesGroup[rand].GetComponent<Knight>().GetDamage(List[CurrentCharacter].GetComponent<Knight>().Damage);
+        CurrentCharacter += 1;
+        HeroesGroup[rand].GetComponent<MeshRenderer>().material = originalMaterial;
+        _stageStarted = false;
     }
 }
