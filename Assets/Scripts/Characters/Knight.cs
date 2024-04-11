@@ -6,12 +6,12 @@ using UnityEngine;
 
 public class Knight : MonoBehaviour
 {
-    public int Damage;
     [SerializeField] private int health;
 
     private HeroChose _heroChose;
     
     public int Speed;
+    public int Damage;
 
     private void Start()
     {
