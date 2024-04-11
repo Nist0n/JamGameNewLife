@@ -15,11 +15,15 @@ public class HeroChose : MonoBehaviour
     private Transform _highlight;
     private Transform _highlightEnemy;
     private Transform _selection;
+    private Transform _enemySelection;
     private RaycastHit _raycastHit;
-    private GameObject _hero;
+    private Knight _hero;
     private GameObject[] _enemies;
 
     private bool _heroIsSelected = false;
+    private float _coolDown = 1f;
+    private float _timer;
+    public bool CanAttack { get; private set; }
 
     private void Start()
     {
@@ -28,6 +32,8 @@ public class HeroChose : MonoBehaviour
 
     private void Update()
     {
+        CDAttack();
+        
         if (_highlight != null)
         {
             _highlight.GetComponent<MeshRenderer>().material = _originalMaterial;
@@ -63,8 +69,6 @@ public class HeroChose : MonoBehaviour
             if (_selection != null)
             {
                 _selection.GetComponent<MeshRenderer>().material = _originalMaterial;
-                _hero = _selection.GetComponent<GameObject>();
-                _heroIsSelected = true;
                 _selection = null;
                 foreach (var enemy in _enemies)
                 {
@@ -77,6 +81,8 @@ public class HeroChose : MonoBehaviour
                 _selection = _raycastHit.transform;
                 if (_selection.CompareTag("hero"))
                 {
+                    _heroIsSelected = true;
+                    _hero = _selection.GetComponent<Knight>();
                     _selection.GetComponent<MeshRenderer>().material = selectionMaterial;
                     foreach (var enemy in _enemies)
                     {
@@ -112,5 +118,46 @@ public class HeroChose : MonoBehaviour
                 _highlightEnemy = null;
             }
         }
+        
+        if (Input.GetKey(KeyCode.Mouse0) && !EventSystem.current.IsPointerOverGameObject() && _hero != null)
+        {
+            if (_enemySelection != null)
+            {
+                _enemySelection.GetComponent<MeshRenderer>().material = _originalMaterial;
+                _enemySelection = null;
+            }
+
+            if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out _raycastHit))
+            {
+                _enemySelection = _raycastHit.transform;
+                if (_enemySelection.CompareTag("enemy") && CanAttack == true)
+                {
+                    CanAttack = false;
+                    _enemySelection.GetComponent<Knight>().GetDamage(_hero.Damage);
+                }
+                else
+                {
+                    _enemySelection = null;
+                }
+            }
+        }
+    }
+
+    private void CDAttack()
+    {
+        if (CanAttack)
+        {
+            return;
+        }
+
+        _timer += Time.deltaTime;
+
+        if (_timer < _coolDown)
+        {
+            return;
+        }
+
+        CanAttack = true;
+        _timer = 0;
     }
 }

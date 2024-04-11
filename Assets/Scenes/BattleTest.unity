@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 455639}
   - component: {fileID: 455638}
   - component: {fileID: 455637}
+  - component: {fileID: 455641}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: hero
@@ -228,6 +229,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &455641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22083362487b54f46a8c957895987e25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 5
+  health: 20
+  speed: 1
 --- !u!1 &65881327
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +256,7 @@ GameObject:
   - component: {fileID: 65881330}
   - component: {fileID: 65881329}
   - component: {fileID: 65881328}
+  - component: {fileID: 65881332}
   m_Layer: 0
   m_Name: Cube
   m_TagString: hero
@@ -333,6 +350,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &65881332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65881327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22083362487b54f46a8c957895987e25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 5
+  health: 20
+  speed: 1
 --- !u!1 &124687126
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,6 +492,7 @@ GameObject:
   - component: {fileID: 461751045}
   - component: {fileID: 461751044}
   - component: {fileID: 461751043}
+  - component: {fileID: 461751047}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: enemy
@@ -553,6 +586,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &461751047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461751042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22083362487b54f46a8c957895987e25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 5
+  health: 20
+  speed: 1
 --- !u!1 &992608449
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,7 +901,7 @@ SceneRoots:
   - {fileID: 992608451}
   - {fileID: 1497668216}
   - {fileID: 65881331}
-  - {fileID: 461751046}
   - {fileID: 455640}
+  - {fileID: 461751046}
   - {fileID: 124687128}
   - {fileID: 275777189}
