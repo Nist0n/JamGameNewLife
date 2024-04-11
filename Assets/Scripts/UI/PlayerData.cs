@@ -5,35 +5,41 @@ namespace UI
 {
     public class PlayerData : MonoBehaviour
     {
-        private const string CoinsData = "Coins";
-        private const string LeadershipData = "Leadership";
+        public const string CoinsData = "Coins";
+        public const string LeadershipData = "Leadership";
         
-        [SerializeField] private TMP_Text coinsText; 
-        [SerializeField] private TMP_Text leadershipText; 
+        [SerializeField] private TMP_Text _coinsText; 
+        [SerializeField] private TMP_Text _leadershipText; 
         
-        public int Coins { get; private set; }
+        public static int Coins { get; private set; }
         public int Leadership { get; private set; }
         
         private void Start()
         {
             Coins = PlayerPrefs.GetInt(CoinsData);
             Leadership = PlayerPrefs.GetInt(LeadershipData);
-            UpdateText();
         }
 
+        private void Update()
+        {
+            _coinsText.text = PlayerPrefs.GetInt(CoinsData).ToString();
+            _leadershipText.text = PlayerPrefs.GetInt(LeadershipData).ToString();
+        }
+        
         public void SaveData()
         {
-            Coins += 10;
-            Leadership += 10;
-            UpdateText();
-            PlayerPrefs.SetInt(CoinsData, Coins);
-            PlayerPrefs.SetInt(LeadershipData, Leadership);
+            AddCoins(10);
+            AddLeadership(10);
         }
 
-        private void UpdateText()
+        public static void AddCoins(int coins)
         {
-            coinsText.text = Coins.ToString();
-            leadershipText.text = Leadership.ToString();
+            PlayerPrefs.SetInt(CoinsData, coins);
+        }
+        
+        public static void AddLeadership(int leadership)
+        {
+            PlayerPrefs.SetInt(LeadershipData, leadership);
         }
     }
 }
