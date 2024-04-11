@@ -22,6 +22,7 @@ public class HeroChose : MonoBehaviour
     private Character _hero;
     private List<GameObject> _queue;
     private GameObject _temp;
+    private UnitSetup _unit;
 
     public List<GameObject> List;
     public GameObject[] Enemies;
@@ -41,6 +42,7 @@ public class HeroChose : MonoBehaviour
     {
         Enemies = GameObject.FindGameObjectsWithTag("enemy");
         Heroes = GameObject.FindGameObjectsWithTag("hero");
+        _unit = FindObjectOfType<UnitSetup>();
 
         List.AddRange(Enemies);
         EnemiesGroup.AddRange(Enemies);
@@ -54,12 +56,12 @@ public class HeroChose : MonoBehaviour
     {
         CDAttack();
 
-        if (HeroesGroup.Count == 0)
+        if (HeroesGroup.Count == 0 && _unit.IsStarted == true)
         {
             SceneManager.LoadScene(1);
         }
 
-        if (EnemiesGroup.Count == 0)
+        if (EnemiesGroup.Count == 0 && _unit.IsStarted == true)
         {
             SceneManager.LoadScene(1);
         }
@@ -70,7 +72,7 @@ public class HeroChose : MonoBehaviour
             _highlightEnemy = null;
         }
 
-        if (!_stageStarted)
+        if (!_stageStarted && _unit.IsStarted == true)
         {
             _stageStarted = true;
             StartBattle();
