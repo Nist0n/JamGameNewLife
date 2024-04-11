@@ -22,18 +22,14 @@ public class Character : MonoBehaviour
     public int Speed;
     public int Damage;
 
-    private void Awake()
+    private void Start()
     {
+        _heroChose = FindObjectOfType<HeroChose>();
         _class = GetComponent<Class>();
 
         Health = _class.Health;
         Damage = _class.Damage;
         Speed = _class.Speed;
-    }
-
-    private void Start()
-    {
-        _heroChose = FindObjectOfType<HeroChose>();
     }
 
     public void GetDamage(int damageNum)
