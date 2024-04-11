@@ -14,8 +14,10 @@ namespace Buildings
         [SerializeField] private Button collectButton;
         [SerializeField] private TMP_Text levelText;
         [SerializeField] private TMP_Text addedCoinsText;
+        [SerializeField] private TMP_Text mineCoinsCountText;
         
-        private int _mineLevel;
+        private int _mineLevel = 1;
+        private int _levelUpCost = 30;
         private int _payRate = 5;
         private bool _mineExists = true;
         private float _timeBetweenPay = 5;
@@ -29,12 +31,27 @@ namespace Buildings
         private void Start()
         {
             _coins = PlayerPrefs.GetInt(PlayerData.CoinsData);
-            _mineLevel = PlayerPrefs.GetInt(MineLevel);
-            levelText.text = "Level" + _mineLevel;
+            if (PlayerPrefs.HasKey(MineLevel))
+            {
+                _mineLevel = PlayerPrefs.GetInt(MineLevel);
+            }
+            levelText.text = "Level " + _mineLevel;
             StartCoroutine(MineMoney(_timeBetweenPay));
-            CheckMineLevel();
         }
 
+        private void FixedUpdate()
+        {
+            if (_mineLevel == 3)
+            {
+                upgradeButton.gameObject.SetActive(false);
+            }
+
+            upgradeButton.interactable = _coins >= _levelUpCost;
+
+            UpdateMineValues();
+            mineCoinsCountText.text = _addedCoins + "/" + _mineVaultLimit;
+        }
+        
         public void ToggleMineControls()
         {
             _mineControlsShown = !_mineControlsShown;
@@ -55,40 +72,43 @@ namespace Buildings
         
         public void UpgradeMine()
         {
+            _coins -= _levelUpCost;
+            PlayerData.UpdateCoins(_coins);
+            
             _mineLevel++;
             levelText.text = "Level " + _mineLevel;
             PlayerPrefs.SetInt(MineLevel, _mineLevel);
-            
-            CheckMineLevel();
-            
-            switch (_mineLevel)
-            {
-                case 1:
-                    _payRate = 5;
-                    _mineVaultLimit = 50;
-                    break;
-                case 2:
-                    _payRate = 7;
-                    _mineVaultLimit = 70;
-                    break;
-                case 3:
-                    _payRate = 9;
-                    _mineVaultLimit = 90;
-                    break;
-            }
         }
         
         public void CollectFromMine()
         {
+            collectButton.interactable = false;
             StartCoroutine(ShowAddedCoins());
             _coins += _addedCoins;
             _addedCoins = 0;
-            collectButton.interactable = false;
-            PlayerData.AddCoins(_coins);
+            PlayerData.UpdateCoins(_coins);
+        }
+
+        private void UpdateMineValues()
+        {
+            switch (_mineLevel)
+            {
+                case 2:
+                    _payRate = 7;
+                    _mineVaultLimit = 70;
+                    _levelUpCost = 60;
+                    break;
+                case 3:
+                    _payRate = 9;
+                    _mineVaultLimit = 90;
+                    _levelUpCost = 90;
+                    break;
+            }
         }
         
         private IEnumerator MineMoney(float delay)
         {
+            yield return new WaitForSeconds(3f);
             while (_mineExists && _addedCoins < _mineVaultLimit)
             {
                 _addedCoins += _payRate;
@@ -97,15 +117,7 @@ namespace Buildings
             }
         }
 
-        private void CheckMineLevel()
-        {
-            if (_mineLevel == 3)
-            {
-                upgradeButton.gameObject.SetActive(false);
-            }
-        }
-
-        IEnumerator ShowAddedCoins()
+        private IEnumerator ShowAddedCoins()
         {
             addedCoinsText.gameObject.SetActive(true);
             addedCoinsText.text = "+" + _addedCoins;

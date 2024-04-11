@@ -8,8 +8,8 @@ namespace UI
         public const string CoinsData = "Coins";
         public const string LeadershipData = "Leadership";
         
-        [SerializeField] private TMP_Text _coinsText; 
-        [SerializeField] private TMP_Text _leadershipText; 
+        [SerializeField] private TMP_Text coinsText; 
+        [SerializeField] private TMP_Text leadershipText; 
         
         public static int Coins { get; private set; }
         public int Leadership { get; private set; }
@@ -22,22 +22,16 @@ namespace UI
 
         private void Update()
         {
-            _coinsText.text = PlayerPrefs.GetInt(CoinsData).ToString();
-            _leadershipText.text = PlayerPrefs.GetInt(LeadershipData).ToString();
-        }
-        
-        public void SaveData()
-        {
-            AddCoins(10);
-            AddLeadership(10);
+            coinsText.text = PlayerPrefs.GetInt(CoinsData).ToString();
+            leadershipText.text = PlayerPrefs.GetInt(LeadershipData).ToString();
         }
 
-        public static void AddCoins(int coins)
+        public static void UpdateCoins(int coins)
         {
             PlayerPrefs.SetInt(CoinsData, coins);
         }
         
-        public static void AddLeadership(int leadership)
+        public static void UpdateLeadership(int leadership)
         {
             PlayerPrefs.SetInt(LeadershipData, leadership);
         }
