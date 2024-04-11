@@ -114,6 +114,7 @@ namespace Buildings
         private IEnumerator MineMoney(float delay)
         {
             yield return new WaitForSeconds(3f);
+            
             while (_mineExists)
             {
                 if (_addedCoins + _payRate < _mineVaultLimit)
