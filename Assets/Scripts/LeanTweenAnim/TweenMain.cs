@@ -8,13 +8,20 @@ public class LeanTweenController : MonoBehaviour
     [SerializeField] Transform target;
     [SerializeField] float duration;
     [SerializeField] LeanTweenType easeType;
-    void Update()
+    [SerializeField] float scaleSize;
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) MenuAnimations();
+        if (Input.GetKeyDown(KeyCode.Space)) MenuFall();
     }
-    public void MenuAnimations()
+    private void MenuFall()
     {
-        LeanTween.moveY(gameObject, target.position.y, duration).setEase(easeType).setDelay(1);
+        LeanTween.moveY(gameObject, target.position.y, duration).setDelay(1).setEase(easeType);
     }
-
+    private void OnMouseEnter()
+    {
+        LeanTween.scale(gameObject, transform.localScale * scaleSize, 1);
+    }
+    private void OnMouseExit()
+    {
+    }
 }
