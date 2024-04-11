@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UI;
@@ -6,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Buildings
 {
-    public class Mine : MonoBehaviour
+    public class Mine : Building
     {
         private const string MineLevel = "MineLevel";
 
@@ -14,6 +15,7 @@ namespace Buildings
         [SerializeField] private Button collectButton;
         [SerializeField] private TMP_Text levelText;
         [SerializeField] private TMP_Text addedCoinsText;
+        [SerializeField] private TMP_Text coinsText;
         [SerializeField] private TMP_Text mineCoinsCountText;
         
         private int _mineLevel = 1;
@@ -35,12 +37,13 @@ namespace Buildings
             {
                 _mineLevel = PlayerPrefs.GetInt(MineLevel);
             }
-            levelText.text = "Level " + _mineLevel;
+            levelText.text = "Level: " + _mineLevel;
             StartCoroutine(MineMoney(_timeBetweenPay));
         }
 
         private void FixedUpdate()
         {
+            _coins = Convert.ToInt32(coinsText.text);
             if (_mineLevel == 3)
             {
                 upgradeButton.gameObject.SetActive(false);
@@ -48,11 +51,11 @@ namespace Buildings
 
             upgradeButton.interactable = _coins >= _levelUpCost;
 
-            UpdateMineValues();
+            UpdateValues();
             mineCoinsCountText.text = _addedCoins + "/" + _mineVaultLimit;
         }
         
-        public void ToggleMineControls()
+        public override void ToggleControls()
         {
             _mineControlsShown = !_mineControlsShown;
             if (_mineControlsShown)
@@ -70,26 +73,19 @@ namespace Buildings
             }
         }
         
-        public void UpgradeMine()
+        public override void Upgrade()
         {
             _coins -= _levelUpCost;
             PlayerData.UpdateCoins(_coins);
             
             _mineLevel++;
-            levelText.text = "Level " + _mineLevel;
+            levelText.text = "Level: " + _mineLevel;
             PlayerPrefs.SetInt(MineLevel, _mineLevel);
+
+            StartCoroutine(ShowMoneySpent());
         }
         
-        public void CollectFromMine()
-        {
-            collectButton.interactable = false;
-            StartCoroutine(ShowAddedCoins());
-            _coins += _addedCoins;
-            _addedCoins = 0;
-            PlayerData.UpdateCoins(_coins);
-        }
-
-        private void UpdateMineValues()
+        protected override void UpdateValues()
         {
             switch (_mineLevel)
             {
@@ -106,12 +102,28 @@ namespace Buildings
             }
         }
         
+        public void CollectFromMine()
+        {
+            collectButton.interactable = false;
+            StartCoroutine(ShowAddedCoins());
+            _coins += _addedCoins;
+            _addedCoins = 0;
+            PlayerData.UpdateCoins(_coins);
+        }
+
         private IEnumerator MineMoney(float delay)
         {
             yield return new WaitForSeconds(3f);
-            while (_mineExists && _addedCoins < _mineVaultLimit)
+            while (_mineExists)
             {
-                _addedCoins += _payRate;
+                if (_addedCoins + _payRate < _mineVaultLimit)
+                {
+                    _addedCoins += _payRate;
+                }
+                else
+                {
+                    _addedCoins = _mineVaultLimit;
+                }
                 collectButton.interactable = true;
                 yield return new WaitForSeconds(delay);
             }
@@ -121,6 +133,16 @@ namespace Buildings
         {
             addedCoinsText.gameObject.SetActive(true);
             addedCoinsText.text = "+" + _addedCoins;
+
+            yield return new WaitForSeconds(3f);
+            
+            addedCoinsText.gameObject.SetActive(false);
+        }
+        
+        private IEnumerator ShowMoneySpent()
+        {
+            addedCoinsText.gameObject.SetActive(true);
+            addedCoinsText.text = "-" + _levelUpCost;
 
             yield return new WaitForSeconds(3f);
             
