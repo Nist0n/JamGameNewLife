@@ -45,8 +45,25 @@ public class Character : MonoBehaviour
     {
         Health -= damageNum * countNum;
         Debug.Log((damageNum * countNum)/_class.Health);
-        Count -= (damageNum * countNum) / _class.Health;
-        _class.Count -= (damageNum * countNum) / _class.Health;
+        
+        if (Count - (damageNum * countNum) / _class.Health >= 0)
+        {
+            Count -= (damageNum * countNum) / _class.Health;
+        }
+        else
+        {
+            Count = 0;
+        }
+        
+        if (_class.Count - (damageNum * countNum) / _class.Health >= 0)
+        {
+            _class.Count -= (damageNum * countNum) / _class.Health;
+        }
+        else
+        {
+            _class.Count = 0;
+        }
+        
         if (gameObject.CompareTag("hero"))
         {
             foreach (var unit in _ourHand.Army)
