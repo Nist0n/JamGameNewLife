@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Character : MonoBehaviour
-{  
+{
+    private Text _text;
+    
     private HeroChose _heroChose;
     private Class _class;
-    
+
     public enum Classes
     {
         knight,
@@ -27,12 +30,14 @@ public class Character : MonoBehaviour
     {
         _heroChose = FindObjectOfType<HeroChose>();
         _class = GetComponent<Class>();
+        _text = GetComponentInChildren<Text>();
         
         Damage = _class.Damage;
         Speed = _class.Speed;
         Count = _class.Count;
         Speed = _class.Speed;
         Health = _class.Health * Count;
+        _text.text = Convert.ToString(Count);
     }
 
     public void GetDamage(int damageNum, int countNum)
@@ -59,5 +64,7 @@ public class Character : MonoBehaviour
                 Exception exception;
             }
         }
+        
+        _text.text = Convert.ToString(Count);
     }
 }

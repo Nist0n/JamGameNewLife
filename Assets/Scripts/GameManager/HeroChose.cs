@@ -41,8 +41,8 @@ public class HeroChose : MonoBehaviour
 
     private void Start()
     {
-        Enemies = GameObject.FindGameObjectsWithTag("enemy");
         _unit = FindObjectOfType<UnitSetup>();
+        Enemies = GameObject.FindGameObjectsWithTag("enemy");
     }
 
     private void Update()
