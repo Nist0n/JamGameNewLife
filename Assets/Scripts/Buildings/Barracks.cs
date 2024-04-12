@@ -86,6 +86,9 @@ namespace Buildings
                     _maxUnitsOfType = _leadership / 35;
                     break;
                 case "Archer":
+                    _unitCoinsCost = 100;
+                    _maxUnitsOfType = _leadership / 50;
+                    break;
                 case "Mage":
                     _unitCoinsCost = 100;
                     _maxUnitsOfType = _leadership / 50;

@@ -37,6 +37,9 @@ namespace UI
                     leadership = 35;
                     break;
                 case "Archer":
+                    cost = 100;
+                    leadership = 50;
+                    break;
                 case "Mage":
                     cost = 100;
                     leadership = 50;
