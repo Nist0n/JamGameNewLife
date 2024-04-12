@@ -388,6 +388,7 @@ MonoBehaviour:
   Health: 0
   Speed: 0
   Damage: 0
+  Count: 0
 --- !u!114 &461751048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,6 +405,7 @@ MonoBehaviour:
   Health: 0
   Damage: 0
   Speed: 0
+  Count: 50
 --- !u!1 &731395567
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,6 +473,7 @@ MonoBehaviour:
   Health: 0
   Speed: 0
   Damage: 0
+  Count: 0
 --- !u!65 &802025220
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -573,6 +576,7 @@ MonoBehaviour:
   Health: 0
   Damage: 0
   Speed: 0
+  Count: 100
 --- !u!1 &992608449
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,6 +707,7 @@ MonoBehaviour:
   Health: 0
   Speed: 0
   Damage: 0
+  Count: 0
 --- !u!65 &1326238223
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -805,6 +810,7 @@ MonoBehaviour:
   Health: 0
   Damage: 0
   Speed: 0
+  Count: 30
 --- !u!1 &1497668212
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,11 +43,6 @@ public class HeroChose : MonoBehaviour
     {
         Enemies = GameObject.FindGameObjectsWithTag("enemy");
         _unit = FindObjectOfType<UnitSetup>();
-
-        List.AddRange(Enemies);
-        EnemiesGroup.AddRange(Enemies);
-
-        SortMassive();
     }
 
     private void Update()
@@ -57,6 +52,9 @@ public class HeroChose : MonoBehaviour
             Heroes = GameObject.FindGameObjectsWithTag("hero");
             List.AddRange(Heroes);
             HeroesGroup.AddRange(Heroes);
+            List.AddRange(Enemies);
+            EnemiesGroup.AddRange(Enemies);
+            SortMassive();
             _teamIsReady = true;
         }
         
@@ -138,7 +136,7 @@ public class HeroChose : MonoBehaviour
         int rand = Random.Range(0, HeroesGroup.Count);
         HeroesGroup[rand].GetComponent<MeshRenderer>().material = highlightMaterial;
         yield return new WaitForSeconds(1);
-        HeroesGroup[rand].GetComponent<Character>().GetDamage(List[сurrentCharacter].GetComponent<Character>().Damage);
+        HeroesGroup[rand].GetComponent<Character>().GetDamage(List[сurrentCharacter].GetComponent<Character>().Damage, List[сurrentCharacter].GetComponent<Character>().Count);
         сurrentCharacter += 1;
         HeroesGroup[rand].GetComponent<MeshRenderer>().material = originalMaterial;
         _stageStarted = false;
@@ -239,7 +237,7 @@ public class HeroChose : MonoBehaviour
                 if (_enemySelection.CompareTag("enemy") && CanAttack == true)
                 {
                     CanAttack = false;
-                    _enemySelection.GetComponent<Character>().GetDamage(_hero.Damage);
+                    _enemySelection.GetComponent<Character>().GetDamage(_hero.Damage, _hero.Count);
                     List[сurrentCharacter].GetComponent<MeshRenderer>().material = originalMaterial;
                     _stageStarted = false;
                     _heroIsSelected = false;

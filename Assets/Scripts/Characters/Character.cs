@@ -27,15 +27,20 @@ public class Character : MonoBehaviour
     {
         _heroChose = FindObjectOfType<HeroChose>();
         _class = GetComponent<Class>();
-
-        Health = _class.Health;
+        
         Damage = _class.Damage;
         Speed = _class.Speed;
+        Count = _class.Count;
+        Speed = _class.Speed;
+        Health = _class.Health * Count;
     }
 
-    public void GetDamage(int damageNum)
+    public void GetDamage(int damageNum, int countNum)
     {
-        Health -= damageNum;
+        Health -= damageNum * countNum;
+        Debug.Log((damageNum * countNum)/_class.Health);
+        Count -= (damageNum * countNum) / _class.Health;
+        _class.Count -= (damageNum * countNum) / _class.Health;
     }
 
     private void Update()
