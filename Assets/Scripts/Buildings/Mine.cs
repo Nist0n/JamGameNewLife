@@ -3,6 +3,7 @@ using System.Collections;
 using TMPro;
 using UI;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Buildings
@@ -19,7 +20,7 @@ namespace Buildings
         [SerializeField] private TMP_Text mineCoinsCountText;
         
         private int _mineLevel = 1;
-        private int _levelUpCost = 30000;
+        public static int LevelUpCost = 30000;
         private int _payRate = 500;
         private bool _mineExists = true;
         private float _timeBetweenPay = 5;
@@ -49,7 +50,7 @@ namespace Buildings
                 upgradeButton.gameObject.SetActive(false);
             }
 
-            upgradeButton.interactable = _coins >= _levelUpCost;
+            upgradeButton.interactable = _coins >= LevelUpCost;
 
             UpdateValues();
             mineCoinsCountText.text = _addedCoins + "/" + _mineVaultLimit;
@@ -75,7 +76,7 @@ namespace Buildings
         
         public override void Upgrade()
         {
-            _coins -= _levelUpCost;
+            _coins -= LevelUpCost;
             PlayerData.UpdateCoins(_coins);
             
             _mineLevel++;
@@ -92,12 +93,12 @@ namespace Buildings
                 case 2:
                     _payRate = 750;
                     _mineVaultLimit = 22500;
-                    _levelUpCost = 45000;
+                    LevelUpCost = 45000;
                     break;
                 case 3:
                     _payRate = 1000;
                     _mineVaultLimit = 30000;
-                    _levelUpCost = 60000;
+                    LevelUpCost = 60000;
                     break;
             }
         }
@@ -143,7 +144,7 @@ namespace Buildings
         private IEnumerator ShowMoneySpent()
         {
             addedCoinsText.gameObject.SetActive(true);
-            addedCoinsText.text = "-" + _levelUpCost;
+            addedCoinsText.text = "-" + LevelUpCost;
 
             yield return new WaitForSeconds(3f);
             

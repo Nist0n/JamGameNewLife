@@ -17,7 +17,7 @@ namespace Buildings
         [SerializeField] private TMP_Text coinsText;
 
         private int _level = 1;
-        private int _levelUpCost = 25000;
+        public static int LevelUpCost = 25000;
         private int _leadership = 550;
 
         private bool _controlsShown;
@@ -45,7 +45,7 @@ namespace Buildings
             }
 
             _coins = Convert.ToInt32(coinsText.text);
-            upgradeButton.interactable = _coins >= _levelUpCost;
+            upgradeButton.interactable = _coins >= LevelUpCost;
         }
 
         public override void ToggleControls()
@@ -59,7 +59,7 @@ namespace Buildings
 
         public override void Upgrade()
         {
-            _coins -= _levelUpCost;
+            _coins -= LevelUpCost;
             PlayerData.UpdateCoins(_coins);
 
             _level++;
@@ -77,11 +77,11 @@ namespace Buildings
             {
                 case 2:
                     _leadership = 1080;
-                    _levelUpCost = 37500;
+                    LevelUpCost = 37500;
                     break;
                 case 3:
                     _leadership = 1440;
-                    _levelUpCost = 50000;
+                    LevelUpCost = 50000;
                     break;
             }
             
@@ -90,7 +90,7 @@ namespace Buildings
         private IEnumerator ShowMoneySpent()
         {
             addedCoinsText.gameObject.SetActive(true);
-            addedCoinsText.text = "-" + _levelUpCost;
+            addedCoinsText.text = "-" + LevelUpCost;
 
             yield return new WaitForSeconds(3f);
             
