@@ -10245,7 +10245,7 @@ GameObject:
   - component: {fileID: 5102706500025149275}
   m_Layer: 0
   m_Name: Peasant
-  m_TagString: Untagged
+  m_TagString: hero
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

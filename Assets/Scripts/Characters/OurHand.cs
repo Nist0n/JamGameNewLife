@@ -144,6 +144,7 @@ public class OurHand : MonoBehaviour
                 }
             }
         }
+        Save();
     }
 
     public void Load()

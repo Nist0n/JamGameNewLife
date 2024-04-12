@@ -65,11 +65,13 @@ public class HeroChose : MonoBehaviour
         if (_ourHand.Army.Count == 0 && _unit.IsStarted == true)
         {
             SceneManager.LoadScene(1);
+            _ourHand.Save();
         }
 
         if (EnemiesGroup.Count == 0 && _unit.IsStarted == true)
         {
             SceneManager.LoadScene(1);
+            _ourHand.Save();
         }
 
         if (_highlightEnemy != null)

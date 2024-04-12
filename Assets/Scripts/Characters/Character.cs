@@ -96,6 +96,7 @@ public class Character : MonoBehaviour
 
             if (gameObject.CompareTag("hero"))
             {
+                _heroChose.HeroesGroup.Remove(gameObject);
                 foreach (var unit in _ourHand.Army)
                 {
                     if (gameObject.GetComponent<Class>()._character == unit.GetComponent<Class>()._character)
