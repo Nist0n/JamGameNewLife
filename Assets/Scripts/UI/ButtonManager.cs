@@ -9,4 +9,18 @@ public class ButtonManager : MonoBehaviour
     {
         SceneManager.LoadScene("BattleTest");
     }
+    public void NewGame()
+    {
+        SceneManager.LoadScene("LoadScene");
+        Debug.Log("LoadScene");
+    }
+    public void ContinueGame()
+    {
+        SceneManager.LoadScene("LoadScene");
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("Quit");
+    }
 }

@@ -6,6 +6,7 @@ public class TweenTxt : MonoBehaviour
 {
     [SerializeField] float duration;
     [SerializeField] float scaleSize;
+    [SerializeField] LeanTweenType easeType;
     void Start()
     {
         LeanTween.scale(gameObject, transform.localScale * scaleSize, duration).setLoopPingPong();
@@ -16,7 +17,7 @@ public class TweenTxt : MonoBehaviour
     }
     void DownSize()
     {
-        LeanTween.scale(gameObject, transform.localScale * 0, duration).setOnComplete(DestroyObject);
+        LeanTween.scale(gameObject, transform.localScale * 0, duration).setEase(easeType).setOnComplete(DestroyObject);
     }    
     void DestroyObject()
     {
