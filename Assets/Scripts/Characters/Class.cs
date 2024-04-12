@@ -10,6 +10,7 @@ public class Class : MonoBehaviour
     public int Health;
     public int Damage;
     public int Speed;
+    public int Count = 0;
 
     private void Awake()
     {

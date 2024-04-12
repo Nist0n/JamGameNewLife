@@ -21,6 +21,7 @@ public class Character : MonoBehaviour
     public int Health;
     public int Speed;
     public int Damage;
+    public int Count;
 
     private void Start()
     {

@@ -35,25 +35,31 @@ public class HeroChose : MonoBehaviour
     private float _timer;
     private int _count = 1;
     private bool _stageStarted = false;
+    private bool _teamIsReady = false;
     public bool CanAttack { get; private set; }
     public int сurrentCharacter = 0;
 
     private void Start()
     {
         Enemies = GameObject.FindGameObjectsWithTag("enemy");
-        Heroes = GameObject.FindGameObjectsWithTag("hero");
         _unit = FindObjectOfType<UnitSetup>();
 
         List.AddRange(Enemies);
         EnemiesGroup.AddRange(Enemies);
-        List.AddRange(Heroes);
-        HeroesGroup.AddRange(Heroes);
 
         SortMassive();
     }
 
     private void Update()
     {
+        if (_teamIsReady == false && _unit.IsStarted == true)
+        {
+            Heroes = GameObject.FindGameObjectsWithTag("hero");
+            List.AddRange(Heroes);
+            HeroesGroup.AddRange(Heroes);
+            _teamIsReady = true;
+        }
+        
         CDAttack();
 
         if (HeroesGroup.Count == 0 && _unit.IsStarted == true)

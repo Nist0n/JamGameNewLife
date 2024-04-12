@@ -23,11 +23,18 @@ namespace Buildings
 
         [SerializeField] private GameObject addUnitControls;
 
+        private OurHand _ourHand;
+
         private bool _controlsShown;
         private bool _racesShown;
 
         private string _selectedUnit = "Knight";
-        
+
+        private void Start()
+        {
+            _ourHand = FindObjectOfType<OurHand>();
+        }
+
         public void ToggleControls()
         {
             _controlsShown = !_controlsShown;
@@ -90,6 +97,7 @@ namespace Buildings
             for (int i = 0; i < count; i++)
             {
                 units.Add(_selectedUnit);
+                _ourHand.AddCountOfUnits(_selectedUnit, count);
                 Debug.Log(units[i]);
             }
         }
