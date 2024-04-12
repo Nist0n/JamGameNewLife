@@ -705,7 +705,7 @@ MonoBehaviour:
   Health: 0
   Damage: 0
   Speed: 0
-  Count: 215
+  Count: 200
 --- !u!23 &1149295127758158714
 MeshRenderer:
   m_ObjectHideFlags: 0

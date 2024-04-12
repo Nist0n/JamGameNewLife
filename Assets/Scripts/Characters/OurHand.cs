@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class OurHand : MonoBehaviour
 {
     public List<GameObject> Army;
@@ -13,6 +12,8 @@ public class OurHand : MonoBehaviour
     [SerializeField] private GameObject _mage;
     [SerializeField] private GameObject _archer;
     [SerializeField] private GameObject _horseman;
+
+    private const string SaveKey = "mainSave";
     
     private static OurHand instance;
     
@@ -28,7 +29,7 @@ public class OurHand : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
+    
     private void Update()
     {
         if (Army.Count >= 5)
@@ -118,5 +119,35 @@ public class OurHand : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void Load()
+    {
+        var data = SaveSystem.LoadArmy<ArmyData>(SaveKey);
+
+        if (data != null)
+        {
+            this.Army = data.Army;
+        }
+    }
+
+    public void Save()
+    {
+        SaveSystem.Save(SaveKey, GetSaveSnapshot());
+    }
+
+    public void DeleteSave()
+    {
+        PlayerPrefs.SetString(SaveKey, String.Empty);
+    }
+
+    private ArmyData GetSaveSnapshot()
+    {
+        var data = new ArmyData()
+        {
+            Army = this.Army,
+        };
+
+        return data;
     }
 }
