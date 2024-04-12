@@ -19,12 +19,12 @@ namespace Buildings
         [SerializeField] private TMP_Text mineCoinsCountText;
         
         private int _mineLevel = 1;
-        private int _levelUpCost = 30;
-        private int _payRate = 5;
+        private int _levelUpCost = 30000;
+        private int _payRate = 500;
         private bool _mineExists = true;
         private float _timeBetweenPay = 5;
         private int _addedCoins;
-        private int _mineVaultLimit = 50;
+        private int _mineVaultLimit = 15000;
 
         private int _coins;
 
@@ -90,14 +90,14 @@ namespace Buildings
             switch (_mineLevel)
             {
                 case 2:
-                    _payRate = 7;
-                    _mineVaultLimit = 70;
-                    _levelUpCost = 60;
+                    _payRate = 750;
+                    _mineVaultLimit = 22500;
+                    _levelUpCost = 45000;
                     break;
                 case 3:
-                    _payRate = 9;
-                    _mineVaultLimit = 90;
-                    _levelUpCost = 90;
+                    _payRate = 1000;
+                    _mineVaultLimit = 30000;
+                    _levelUpCost = 60000;
                     break;
             }
         }

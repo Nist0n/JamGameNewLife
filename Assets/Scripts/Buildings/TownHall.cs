@@ -17,8 +17,8 @@ namespace Buildings
         [SerializeField] private TMP_Text coinsText;
 
         private int _level = 1;
-        private int _levelUpCost = 30;
-        private int _leadership = 100;
+        private int _levelUpCost = 25000;
+        private int _leadership = 550;
 
         private bool _controlsShown;
 
@@ -76,12 +76,12 @@ namespace Buildings
             switch (_level) 
             {
                 case 2:
-                    _leadership = 200;
-                    _levelUpCost = 60;
+                    _leadership = 1080;
+                    _levelUpCost = 37500;
                     break;
                 case 3:
-                    _leadership = 300;
-                    _levelUpCost = 90;
+                    _leadership = 1440;
+                    _levelUpCost = 50000;
                     break;
             }
             
