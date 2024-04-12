@@ -10,6 +10,9 @@ public class OurHand : MonoBehaviour
 
     [SerializeField] private GameObject _peasant;
     [SerializeField] private GameObject _knight;
+    [SerializeField] private GameObject _mage;
+    [SerializeField] private GameObject _archer;
+    [SerializeField] private GameObject _horseman;
     
     private static OurHand instance;
     
@@ -84,6 +87,31 @@ public class OurHand : MonoBehaviour
                 foreach (var ch in Army)
                 {
                     if (ch.name == "Knight")
+                    {
+                        ch.GetComponent<Class>().Count += count;
+                    }
+                }
+            }
+        }
+        
+        if (unit == "Mage")
+        {
+            int temp = 0;
+            foreach (var ch in Army)
+            {
+                if (ch.name == "Mage")
+                {
+                    ch.GetComponent<Class>().Count += count;
+                    temp++;
+                }
+            }
+
+            if (temp == 0)
+            {
+                Army.Add(_mage);
+                foreach (var ch in Army)
+                {
+                    if (ch.name == "Mage")
                     {
                         ch.GetComponent<Class>().Count += count;
                     }
