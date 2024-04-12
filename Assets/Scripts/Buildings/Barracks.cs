@@ -162,7 +162,6 @@ namespace Buildings
 
         public void TrainUnits()
         {
-            // List<string> units = new();
             int count = Convert.ToInt32(unitsCountSlider.value);
 
             if (_units.ContainsKey(_selectedUnit))
@@ -173,11 +172,8 @@ namespace Buildings
             {
                 _units.Add(_selectedUnit, count);  
             }
-            // for (int i = 0; i < count; i++)
-            // {
-            //     _ourHand.AddCountOfUnits(_selectedUnit, count);
-            //     Debug.Log(units[i]);
-            // }
+            
+            _ourHand.AddCountOfUnits(_selectedUnit, count);
 
             int coinsSpent = _unitCoinsCost * count;
             _coins -= coinsSpent;
