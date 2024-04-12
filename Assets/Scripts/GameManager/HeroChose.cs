@@ -74,7 +74,7 @@ public class HeroChose : MonoBehaviour
 
         if (_highlightEnemy != null)
         {
-            _highlightEnemy.GetComponent<MeshRenderer>().material = _originalMaterialEnemy;
+            _highlightEnemy.GetComponent<Character>().Circle.SetActive(false);
             _highlightEnemy = null;
         }
 
@@ -119,7 +119,7 @@ public class HeroChose : MonoBehaviour
             }
             else
             {
-                List[сurrentCharacter].GetComponent<MeshRenderer>().material = highlightMaterial;
+                List[сurrentCharacter].GetComponent<Character>().Circle.SetActive(true);
                 _heroIsSelected = true;
                 _hero = List[сurrentCharacter].GetComponent<Character>();
             }
@@ -134,13 +134,13 @@ public class HeroChose : MonoBehaviour
     IEnumerator EnemyAttack()
     {
         yield return new WaitForSeconds(1);
-        List[сurrentCharacter].GetComponent<MeshRenderer>().material = highlightMaterial;
+        List[сurrentCharacter].GetComponent<Character>().Circle.SetActive(true);
         int rand = Random.Range(0, HeroesGroup.Count);
-        HeroesGroup[rand].GetComponent<MeshRenderer>().material = highlightMaterial;
+        HeroesGroup[rand].GetComponent<Character>().Circle.SetActive(true);
         yield return new WaitForSeconds(1);
         HeroesGroup[rand].GetComponent<Character>().GetDamage(List[сurrentCharacter].GetComponent<Character>().Damage, List[сurrentCharacter].GetComponent<Character>().Count);
         сurrentCharacter += 1;
-        HeroesGroup[rand].GetComponent<MeshRenderer>().material = originalMaterial;
+        HeroesGroup[rand].GetComponent<Character>().Circle.SetActive(false);
         _stageStarted = false;
     }
 
@@ -181,14 +181,14 @@ public class HeroChose : MonoBehaviour
             {
                 foreach (var enemy in EnemiesGroup)
                 {
-                    enemy.GetComponent<MeshRenderer>().material = highlightMaterial;
+                    enemy.GetComponent<Character>().Circle.SetActive(true);
                 }
             }
             else
             {
                 foreach (var enemy in EnemiesGroup)
                 {
-                    enemy.GetComponent<MeshRenderer>().material = originalMaterial;
+                    enemy.GetComponent<Character>().Circle.SetActive(false);
                 }
             }
         }
@@ -208,10 +208,9 @@ public class HeroChose : MonoBehaviour
             _highlightEnemy = _raycastHit.transform;
             if (_highlightEnemy.CompareTag("enemy") && _highlightEnemy != _selection && _heroIsSelected == true)
             {
-                if (_highlightEnemy.GetComponent<MeshRenderer>().material != highlightMaterialForEnemy)
+                if (_highlightEnemy.GetComponent<Character>().Circle.transform.position == new Vector3(0, 0, 0))
                 {
-                    _originalMaterialEnemy = _highlightEnemy.GetComponent<MeshRenderer>().material;
-                    _highlightEnemy.GetComponent<MeshRenderer>().material = highlightMaterialForEnemy;
+                    
                 }
             }
             else
@@ -229,7 +228,7 @@ public class HeroChose : MonoBehaviour
         {
             if (_enemySelection != null)
             {
-                _enemySelection.GetComponent<MeshRenderer>().material = originalMaterial;
+                _enemySelection.GetComponent<Character>().Circle.SetActive(false);
                 _enemySelection = null;
             }
 
@@ -240,7 +239,7 @@ public class HeroChose : MonoBehaviour
                 {
                     CanAttack = false;
                     _enemySelection.GetComponent<Character>().GetDamage(_hero.Damage, _hero.Count);
-                    List[сurrentCharacter].GetComponent<MeshRenderer>().material = originalMaterial;
+                    List[сurrentCharacter].GetComponent<Character>().Circle.SetActive(false);;
                     _stageStarted = false;
                     _heroIsSelected = false;
                     сurrentCharacter += 1;

@@ -12,6 +12,8 @@ public class Character : MonoBehaviour
     private HeroChose _heroChose;
     private Class _class;
 
+    public GameObject Circle;
+
     public enum Classes
     {
         knight,
