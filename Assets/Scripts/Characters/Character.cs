@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Character : MonoBehaviour
 {
     private Text _text;
-    
+    private OurHand _ourHand;
     private HeroChose _heroChose;
     private Class _class;
 
@@ -31,6 +31,7 @@ public class Character : MonoBehaviour
         _heroChose = FindObjectOfType<HeroChose>();
         _class = GetComponent<Class>();
         _text = GetComponentInChildren<Text>();
+        _ourHand = FindObjectOfType<OurHand>();
         
         Damage = _class.Damage;
         Speed = _class.Speed;
@@ -46,6 +47,16 @@ public class Character : MonoBehaviour
         Debug.Log((damageNum * countNum)/_class.Health);
         Count -= (damageNum * countNum) / _class.Health;
         _class.Count -= (damageNum * countNum) / _class.Health;
+        if (gameObject.CompareTag("hero"))
+        {
+            foreach (var unit in _ourHand.Army)
+            {
+                if (_class._character == unit.GetComponent<Class>()._character)
+                {
+                    unit.GetComponent<Class>().Count = _class.Count;
+                }
+            }
+        }
     }
 
     private void Update()
@@ -57,11 +68,23 @@ public class Character : MonoBehaviour
             {
                 _heroChose.List.Remove(gameObject);
                 _heroChose.EnemiesGroup.Remove(gameObject);
-                _heroChose.HeroesGroup.Remove(gameObject);
             }
-            catch
+            catch (Exception e)
             {
-                Exception exception;
+                Console.WriteLine(e);
+                throw;
+            }
+
+            if (gameObject.CompareTag("hero"))
+            {
+                foreach (var unit in _ourHand.Army)
+                {
+                    if (gameObject.GetComponent<Class>()._character == unit.GetComponent<Class>()._character)
+                    {
+                        _ourHand.Army.Remove(unit);
+                        break;
+                    }
+                }
             }
         }
         

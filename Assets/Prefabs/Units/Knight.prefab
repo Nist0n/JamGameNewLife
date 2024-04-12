@@ -685,7 +685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22083362487b54f46a8c957895987e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
+  Health: -1500
   Speed: 0
   Damage: 0
   Count: 0
@@ -705,7 +705,7 @@ MonoBehaviour:
   Health: 0
   Damage: 0
   Speed: 0
-  Count: 0
+  Count: 215
 --- !u!23 &1149295127758158714
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -726,7 +726,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 20efb619be674d543a9ae25ff14053a7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

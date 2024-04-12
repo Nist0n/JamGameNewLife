@@ -23,6 +23,7 @@ public class HeroChose : MonoBehaviour
     private List<GameObject> _queue;
     private GameObject _temp;
     private UnitSetup _unit;
+    private OurHand _ourHand;
 
     public List<GameObject> List;
     public GameObject[] Enemies;
@@ -41,6 +42,7 @@ public class HeroChose : MonoBehaviour
 
     private void Start()
     {
+        _ourHand = FindObjectOfType<OurHand>();
         _unit = FindObjectOfType<UnitSetup>();
         Enemies = GameObject.FindGameObjectsWithTag("enemy");
     }
@@ -60,7 +62,7 @@ public class HeroChose : MonoBehaviour
         
         CDAttack();
 
-        if (HeroesGroup.Count == 0 && _unit.IsStarted == true)
+        if (_ourHand.Army.Count == 0 && _unit.IsStarted == true)
         {
             SceneManager.LoadScene(1);
         }
