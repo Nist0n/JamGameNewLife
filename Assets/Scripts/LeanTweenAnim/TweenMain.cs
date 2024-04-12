@@ -17,11 +17,4 @@ public class LeanTweenController : MonoBehaviour
     {
         LeanTween.moveY(gameObject, target.position.y, duration).setDelay(1).setEase(easeType);
     }
-    private void OnMouseEnter()
-    {
-        LeanTween.scale(gameObject, transform.localScale * scaleSize, 1);
-    }
-    private void OnMouseExit()
-    {
-    }
-}
+}    
