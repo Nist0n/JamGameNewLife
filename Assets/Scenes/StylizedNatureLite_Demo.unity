@@ -448,8 +448,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Army:
   - {fileID: 6166154979358507343, guid: 1b2b109cecb3e204891ea69a84d81f7e, type: 3}
-  - {fileID: 6166154979358507343, guid: 1b2b109cecb3e204891ea69a84d81f7e, type: 3}
-  - {fileID: 6166154979358507343, guid: 1b2b109cecb3e204891ea69a84d81f7e, type: 3}
+  - {fileID: 6146487111985555345, guid: 6e6f08bf47d03ef45bc92f1314118a7f, type: 3}
+  - {fileID: 1298759773287341194, guid: 3f89160a23394f648ab9505959ebc61f, type: 3}
+  - {fileID: 6481993277433947421, guid: 01151176456f0b6498db85762604e960, type: 3}
   IsFull: 0
   _peasant: {fileID: 0}
   _knight: {fileID: 0}
@@ -2115,6 +2116,7 @@ Transform:
   - {fileID: 353116005}
   - {fileID: 467554111}
   - {fileID: 573523234}
+  - {fileID: 998605532}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &810906137 stripped
@@ -2612,6 +2614,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2357988161223005384, guid: 80134143588e09c4892e00879262fce3, type: 3}
   m_PrefabInstance: {fileID: 309890740}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &998605531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 998605532}
+  m_Layer: 0
+  m_Name: GameObject (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &998605532
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998605531}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 105.57, y: -0.00000035762787, z: 118.18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 786618855}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1034051408
 GameObject:
   m_ObjectHideFlags: 0
@@ -3299,6 +3332,7 @@ MonoBehaviour:
   - {fileID: 573523234}
   - {fileID: 467554111}
   - {fileID: 353116005}
+  - {fileID: 998605532}
   IsStarted: 0
 --- !u!114 &1350221263
 MonoBehaviour:

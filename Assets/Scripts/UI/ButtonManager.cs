@@ -7,7 +7,7 @@ public class ButtonManager : MonoBehaviour
 {
     public void LoadBattle()
     {
-        SceneManager.LoadScene("BattleTest");
+        SceneManager.LoadScene(4);
     }
     public void NewGame()
     {

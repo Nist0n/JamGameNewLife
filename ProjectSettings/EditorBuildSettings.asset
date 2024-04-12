@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LoadScene.unity
     guid: ad832e3752ae829458f60df31c6e264a
+  - enabled: 1
+    path: Assets/Scenes/StylizedNatureLite_Demo.unity
+    guid: e15b529565a5a75439137aa3e2f23911
   m_configObjects: {}
