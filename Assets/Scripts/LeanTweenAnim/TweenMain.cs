@@ -6,15 +6,15 @@ using UnityEngine.UI;
 public class LeanTweenController : MonoBehaviour
 {
     [SerializeField] Transform target;
-    [SerializeField] float duration;
+    [SerializeField] float duration; 
+    [SerializeField] float delay;
     [SerializeField] LeanTweenType easeType;
-    [SerializeField] float scaleSize;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) MenuFall();
     }
     private void MenuFall()
     {
-        LeanTween.moveY(gameObject, target.position.y, duration).setDelay(1).setEase(easeType);
+        LeanTween.moveY(gameObject, target.position.y, duration).setDelay(delay).setEase(easeType);
     }
 }    
