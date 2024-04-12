@@ -189,10 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03074b2bb3e621243aeb56bd9dcba516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ourHand:
-  - {fileID: 6166154979358507343, guid: 1b2b109cecb3e204891ea69a84d81f7e, type: 3}
-  - {fileID: 6166154979358507343, guid: 1b2b109cecb3e204891ea69a84d81f7e, type: 3}
-  - {fileID: 6166154979358507343, guid: 1b2b109cecb3e204891ea69a84d81f7e, type: 3}
+  _ourHandTest: []
   _pos:
   - {fileID: 2037983840}
   - {fileID: 1747045538}

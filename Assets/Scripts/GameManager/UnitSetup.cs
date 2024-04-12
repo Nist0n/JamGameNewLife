@@ -5,17 +5,19 @@ using UnityEngine;
 
 public class UnitSetup : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> _ourHand;
+    [SerializeField] private List<GameObject> _ourHandTest;
     [SerializeField] private List<Transform> _pos;
+    private OurHand _ourHand;
 
     public bool IsStarted = false;
     
     private void Start()
     {
-        for (int i = 0; i < _ourHand.Count; i++)
+        _ourHand = FindObjectOfType<OurHand>();
+        for (int i = 0; i < _ourHand.Army.Count; i++)
         {
             Debug.Log("f");
-            Instantiate(_ourHand[i], _pos[i]);
+            Instantiate(_ourHand.Army[i], _pos[i]);
         }
         StartCoroutine(Timer());
     }

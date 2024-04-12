@@ -27,5 +27,19 @@ public class Class : MonoBehaviour
             Damage = 1;
             Speed = 2;
         }
+        
+        if (_character == Character.Classes.mage)
+        {
+            Health = 23;
+            Damage = 18;
+            Speed = 2;
+        }
+        
+        if (_character == Character.Classes.archer)
+        {
+            Health = 20;
+            Damage = 15;
+            Speed = 2;
+        }
     }
 }

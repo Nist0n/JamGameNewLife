@@ -10,6 +10,21 @@ public class OurHand : MonoBehaviour
 
     [SerializeField] private GameObject _peasant;
     [SerializeField] private GameObject _knight;
+    
+    private static OurHand instance;
+    
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     private void Update()
     {
