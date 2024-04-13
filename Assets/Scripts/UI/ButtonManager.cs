@@ -35,6 +35,14 @@ public class ButtonManager : MonoBehaviour
     {
         SceneManager.LoadScene("LoadScene");
     }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+    public void SettingsMenu()
+    {
+        SceneManager.LoadScene("Settings");
+    }
     public void QuitGame()
     {
         Application.Quit();
