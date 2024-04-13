@@ -9,9 +9,7 @@ using Random = UnityEngine.Random;
 
 public class HeroChose : MonoBehaviour
 {
-    [SerializeField] private Material highlightMaterial;
-    [SerializeField] private Material highlightMaterialForEnemy;
-    [SerializeField] private Material originalMaterial;
+    [SerializeField] private LoseScene loseScene;
 
     private Material _originalMaterialEnemy;
     private Transform _highlight;
@@ -70,8 +68,9 @@ public class HeroChose : MonoBehaviour
 
         if (EnemiesGroup.Count == 0 && _unit.IsStarted == true)
         {
-            SceneManager.LoadScene(1);
+            Time.timeScale = 0;
             _ourHand.Save();
+            loseScene.LoseGame();
         }
 
         if (_highlightEnemy != null)

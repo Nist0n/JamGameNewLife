@@ -14,6 +14,6 @@ public class LoadScene : MonoBehaviour
     IEnumerator Time()
     {
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene("Buildings");
+        SceneManager.LoadScene("Base");
     }
 }
