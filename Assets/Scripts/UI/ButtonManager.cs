@@ -11,7 +11,7 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private GameObject _mage;
     [SerializeField] private GameObject _archer;
     [SerializeField] private GameObject _horseman;
-    
+
     public void LoadBattle()
     {
         SceneManager.LoadScene(4);
