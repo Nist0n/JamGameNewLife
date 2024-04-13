@@ -31,21 +31,35 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene("LoadScene");
         Debug.Log("LoadScene");
     }
+    
     public void ContinueGame()
     {
         SceneManager.LoadScene("LoadScene");
     }
+    
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
     }
+    
     public void SettingsMenu()
     {
         SceneManager.LoadScene("Settings");
     }
+    
     public void QuitGame()
     {
         Application.Quit();
         Debug.Log("Quit");
+    }
+
+    public void LoadLevel1()
+    {
+        SceneManager.LoadScene("Level_1");
+    }
+
+    public void LoadChapter1()
+    {
+        SceneManager.LoadScene("FirstChapter");
     }
 }
