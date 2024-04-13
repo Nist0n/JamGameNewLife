@@ -30,7 +30,7 @@ namespace Buildings
         private int _coins;
 
         private bool _mineControlsShown;
-        
+
         private void Start()
         {
             _coins = PlayerPrefs.GetInt(PlayerData.CoinsData);
@@ -39,6 +39,7 @@ namespace Buildings
                 _mineLevel = PlayerPrefs.GetInt(MineLevel);
             }
             levelText.text = "Level: " + _mineLevel;
+
             StartCoroutine(MineMoney(_timeBetweenPay));
         }
 
