@@ -146,6 +146,32 @@ public class OurHand : MonoBehaviour
                 }
             }
         }
+        
+        if (unit == "Horseman")
+        {
+            int temp = 0;
+            foreach (var ch in Army)
+            {
+                if (ch.name == "Horseman")
+                {
+                    ch.GetComponent<Class>().Count += count;
+                    temp++;
+                }
+            }
+
+            if (temp == 0)
+            {
+                Army.Add(_horseman);
+                foreach (var ch in Army)
+                {
+                    if (ch.name == "Horseman")
+                    {
+                        ch.GetComponent<Class>().Count += count;
+                    }
+                }
+            }
+        }
+        
         Save();
     }
 

@@ -41,5 +41,12 @@ public class Class : MonoBehaviour
             Damage = 15;
             Speed = 2;
         }
+        
+        if (_character == Character.Classes.horseman)
+        {
+            Health = 130;
+            Damage = 29;
+            Speed = 5;
+        }
     }
 }
