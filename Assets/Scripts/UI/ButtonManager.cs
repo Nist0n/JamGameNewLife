@@ -29,14 +29,14 @@ public class ButtonManager : MonoBehaviour
         PlayerPrefs.SetInt("Coins", 1000);
         PlayerPrefs.SetInt("Leadership", 550);
         PlayerPrefs.SetInt("MineLevel", 1);
+        PlayerPrefs.SetInt("firstSession", 0);
         PlayerPrefs.SetString("mainSave", String.Empty);
         _peasant.GetComponent<Class>().Count = 0;
         _archer.GetComponent<Class>().Count = 0;
         _mage.GetComponent<Class>().Count = 0;
         _knight.GetComponent<Class>().Count = 0;
 
-        SceneManager.LoadScene("LoadScene");
-        Debug.Log("LoadScene");
+        SceneManager.LoadScene("ForScenario");
     }
     
     public void ContinueGame()
