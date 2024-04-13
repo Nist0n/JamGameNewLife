@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 public class OurHand : MonoBehaviour
 {
     public List<GameObject> Army;
@@ -175,5 +177,20 @@ public class OurHand : MonoBehaviour
         };
 
         return data;
+    }
+
+    public void KickHero(Button button)
+    {
+        foreach (var unit in Army)
+        {
+            if (unit.name == button.image.sprite.name)
+            {
+                Army.Remove(unit);
+                button.image.sprite = null;
+                button.gameObject.GetComponentInChildren<Button>().gameObject.SetActive(false);
+                button.gameObject.SetActive(false);
+                break;
+            }
+        }
     }
 }
