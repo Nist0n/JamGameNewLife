@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Fade : MonoBehaviour
 {
-    private const string FaderPath = "Fader";
+    private const string FaderPath = "Fade";
 
     [SerializeField] private Animator animator;
 

@@ -21,12 +21,7 @@ public class FaderExample : MonoBehaviour
         _instance = this;
         DontDestroyOnLoad(gameObject);
     }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha0)) LoadScene("Base");
-        if (Input.GetKeyDown(KeyCode.Alpha1)) LoadScene("MainMenu");
-    }
+    
 
     private void LoadScene(string sceneName)
     {
@@ -38,7 +33,7 @@ public class FaderExample : MonoBehaviour
         var currentSceneName = SceneManager.GetActiveScene().name;
         if (currentSceneName == sceneName)
         {
-            
+            throw new Exception("ffffffff");
         }
 
         StartCoroutine(LoadSceneRoutine(sceneName));

@@ -12,6 +12,13 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private GameObject _archer;
     [SerializeField] private GameObject _horseman;
 
+    private FaderExample _faderExample;
+
+    private void Start()
+    {
+        _faderExample = FindObjectOfType<FaderExample>();
+    }
+
     public void LoadBattle()
     {
         SceneManager.LoadScene(4);

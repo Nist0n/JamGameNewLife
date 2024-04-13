@@ -8,16 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: c5a7c6bec260ff148864da567d321dce
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BattleTest.unity
     guid: 779d728bceb2cba458adf4102f22f4af
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/gg.unity
     guid: 22a9543e5d4adeb4faef9d0a7cc63408
   - enabled: 1
     path: Assets/Scenes/LoadScene.unity
     guid: ad832e3752ae829458f60df31c6e264a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/StylizedNatureLite_Demo.unity
     guid: e15b529565a5a75439137aa3e2f23911
   - enabled: 1
@@ -35,4 +35,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Base.unity
     guid: 467d2e06e0474074bb85c4f5217730ab
+  - enabled: 1
+    path: Assets/Scenes/ForScenario.unity
+    guid: a572995fb19c41348b912344ec576044
+  - enabled: 1
+    path: Assets/Scenes/NewScene.unity
+    guid: b4ffaec43fc67404b83fa8d31778078f
   m_configObjects: {}
