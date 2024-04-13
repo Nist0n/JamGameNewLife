@@ -24,7 +24,6 @@ namespace Buildings
         [SerializeField] private TMP_Text addedCoinsText;
         [SerializeField] private TMP_Text leadershipCountText;
         [SerializeField] private TMP_Text sumText;
-        // [SerializeField] private TMP_Text leadershipCheckoutText;
 
         [SerializeField] private List<Dropdown.OptionData> humanOptions = new();
         [SerializeField] private List<Dropdown.OptionData> gnomeOptions = new();
@@ -43,7 +42,7 @@ namespace Buildings
         public static bool RacesShown;
         public static bool ResearchRacesShown;
 
-        private string _selectedUnit = "Peasant";
+        private string _selectedUnit = "Крестьянин";
 
         private int _coins;
         private int _leadership;
@@ -58,7 +57,6 @@ namespace Buildings
             _ourHand = FindObjectOfType<OurHand>();
             _leadership = PlayerPrefs.GetInt(PlayerData.LeadershipData);
             _units = _ourHand.Units;
-            // TODO: change leadership according to saved units data
             _maxUnitsOfType = _leadership / 5;
         }
 
@@ -68,7 +66,7 @@ namespace Buildings
             _leadership = Convert.ToInt32(leadershipCountText.text);
 
             unitsCountSlider.maxValue = Math.Min(_maxUnitsOfType, _coins / _unitCoinsCost);
-
+            
             addUnitButton.interactable = unitsCountSlider.value != unitsCountSlider.maxValue;
             removeUnitButton.interactable = unitsCountSlider.value != unitsCountSlider.minValue;
             unitsCountSlider.interactable = unitsCountSlider.maxValue != 0;
@@ -78,23 +76,22 @@ namespace Buildings
             acceptButton.gameObject.SetActive(unitsCountSlider.value != 0);
 
             sumText.text = (unitsCountSlider.value * _unitCoinsCost).ToString(CultureInfo.InvariantCulture);
-            // leadershipCheckoutText.text = (unitsCountSlider.value * _unitCoinsCost).ToString(CultureInfo.InvariantCulture);
             
             switch (_selectedUnit)
             {
-                case "Knight":
+                case "Рыцарь":
                     _unitCoinsCost = 70;
                     _maxUnitsOfType = _leadership / 35;
                     break;
-                case "Archer":
+                case "Лучник":
                     _unitCoinsCost = 100;
                     _maxUnitsOfType = _leadership / 50;
                     break;
-                case "Mage":
+                case "Маг":
                     _unitCoinsCost = 100;
                     _maxUnitsOfType = _leadership / 50;
                     break;
-                case "Horseman":
+                case "Всадник":
                     _unitCoinsCost = 800;
                     _maxUnitsOfType = _leadership / 180;
                     break;
@@ -180,7 +177,7 @@ namespace Buildings
             {
                 _units.Add(_selectedUnit, count);  
             }
-            
+
             _ourHand.AddCountOfUnits(_selectedUnit, count);
 
             int coinsSpent = _unitCoinsCost * count;

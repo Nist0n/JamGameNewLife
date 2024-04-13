@@ -31,7 +31,7 @@ namespace Buildings
                 _level = PlayerPrefs.GetInt(TownHallLevel);
             }
 
-            levelText.text = "Level: " + _level;
+            levelText.text = "Уровень: " + _level;
             _coins = PlayerPrefs.GetInt(PlayerData.CoinsData);
             
             UpdateValues();
@@ -63,7 +63,7 @@ namespace Buildings
             PlayerData.UpdateCoins(_coins);
 
             _level++;
-            levelText.text = "Level: " + _level;
+            levelText.text = "Уровень: " + _level;
             PlayerPrefs.SetInt(TownHallLevel, _level);
 
             StartCoroutine(ShowMoneySpent());

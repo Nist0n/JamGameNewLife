@@ -8,7 +8,7 @@ public class OurHand : MonoBehaviour
 {
     public List<GameObject> Army;
     public Dictionary<string, int> Units = new();
-    public bool IsFull = false;
+    public bool IsFull;
 
     [SerializeField] private GameObject _peasant;
     [SerializeField] private GameObject _knight;
@@ -25,14 +25,14 @@ public class OurHand : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
-    
+
     private void Update()
     {
         if (Army.Count >= 5)
@@ -47,20 +47,12 @@ public class OurHand : MonoBehaviour
 
     public void AddCountOfUnits(string unit, int count)
     {
-        if (Units.ContainsKey(unit))
-        {
-            Units[unit] += count;
-        }
-        else
-        {
-            Units.Add(unit, count);  
-        }
-        if (unit == "Peasant")
+        if (unit == "Крестьянин")
         {
             int temp = 0;
             foreach (var ch in Army)
             {
-                if (ch.name == "Peasant")
+                if (ch.name == "Крестьянин")
                 {
                     ch.GetComponent<Class>().Count += count;
                     temp++;
@@ -72,7 +64,7 @@ public class OurHand : MonoBehaviour
                 Army.Add(_peasant);
                 foreach (var ch in Army)
                 {
-                    if (ch.name == "Peasant")
+                    if (ch.name == "Крестьянин")
                     {
                         ch.GetComponent<Class>().Count += count;
                     }
@@ -80,12 +72,12 @@ public class OurHand : MonoBehaviour
             }
         }
         
-        if (unit == "Knight")
+        if (unit == "Рыцарь")
         {
             int temp = 0;
             foreach (var ch in Army)
             {
-                if (ch.name == "Knight")
+                if (ch.name == "Рыцарь")
                 {
                     ch.GetComponent<Class>().Count += count;
                     Debug.Log(ch.GetComponent<Class>().Count);
@@ -98,7 +90,7 @@ public class OurHand : MonoBehaviour
                 Army.Add(_knight);
                 foreach (var ch in Army)
                 {
-                    if (ch.name == "Knight")
+                    if (ch.name == "Рыцарь")
                     {
                         ch.GetComponent<Class>().Count += count;
                     }
@@ -106,12 +98,12 @@ public class OurHand : MonoBehaviour
             }
         }
         
-        if (unit == "Mage")
+        if (unit == "Маг")
         {
             int temp = 0;
             foreach (var ch in Army)
             {
-                if (ch.name == "Mage")
+                if (ch.name == "Маг")
                 {
                     ch.GetComponent<Class>().Count += count;
                     temp++;
@@ -123,7 +115,7 @@ public class OurHand : MonoBehaviour
                 Army.Add(_mage);
                 foreach (var ch in Army)
                 {
-                    if (ch.name == "Mage")
+                    if (ch.name == "Маг")
                     {
                         ch.GetComponent<Class>().Count += count;
                     }
@@ -131,12 +123,12 @@ public class OurHand : MonoBehaviour
             }
         }
         
-        if (unit == "Archer")
+        if (unit == "Лучник")
         {
             int temp = 0;
             foreach (var ch in Army)
             {
-                if (ch.name == "Archer")
+                if (ch.name == "Лучник")
                 {
                     ch.GetComponent<Class>().Count += count;
                     temp++;
@@ -148,7 +140,7 @@ public class OurHand : MonoBehaviour
                 Army.Add(_archer);
                 foreach (var ch in Army)
                 {
-                    if (ch.name == "Archer")
+                    if (ch.name == "Лучник")
                     {
                         ch.GetComponent<Class>().Count += count;
                     }
@@ -156,12 +148,12 @@ public class OurHand : MonoBehaviour
             }
         }
         
-        if (unit == "Horseman")
+        if (unit == "Всадник")
         {
             int temp = 0;
             foreach (var ch in Army)
             {
-                if (ch.name == "Horseman")
+                if (ch.name == "Всадник")
                 {
                     ch.GetComponent<Class>().Count += count;
                     temp++;
@@ -173,7 +165,7 @@ public class OurHand : MonoBehaviour
                 Army.Add(_horseman);
                 foreach (var ch in Army)
                 {
-                    if (ch.name == "Horseman")
+                    if (ch.name == "Всадник")
                     {
                         ch.GetComponent<Class>().Count += count;
                     }
@@ -191,6 +183,18 @@ public class OurHand : MonoBehaviour
         if (data != null)
         {
             this.Army = data.Army;
+            foreach (var unit in Army)
+            {
+                int count = unit.GetComponent<Class>().Count;
+                if (Units.ContainsKey(unit.name))
+                {
+                    Units[unit.name] += count;
+                }
+                else
+                {
+                    Units.Add(unit.name, count);  
+                }
+            }
         }
     }
 

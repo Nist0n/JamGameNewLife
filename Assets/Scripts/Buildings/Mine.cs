@@ -38,7 +38,7 @@ namespace Buildings
             {
                 _mineLevel = PlayerPrefs.GetInt(MineLevel);
             }
-            levelText.text = "Level: " + _mineLevel;
+            levelText.text = "Уровень: " + _mineLevel;
 
             StartCoroutine(MineMoney(_timeBetweenPay));
         }
@@ -81,7 +81,7 @@ namespace Buildings
             PlayerData.UpdateCoins(_coins);
             
             _mineLevel++;
-            levelText.text = "Level: " + _mineLevel;
+            levelText.text = "Уровень: " + _mineLevel;
             PlayerPrefs.SetInt(MineLevel, _mineLevel);
 
             StartCoroutine(ShowMoneySpent());
