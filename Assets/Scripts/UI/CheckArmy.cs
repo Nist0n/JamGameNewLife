@@ -25,7 +25,7 @@ public class CheckArmy : MonoBehaviour
         
         for (int i = 0; i < _ourHand.Army.Count; i++)
         {
-            if (_ourHand.Army[i].name == "Peasant")
+            if (_ourHand.Army[i].name == "Крестьянин")
             {
                 positionsOfImages[i].image.sprite = _ourHand.Army[i].GetComponent<ImageOfUintChar>().Sprite;
                 positionsOfImages[i].gameObject.SetActive(true);
@@ -37,7 +37,7 @@ public class CheckArmy : MonoBehaviour
                 Debug.Log("create");
             }
             
-            if (_ourHand.Army[i].name == "Mage")
+            if (_ourHand.Army[i].name == "Маг")
             {
                 positionsOfImages[i].image.sprite = _ourHand.Army[i].GetComponent<ImageOfUintChar>().Sprite;
                 positionsOfImages[i].gameObject.SetActive(true);
@@ -49,7 +49,7 @@ public class CheckArmy : MonoBehaviour
                 Debug.Log("create");
             }
             
-            if (_ourHand.Army[i].name == "Knight")
+            if (_ourHand.Army[i].name == "Рыцарь")
             {
                 positionsOfImages[i].image.sprite = _ourHand.Army[i].GetComponent<ImageOfUintChar>().Sprite;
                 positionsOfImages[i].gameObject.SetActive(true);
@@ -61,7 +61,7 @@ public class CheckArmy : MonoBehaviour
                 Debug.Log("create");
             }
             
-            if (_ourHand.Army[i].name == "Horseman")
+            if (_ourHand.Army[i].name == "Всадник")
             {
                 positionsOfImages[i].image.sprite = _ourHand.Army[i].GetComponent<ImageOfUintChar>().Sprite;
                 positionsOfImages[i].gameObject.SetActive(true);
@@ -73,7 +73,7 @@ public class CheckArmy : MonoBehaviour
                 Debug.Log("create");
             }
             
-            if (_ourHand.Army[i].name == "Archer")
+            if (_ourHand.Army[i].name == "Лучник")
             {
                 positionsOfImages[i].image.sprite = _ourHand.Army[i].GetComponent<ImageOfUintChar>().Sprite;
                 positionsOfImages[i].gameObject.SetActive(true);
