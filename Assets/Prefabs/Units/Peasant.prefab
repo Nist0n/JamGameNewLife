@@ -10243,6 +10243,7 @@ GameObject:
   - component: {fileID: 4951379557686753742}
   - component: {fileID: 1788192108960506485}
   - component: {fileID: 5102706500025149275}
+  - component: {fileID: 8161596105368524544}
   m_Layer: 0
   m_Name: Peasant
   m_TagString: hero
@@ -10303,6 +10304,19 @@ MonoBehaviour:
   Damage: 0
   Speed: 0
   Count: 0
+--- !u!114 &8161596105368524544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6481993277433947421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9beaf006c39c8b14f8c7794dd31c451b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sprite: {fileID: 21300000, guid: a1724859b436eca44a6a44ebf02d5535, type: 3}
 --- !u!1 &8256758531846122787
 GameObject:
   m_ObjectHideFlags: 0
