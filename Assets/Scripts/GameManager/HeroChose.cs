@@ -35,6 +35,7 @@ public class HeroChose : MonoBehaviour
     private int _count = 1;
     private bool _stageStarted = false;
     private bool _teamIsReady = false;
+    private bool _gameOver = false;
     public bool CanAttack { get; private set; }
     public int сurrentCharacter = 0;
 
@@ -43,54 +44,58 @@ public class HeroChose : MonoBehaviour
         _ourHand = FindObjectOfType<OurHand>();
         _unit = FindObjectOfType<UnitSetup>();
         Enemies = GameObject.FindGameObjectsWithTag("enemy");
+        _gameOver = false;
     }
 
     private void Update()
     {
-        if (_teamIsReady == false && _unit.IsStarted == true)
+        if (_gameOver == false)
         {
-            Heroes = GameObject.FindGameObjectsWithTag("hero");
-            List.AddRange(Heroes);
-            HeroesGroup.AddRange(Heroes);
-            List.AddRange(Enemies);
-            EnemiesGroup.AddRange(Enemies);
-            SortMassive();
-            _teamIsReady = true;
+            if (_teamIsReady == false && _unit.IsStarted == true)
+            {
+                Heroes = GameObject.FindGameObjectsWithTag("hero");
+                List.AddRange(Heroes);
+                HeroesGroup.AddRange(Heroes);
+                List.AddRange(Enemies);
+                EnemiesGroup.AddRange(Enemies);
+                SortMassive();
+                _teamIsReady = true;
+            }
+
+            CDAttack();
+
+            if (_ourHand.Army.Count == 0 && _unit.IsStarted == true && _gameOver == false)
+            {
+                _gameOver = true;
+                _ourHand.Save();
+                loseScene.LoseGame();
+            }
+
+            if (EnemiesGroup.Count == 0 && _unit.IsStarted == true && _gameOver == false)
+            {
+                _gameOver = true;
+                _ourHand.Save();
+                loseScene.WinGame();
+            }
+
+            if (_highlightEnemy != null)
+            {
+                _highlightEnemy.GetComponent<Character>().Circle.SetActive(false);
+                _highlightEnemy = null;
+            }
+
+            if (!_stageStarted && _unit.IsStarted == true)
+            {
+                _stageStarted = true;
+                StartBattle();
+            }
+
+            CheckForOutOfRange();
+
+            HighlightEnemy();
+
+            SelectEnemy();
         }
-        
-        CDAttack();
-
-        if (_ourHand.Army.Count == 0 && _unit.IsStarted == true)
-        {
-            Time.timeScale = 0;
-            _ourHand.Save();
-            loseScene.LoseGame();
-        }
-
-        if (EnemiesGroup.Count == 0 && _unit.IsStarted == true)
-        {
-            Time.timeScale = 0;
-            _ourHand.Save();
-            loseScene.WinGame();
-        }
-
-        if (_highlightEnemy != null)
-        {
-            _highlightEnemy.GetComponent<Character>().Circle.SetActive(false);
-            _highlightEnemy = null;
-        }
-
-        if (!_stageStarted && _unit.IsStarted == true)
-        {
-            _stageStarted = true;
-            StartBattle();
-        }
-
-        CheckForOutOfRange();
-
-        HighlightEnemy();
-
-        SelectEnemy();
     }
 
     private void CDAttack()
@@ -135,15 +140,23 @@ public class HeroChose : MonoBehaviour
 
     IEnumerator EnemyAttack()
     {
-        yield return new WaitForSeconds(1);
-        List[сurrentCharacter].GetComponent<Character>().Circle.SetActive(true);
-        int rand = Random.Range(0, HeroesGroup.Count);
-        HeroesGroup[rand].GetComponent<Character>().Circle.SetActive(true);
-        yield return new WaitForSeconds(1);
-        HeroesGroup[rand].GetComponent<Character>().GetDamage(List[сurrentCharacter].GetComponent<Character>().Damage, List[сurrentCharacter].GetComponent<Character>().Count);
-        сurrentCharacter += 1;
-        HeroesGroup[rand].GetComponent<Character>().Circle.SetActive(false);
-        _stageStarted = false;
+        if (_gameOver == false)
+        {
+            yield return new WaitForSeconds(1);
+            if (_gameOver == false) List[сurrentCharacter].GetComponent<Character>().Circle.SetActive(true);
+            int rand = Random.Range(0, HeroesGroup.Count);
+            if (_gameOver == false) HeroesGroup[rand].GetComponent<Character>().Circle.SetActive(true);
+            yield return new WaitForSeconds(1);
+            if (_gameOver == false)
+            {
+                HeroesGroup[rand].GetComponent<Character>().GetDamage(
+                    List[сurrentCharacter].GetComponent<Character>().Damage,
+                    List[сurrentCharacter].GetComponent<Character>().Count);
+                сurrentCharacter += 1;
+                HeroesGroup[rand].GetComponent<Character>().Circle.SetActive(false);
+                _stageStarted = false;
+            }
+        }
     }
 
     private void SortMassive()

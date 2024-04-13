@@ -81,7 +81,7 @@ public class Character : MonoBehaviour
 
     private void Update()
     {
-        if (Health <= 0)
+        if (Count <= 0)
         {
             Destroy(gameObject);
             try
