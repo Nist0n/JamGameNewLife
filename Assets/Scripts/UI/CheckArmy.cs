@@ -10,7 +10,8 @@ public class CheckArmy : MonoBehaviour
     [SerializeField] private Button[] positionsOfImages;
     [SerializeField] private Canvas _canvas;
     [SerializeField] private ShowKickbutton showKickbutton;
-
+    [SerializeField] private GameObject toBattleButton;
+    
     private void Start()
     {
         _ourHand = FindObjectOfType<OurHand>();
@@ -18,6 +19,8 @@ public class CheckArmy : MonoBehaviour
 
     public void OpenMenu()
     {
+        toBattleButton.gameObject.SetActive(false);
+        
         _canvas.gameObject.SetActive(true);
         
         for (int i = 0; i < _ourHand.Army.Count; i++)
@@ -109,6 +112,7 @@ public class CheckArmy : MonoBehaviour
         }
         
         _canvas.gameObject.SetActive(false);
+        toBattleButton.gameObject.SetActive(true);
     }
 
     public void Kick(Button button)

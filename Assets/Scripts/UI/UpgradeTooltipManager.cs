@@ -34,7 +34,7 @@ namespace UI
                     levelUpCost = TownHall.LevelUpCost;
                     break;
             }
-            textComponent.text = "Cost: " + levelUpCost;
+            textComponent.text = "Стоимость: " + levelUpCost;
         }
         
         public void HideTooltip()

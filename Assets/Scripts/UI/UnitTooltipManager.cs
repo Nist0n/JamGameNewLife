@@ -33,19 +33,19 @@ namespace UI
 
             switch (selectedUnit)
             {
-                case "Knight":
+                case "Рыцарь":
                     cost = 70;
                     leadership = 35;
                     break;
-                case "Archer":
+                case "Лучник":
                     cost = 100;
                     leadership = 50;
                     break;
-                case "Mage":
+                case "Маг":
                     cost = 100;
                     leadership = 50;
                     break;
-                case "Horseman":
+                case "Всадник":
                     cost = 800;
                     leadership = 180;
                     break;
@@ -55,7 +55,7 @@ namespace UI
                     break;
             }
 
-            textComponent.text = "Cost: " + cost + "\n" + "Leadership: " + leadership;
+            textComponent.text = "Стоимость: " + cost + "\n" + "Лидерство: " + leadership;
         }
         
         public void HideTooltip()

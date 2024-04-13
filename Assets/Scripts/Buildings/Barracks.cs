@@ -71,10 +71,12 @@ namespace Buildings
             removeUnitButton.interactable = unitsCountSlider.value != unitsCountSlider.minValue;
             unitsCountSlider.interactable = unitsCountSlider.maxValue != 0;
             
+            unitsCountText.gameObject.SetActive(unitsCountSlider.maxValue != 0);
             unitsCountText.text = unitsCountSlider.value.ToString(CultureInfo.CurrentCulture);
             
             acceptButton.gameObject.SetActive(unitsCountSlider.value != 0);
 
+            sumText.gameObject.SetActive(unitsCountSlider.maxValue != 0);
             sumText.text = (unitsCountSlider.value * _unitCoinsCost).ToString(CultureInfo.InvariantCulture);
             
             switch (_selectedUnit)
