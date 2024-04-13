@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -7,7 +8,7 @@ namespace UI
     {
         public TextMeshProUGUI textComponent;
 
-        [SerializeField] private TMP_Dropdown unitsDropdown;
+        [SerializeField] private Dropdown unitsDropdown;
         
         private void Start()
         {
