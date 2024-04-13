@@ -7,11 +7,11 @@ public class ShowKickbutton : MonoBehaviour
 {
     [SerializeField] private Button kickButton;
     
-    private bool _showControls;
+    public bool ShowControls;
 
     public void ToggleControls()
     {
-        _showControls = !_showControls;
-        kickButton.gameObject.SetActive(_showControls);
+        ShowControls = !ShowControls;
+        kickButton.gameObject.SetActive(ShowControls);
     }
 }

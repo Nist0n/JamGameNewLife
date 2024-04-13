@@ -1414,6 +1414,7 @@ GameObject:
   - component: {fileID: 272642483}
   - component: {fileID: 272642482}
   - component: {fileID: 272642481}
+  - component: {fileID: 272642484}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -1485,9 +1486,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1293677359}
-        m_TargetAssemblyTypeName: OurHand, Assembly-CSharp
-        m_MethodName: KickHero
+      - m_Target: {fileID: 1795308385}
+        m_TargetAssemblyTypeName: CheckArmy, Assembly-CSharp
+        m_MethodName: Kick
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1215987159}
@@ -1535,6 +1536,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272642479}
   m_CullTransparentMesh: 1
+--- !u!114 &272642484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272642479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7265e1d1d070c5f4e973e6a8eb8793e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &282829707
 GameObject:
   m_ObjectHideFlags: 0
@@ -2945,6 +2958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kickButton: {fileID: 1449658514}
+  ShowControls: 0
 --- !u!1 &491766638
 GameObject:
   m_ObjectHideFlags: 0
@@ -4820,6 +4834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kickButton: {fileID: 2131033290}
+  ShowControls: 0
 --- !u!1 &836622935
 GameObject:
   m_ObjectHideFlags: 0
@@ -4907,6 +4922,7 @@ GameObject:
   - component: {fileID: 884788063}
   - component: {fileID: 884788062}
   - component: {fileID: 884788061}
+  - component: {fileID: 884788064}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -4978,9 +4994,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1293677359}
-        m_TargetAssemblyTypeName: OurHand, Assembly-CSharp
-        m_MethodName: KickHero
+      - m_Target: {fileID: 1795308385}
+        m_TargetAssemblyTypeName: CheckArmy, Assembly-CSharp
+        m_MethodName: Kick
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1860614826}
@@ -5028,6 +5044,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884788059}
   m_CullTransparentMesh: 1
+--- !u!114 &884788064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884788059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7265e1d1d070c5f4e973e6a8eb8793e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &893391795
 GameObject:
   m_ObjectHideFlags: 0
@@ -6304,6 +6332,7 @@ GameObject:
   - component: {fileID: 1056739217}
   - component: {fileID: 1056739216}
   - component: {fileID: 1056739215}
+  - component: {fileID: 1056739218}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -6375,9 +6404,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1293677359}
-        m_TargetAssemblyTypeName: OurHand, Assembly-CSharp
-        m_MethodName: KickHero
+      - m_Target: {fileID: 1795308385}
+        m_TargetAssemblyTypeName: CheckArmy, Assembly-CSharp
+        m_MethodName: Kick
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1980662130}
@@ -6425,6 +6454,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1056739213}
   m_CullTransparentMesh: 1
+--- !u!114 &1056739218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056739213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7265e1d1d070c5f4e973e6a8eb8793e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1086821433
 GameObject:
   m_ObjectHideFlags: 0
@@ -7072,6 +7113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kickButton: {fileID: 272642481}
+  ShowControls: 0
 --- !u!1 &1217350610
 GameObject:
   m_ObjectHideFlags: 0
@@ -9601,6 +9643,7 @@ GameObject:
   - component: {fileID: 1449658516}
   - component: {fileID: 1449658515}
   - component: {fileID: 1449658514}
+  - component: {fileID: 1449658517}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -9672,9 +9715,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1293677359}
-        m_TargetAssemblyTypeName: OurHand, Assembly-CSharp
-        m_MethodName: KickHero
+      - m_Target: {fileID: 1795308385}
+        m_TargetAssemblyTypeName: CheckArmy, Assembly-CSharp
+        m_MethodName: Kick
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 481348930}
@@ -9722,6 +9765,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449658512}
   m_CullTransparentMesh: 1
+--- !u!114 &1449658517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449658512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7265e1d1d070c5f4e973e6a8eb8793e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1474783491
 GameObject:
   m_ObjectHideFlags: 0
@@ -11675,6 +11730,7 @@ MonoBehaviour:
   - {fileID: 1860614826}
   - {fileID: 1980662130}
   _canvas: {fileID: 315685413}
+  showKickbutton: {fileID: 481348931}
 --- !u!4 &1795308386
 Transform:
   m_ObjectHideFlags: 0
@@ -12553,6 +12609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kickButton: {fileID: 884788061}
+  ShowControls: 0
 --- !u!1 &1885739620
 GameObject:
   m_ObjectHideFlags: 0
@@ -13385,6 +13442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kickButton: {fileID: 1056739215}
+  ShowControls: 0
 --- !u!1 &1985583110
 GameObject:
   m_ObjectHideFlags: 0
@@ -14261,6 +14319,7 @@ GameObject:
   - component: {fileID: 2131033292}
   - component: {fileID: 2131033291}
   - component: {fileID: 2131033290}
+  - component: {fileID: 2131033293}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -14332,9 +14391,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1293677359}
-        m_TargetAssemblyTypeName: OurHand, Assembly-CSharp
-        m_MethodName: KickHero
+      - m_Target: {fileID: 1795308385}
+        m_TargetAssemblyTypeName: CheckArmy, Assembly-CSharp
+        m_MethodName: Kick
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 766514788}
@@ -14382,6 +14441,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131033288}
   m_CullTransparentMesh: 1
+--- !u!114 &2131033293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131033288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7265e1d1d070c5f4e973e6a8eb8793e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2141950543
 GameObject:
   m_ObjectHideFlags: 0

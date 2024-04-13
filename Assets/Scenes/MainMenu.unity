@@ -1420,11 +1420,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fce0b4043146a094fb176d91aaf2a08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _peasant: {fileID: 6481993277433947421, guid: 01151176456f0b6498db85762604e960, type: 3}
+  _peasant: {fileID: 2650603773729546059, guid: 01151176456f0b6498db85762604e960, type: 3}
   _knight: {fileID: 6166154979358507343, guid: 1b2b109cecb3e204891ea69a84d81f7e, type: 3}
   _mage: {fileID: 8878619142543118650, guid: 3f89160a23394f648ab9505959ebc61f, type: 3}
-  _archer: {fileID: 6146487111985555345, guid: 6e6f08bf47d03ef45bc92f1314118a7f, type: 3}
-  _horseman: {fileID: 0}
+  _archer: {fileID: 1758299019129750016, guid: 6e6f08bf47d03ef45bc92f1314118a7f, type: 3}
+  _horseman: {fileID: 5856479150619436511, guid: 71ec1006337cd7a4e9239abff6cf1733, type: 3}
 --- !u!4 &1040909969
 Transform:
   m_ObjectHideFlags: 0
@@ -7123,11 +7123,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Army: []
   IsFull: 0
-  _peasant: {fileID: 6481993277433947421, guid: 01151176456f0b6498db85762604e960, type: 3}
+  _peasant: {fileID: 2650603773729546059, guid: 01151176456f0b6498db85762604e960, type: 3}
   _knight: {fileID: 6166154979358507343, guid: 1b2b109cecb3e204891ea69a84d81f7e, type: 3}
   _mage: {fileID: 8878619142543118650, guid: 3f89160a23394f648ab9505959ebc61f, type: 3}
-  _archer: {fileID: 6146487111985555345, guid: 6e6f08bf47d03ef45bc92f1314118a7f, type: 3}
-  _horseman: {fileID: 0}
+  _archer: {fileID: 1758299019129750016, guid: 6e6f08bf47d03ef45bc92f1314118a7f, type: 3}
+  _horseman: {fileID: 5856479150619436511, guid: 71ec1006337cd7a4e9239abff6cf1733, type: 3}
 --- !u!4 &1762211978
 Transform:
   m_ObjectHideFlags: 0
