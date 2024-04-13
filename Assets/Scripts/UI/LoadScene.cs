@@ -14,6 +14,7 @@ public class LoadScene : MonoBehaviour
     IEnumerator Time()
     {
         yield return new WaitForSeconds(3f);
+        UnityEngine.Time.timeScale = 1;
         SceneManager.LoadScene("Base");
     }
 }
