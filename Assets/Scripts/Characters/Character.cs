@@ -46,20 +46,21 @@ public class Character : MonoBehaviour
     public void GetDamage(int damageNum, int countNum)
     {
         Health -= damageNum * countNum;
-        Debug.Log((damageNum * countNum)/_class.Health);
-        
-        if (Count - (damageNum * countNum) / _class.Health >= 0)
+
+        int killedCount = Count - (Health / _class.Health);
+
+        if (Count - killedCount >= 0)
         {
-            Count -= (damageNum * countNum) / _class.Health;
+            Count -= killedCount;
         }
         else
         {
             Count = 0;
         }
         
-        if (_class.Count - (damageNum * countNum) / _class.Health >= 0)
+        if (_class.Count - killedCount >= 0)
         {
-            _class.Count -= (damageNum * countNum) / _class.Health;
+            _class.Count -= killedCount;
         }
         else
         {
