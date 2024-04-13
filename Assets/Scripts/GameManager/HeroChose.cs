@@ -62,15 +62,16 @@ public class HeroChose : MonoBehaviour
 
         if (_ourHand.Army.Count == 0 && _unit.IsStarted == true)
         {
-            SceneManager.LoadScene(1);
+            Time.timeScale = 0;
             _ourHand.Save();
+            loseScene.LoseGame();
         }
 
         if (EnemiesGroup.Count == 0 && _unit.IsStarted == true)
         {
             Time.timeScale = 0;
             _ourHand.Save();
-            loseScene.LoseGame();
+            loseScene.WinGame();
         }
 
         if (_highlightEnemy != null)
