@@ -8,7 +8,7 @@ TagManager:
   - enemy
   - Circle
   - Building
-  - Button
+  - Audio
   layers:
   - Default
   - TransparentFX
