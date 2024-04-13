@@ -663,7 +663,6 @@ GameObject:
   - component: {fileID: 866643752}
   - component: {fileID: 866643755}
   - component: {fileID: 866643756}
-  - component: {fileID: 866643757}
   m_Layer: 5
   m_Name: ContinueButton
   m_TagString: Untagged
@@ -831,7 +830,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 866643757}
+      - m_Target: {fileID: 1040909968}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: ContinueGame
         m_Mode: 1
@@ -892,18 +891,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &866643757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 866643750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fce0b4043146a094fb176d91aaf2a08e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &887479720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,7 +1163,6 @@ GameObject:
   - component: {fileID: 1037684626}
   - component: {fileID: 1037684629}
   - component: {fileID: 1037684630}
-  - component: {fileID: 1037684631}
   m_Layer: 5
   m_Name: NewGameButton
   m_TagString: Untagged
@@ -1344,7 +1330,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1037684631}
+      - m_Target: {fileID: 1040909968}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: NewGame
         m_Mode: 1
@@ -1393,18 +1379,55 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1037684631
+--- !u!1 &1040909967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1040909969}
+  - component: {fileID: 1040909968}
+  m_Layer: 0
+  m_Name: ButtonManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1040909968
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1037684624}
+  m_GameObject: {fileID: 1040909967}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fce0b4043146a094fb176d91aaf2a08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _peasant: {fileID: 6481993277433947421, guid: 01151176456f0b6498db85762604e960, type: 3}
+  _knight: {fileID: 6166154979358507343, guid: 1b2b109cecb3e204891ea69a84d81f7e, type: 3}
+  _mage: {fileID: 8878619142543118650, guid: 3f89160a23394f648ab9505959ebc61f, type: 3}
+  _archer: {fileID: 6146487111985555345, guid: 6e6f08bf47d03ef45bc92f1314118a7f, type: 3}
+  _horseman: {fileID: 0}
+--- !u!4 &1040909969
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040909967}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 342.945, y: 103.627, z: 20119.102}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1373593314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1511,7 +1534,6 @@ GameObject:
   - component: {fileID: 1382145970}
   - component: {fileID: 1382145973}
   - component: {fileID: 1382145974}
-  - component: {fileID: 1382145975}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -1679,7 +1701,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1382145975}
+      - m_Target: {fileID: 1040909968}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -1728,18 +1750,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1382145975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1382145968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fce0b4043146a094fb176d91aaf2a08e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1389382771
 GameObject:
   m_ObjectHideFlags: 0
@@ -6905,3 +6915,4 @@ SceneRoots:
   - {fileID: 1551817852}
   - {fileID: 887479723}
   - {fileID: 1762211978}
+  - {fileID: 1040909969}
