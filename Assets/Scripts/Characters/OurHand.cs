@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class OurHand : MonoBehaviour
 {
     public List<GameObject> Army;
+    public Dictionary<string, int> Units = new();
     public bool IsFull = false;
 
     [SerializeField] private GameObject _peasant;
@@ -46,6 +47,14 @@ public class OurHand : MonoBehaviour
 
     public void AddCountOfUnits(string unit, int count)
     {
+        if (Units.ContainsKey(unit))
+        {
+            Units[unit] += count;
+        }
+        else
+        {
+            Units.Add(unit, count);  
+        }
         if (unit == "Peasant")
         {
             int temp = 0;

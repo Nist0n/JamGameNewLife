@@ -1,11 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using UnityEngine;
 using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager instance;
+    
     [Header("------------------Audio Source-----------------")]
     [SerializeField] AudioSource _musicSource;
     [SerializeField] AudioSource _SFXSource;
@@ -13,13 +16,49 @@ public class AudioManager : MonoBehaviour
     public AudioClip _backgroundRain;
     public AudioClip _button;
 
+    public List<Sound> music, sounds;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    
     private void Start()
     {
-        _musicSource.clip = _backgroundRain;
-        _musicSource.Play();
+        PlayMusic("Main Menu Music 1");
     }
-    public void PlaySFX(AudioClip clip)
+
+    public void ChangeMainMenuMusic()
     {
-        _SFXSource.PlayOneShot(clip);
+        PlayMusic("Main Menu Music 2");
+    }
+
+    public void PlayMusic(string soundName)
+    {
+        Sound s = music.Find(x => x.name == soundName);
+
+        if (s != null)
+        {
+            _musicSource.clip = s.audio;
+            _musicSource.Play();
+        }
+    }
+    
+    public void PlaySFX(string soundName)
+    {
+        Sound s = music.Find(x => x.name == soundName);
+
+        if (s != null)
+        {
+            _SFXSource.PlayOneShot(s.audio);
+        }
     }
 }

@@ -57,6 +57,7 @@ namespace Buildings
         {
             _ourHand = FindObjectOfType<OurHand>();
             _leadership = PlayerPrefs.GetInt(PlayerData.LeadershipData);
+            _units = _ourHand.Units;
             // TODO: change leadership according to saved units data
             _maxUnitsOfType = _leadership / 5;
         }
