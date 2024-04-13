@@ -1,60 +1,95 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class SelectBuilding : MonoBehaviour
+namespace Buildings
 {
-    private Camera _camera;
-
-    private GameObject _selectedBuilding;
-
-    [SerializeField] private GameObject mineSelectionCircle;
-    [SerializeField] private GameObject townHallSelectionCircle;
-    [SerializeField] private GameObject barracksSelectionCircle;
-
-    private void Awake()
+    public class SelectBuilding : MonoBehaviour
     {
-        _camera = Camera.main;
-    }
+        private Camera _camera;
 
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
+        private GameObject _selectedBuilding;
+
+        [SerializeField] private GameObject mineSelectionCircle;
+        [SerializeField] private GameObject townHallSelectionCircle;
+        [SerializeField] private GameObject barracksSelectionCircle;
+        
+        [SerializeField] private Button mineButton;
+
+        private void Awake()
         {
-            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            _camera = Camera.main;
+        }
+
+        private void Update()
+        {
+            if (Input.GetMouseButtonDown(0))
             {
-                if (hit.collider.gameObject.CompareTag("Building"))
+                if (EventSystem.current.IsPointerOverGameObject())
                 {
-                    _selectedBuilding = hit.collider.gameObject;
-                    switch (_selectedBuilding.name)
+                    return;
+                }
+                
+                Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out RaycastHit hit))
+                {
+                    if (hit.collider.gameObject.CompareTag("Building"))
                     {
-                        case "Mine":
-                            mineSelectionCircle.SetActive(true);
-                            townHallSelectionCircle.SetActive(false);
-                            barracksSelectionCircle.SetActive(false);
-                            break;
-                        case "TownHall":
-                            mineSelectionCircle.SetActive(false);
-                            townHallSelectionCircle.SetActive(true);
-                            barracksSelectionCircle.SetActive(false);
-                            break;
-                        case "Barracks":
-                            mineSelectionCircle.SetActive(false);
-                            townHallSelectionCircle.SetActive(false);
-                            barracksSelectionCircle.SetActive(true);
-                            break;
+                        _selectedBuilding = hit.collider.gameObject;
+                        switch (_selectedBuilding.name)
+                        {
+                            case "Mine":
+                                mineSelectionCircle.SetActive(true);
+                                townHallSelectionCircle.SetActive(false);
+                                barracksSelectionCircle.SetActive(false);
+                                
+                                ActivateButton(mineButton);
+                                break;
+                            case "TownHall":
+                                mineSelectionCircle.SetActive(false);
+                                townHallSelectionCircle.SetActive(true);
+                                barracksSelectionCircle.SetActive(false);
+                                
+                                DeactivateButton(mineButton);
+                                break;
+                            case "Barracks":
+                                mineSelectionCircle.SetActive(false);
+                                townHallSelectionCircle.SetActive(false);
+                                barracksSelectionCircle.SetActive(true);
+                                
+                                DeactivateButton(mineButton);
+                                break;
+                        }
                     }
-                    // _selectedBuilding.GetComponentInChildren<SpriteRenderer>().gameObject.SetActive(true);
-                    Debug.Log(_selectedBuilding.name);
+                    else
+                    {
+                        mineSelectionCircle.SetActive(false);
+                        townHallSelectionCircle.SetActive(false);
+                        barracksSelectionCircle.SetActive(false);
+
+                        DeactivateButton(mineButton);
+                    }
                 }
-                else
-                {
-                    mineSelectionCircle.SetActive(false);
-                    townHallSelectionCircle.SetActive(false);
-                    barracksSelectionCircle.SetActive(false);
-                }
+            }
+        }
+
+        private void ActivateButton(Button button)
+        {
+            button.interactable = true;
+            button.GetComponent<Image>().enabled = true;
+            foreach (Transform child in button.transform)
+            {
+                child.gameObject.SetActive(true);
+            }
+        }
+        
+        private void DeactivateButton(Button button)
+        {
+            button.interactable = false;
+            button.GetComponent<Image>().enabled = false;
+            foreach (Transform child in button.transform)
+            {
+                child.gameObject.SetActive(false);
             }
         }
     }
