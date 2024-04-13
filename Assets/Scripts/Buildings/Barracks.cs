@@ -5,7 +5,6 @@ using System.Globalization;
 using TMPro;
 using UI;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Buildings
@@ -14,10 +13,10 @@ namespace Buildings
     {
         [SerializeField] private Button trainButton; 
         [SerializeField] private Button researchButton; 
-        [SerializeField] private TMP_Dropdown racesDropdown;
-        [SerializeField] private TMP_Dropdown unitsDropdown;
-        [SerializeField] private TMP_Dropdown researchRacesDropdown;
-        [SerializeField] private TMP_Dropdown researchUnitsDropdown;
+        [SerializeField] private Dropdown racesDropdown;
+        [SerializeField] private Dropdown unitsDropdown;
+        [SerializeField] private Dropdown researchRacesDropdown;
+        [SerializeField] private Dropdown researchUnitsDropdown;
         
         [SerializeField] private Slider unitsCountSlider;
         [SerializeField] private TMP_Text unitsCountText;
@@ -27,9 +26,9 @@ namespace Buildings
         [SerializeField] private TMP_Text sumText;
         // [SerializeField] private TMP_Text leadershipCheckoutText;
 
-        [SerializeField] private List<TMP_Dropdown.OptionData> humanOptions = new();
-        [SerializeField] private List<TMP_Dropdown.OptionData> gnomeOptions = new();
-        [SerializeField] private List<TMP_Dropdown.OptionData> orcOptions = new();
+        [SerializeField] private List<Dropdown.OptionData> humanOptions = new();
+        [SerializeField] private List<Dropdown.OptionData> gnomeOptions = new();
+        [SerializeField] private List<Dropdown.OptionData> orcOptions = new();
 
         [SerializeField] private GameObject addUnitControls;
 
