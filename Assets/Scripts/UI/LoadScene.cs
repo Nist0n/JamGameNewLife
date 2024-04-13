@@ -5,16 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private FaderExample _faderExample;
+
     void Start()
     {
+        _faderExample = FindObjectOfType<FaderExample>();
         StartCoroutine(Time());
     }
 
     IEnumerator Time()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         UnityEngine.Time.timeScale = 1;
-        SceneManager.LoadScene("Base");
+        _faderExample.LoadScene("Base");
     }
 }

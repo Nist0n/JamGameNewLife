@@ -21,9 +21,8 @@ public class FaderExample : MonoBehaviour
         _instance = this;
         DontDestroyOnLoad(gameObject);
     }
-    
 
-    private void LoadScene(string sceneName)
+    public void LoadScene(string sceneName)
     {
         if (_isLoading)
         {

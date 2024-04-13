@@ -68,5 +68,6 @@ public class Fade : MonoBehaviour
         _fadedOutCallback?.Invoke();
         _fadedOutCallback = null;
         IsFading = false;
+        Destroy(gameObject);
     }
 }
