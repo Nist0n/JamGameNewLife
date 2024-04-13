@@ -15,6 +15,10 @@ namespace Buildings
         [SerializeField] private GameObject barracksSelectionCircle;
         
         [SerializeField] private Button mineButton;
+        [SerializeField] private Button townHallButton;
+        [SerializeField] private Button barracksButton;
+        
+        [SerializeField] private GameObject addUnitControls;
 
         private void Awake()
         {
@@ -33,6 +37,9 @@ namespace Buildings
                 Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out RaycastHit hit))
                 {
+                    addUnitControls.SetActive(false);
+                    Barracks.RacesShown = false;
+                    Barracks.ResearchRacesShown = false;
                     if (hit.collider.gameObject.CompareTag("Building"))
                     {
                         _selectedBuilding = hit.collider.gameObject;
@@ -43,21 +50,30 @@ namespace Buildings
                                 townHallSelectionCircle.SetActive(false);
                                 barracksSelectionCircle.SetActive(false);
                                 
-                                ActivateButton(mineButton);
+                                ToggleButton(mineButton, true);
+                                ToggleButton(townHallButton, false);
+                                ToggleButton(barracksButton, false);
                                 break;
                             case "TownHall":
                                 mineSelectionCircle.SetActive(false);
                                 townHallSelectionCircle.SetActive(true);
                                 barracksSelectionCircle.SetActive(false);
                                 
-                                DeactivateButton(mineButton);
+                                ToggleButton(townHallButton, true);
+                                ToggleButton(mineButton, false);
+                                ToggleButton(barracksButton, false);
+                                
+                                Barracks.RacesShown = true;
+                                Barracks.ResearchRacesShown = true;
                                 break;
                             case "Barracks":
                                 mineSelectionCircle.SetActive(false);
                                 townHallSelectionCircle.SetActive(false);
                                 barracksSelectionCircle.SetActive(true);
                                 
-                                DeactivateButton(mineButton);
+                                ToggleButton(barracksButton, true);
+                                ToggleButton(townHallButton, false);
+                                ToggleButton(mineButton, false);
                                 break;
                         }
                     }
@@ -67,29 +83,32 @@ namespace Buildings
                         townHallSelectionCircle.SetActive(false);
                         barracksSelectionCircle.SetActive(false);
 
-                        DeactivateButton(mineButton);
+                        ToggleButton(mineButton, false);
+                        ToggleButton(townHallButton, false);
+                        ToggleButton(barracksButton, false);
                     }
                 }
             }
         }
 
-        private void ActivateButton(Button button)
+        private void ToggleButton(Button button, bool toggle)
         {
-            button.interactable = true;
-            button.GetComponent<Image>().enabled = true;
-            foreach (Transform child in button.transform)
+            button.interactable = toggle;
+            button.GetComponent<Image>().enabled = toggle;
+            
+            if (button == barracksButton && toggle)
             {
-                child.gameObject.SetActive(true);
+                for (int i = 0; i < 3; i++)
+                {
+                    button.transform.GetChild(i).gameObject.SetActive(true);
+                }
             }
-        }
-        
-        private void DeactivateButton(Button button)
-        {
-            button.interactable = false;
-            button.GetComponent<Image>().enabled = false;
-            foreach (Transform child in button.transform)
+            else
             {
-                child.gameObject.SetActive(false);
+                foreach (Transform child in button.transform)
+                {
+                    child.gameObject.SetActive(toggle);
+                }
             }
         }
     }

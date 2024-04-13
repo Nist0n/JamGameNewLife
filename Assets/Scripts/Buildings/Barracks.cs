@@ -5,6 +5,7 @@ using System.Globalization;
 using TMPro;
 using UI;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Buildings
@@ -40,8 +41,8 @@ namespace Buildings
         private OurHand _ourHand;
 
         private bool _controlsShown;
-        private bool _racesShown;
-        private bool _researchRacesShown;
+        public static bool RacesShown;
+        public static bool ResearchRacesShown;
 
         private string _selectedUnit = "Peasant";
 
@@ -115,7 +116,7 @@ namespace Buildings
             trainButton.gameObject.SetActive(_controlsShown);
             researchButton.gameObject.SetActive(_controlsShown);
             
-            _racesShown = false;
+            RacesShown = false;
             racesDropdown.gameObject.SetActive(false);
             unitsDropdown.gameObject.SetActive(false);
             researchRacesDropdown.gameObject.SetActive(false);
@@ -125,14 +126,18 @@ namespace Buildings
 
         public void ToggleRaceDropdown()
         {
-            _racesShown = !_racesShown;
-            racesDropdown.gameObject.SetActive(_racesShown);
+            RacesShown = !RacesShown;
+            racesDropdown.gameObject.SetActive(RacesShown);
             
-            unitsDropdown.gameObject.SetActive(_racesShown);
+            unitsDropdown.gameObject.SetActive(RacesShown);
             
             addUnitControls.gameObject.SetActive(false);
             
-            addUnitControls.gameObject.SetActive(_racesShown);
+            addUnitControls.gameObject.SetActive(RacesShown);
+            
+            ResearchRacesShown = false;
+            researchRacesDropdown.gameObject.SetActive(ResearchRacesShown);
+            researchUnitsDropdown.gameObject.SetActive(ResearchRacesShown);
         }
 
         public void OpenUnitsDropdown()
@@ -181,6 +186,7 @@ namespace Buildings
             int coinsSpent = _unitCoinsCost * count;
             _coins -= coinsSpent;
             PlayerData.UpdateCoins(_coins);
+            
             StartCoroutine(ShowMoneySpent(coinsSpent));
         }
 
@@ -208,10 +214,15 @@ namespace Buildings
 
         public void ToggleResearchDropdown()
         {
-            _researchRacesShown = !_researchRacesShown;
-            researchRacesDropdown.gameObject.SetActive(_researchRacesShown);
+            RacesShown = false;
+            racesDropdown.gameObject.SetActive(RacesShown);
+            unitsDropdown.gameObject.SetActive(RacesShown);
+            addUnitControls.gameObject.SetActive(RacesShown);
             
-            researchUnitsDropdown.gameObject.SetActive(_researchRacesShown);
+            ResearchRacesShown = !ResearchRacesShown;
+            researchRacesDropdown.gameObject.SetActive(ResearchRacesShown);
+            
+            researchUnitsDropdown.gameObject.SetActive(ResearchRacesShown);
         }
         
         public void SelectResearchRace()
