@@ -508,7 +508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9beaf006c39c8b14f8c7794dd31c451b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 21300000, guid: a1724859b436eca44a6a44ebf02d5535, type: 3}
+  Sprite: {fileID: 21300000, guid: 508cbc1fee01ca9428e4770ad274dbb0, type: 3}
 --- !u!114 &2839193085089191562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,7 +542,7 @@ MonoBehaviour:
   Health: 0
   Damage: 0
   Speed: 0
-  Count: 1
+  Count: 17
 --- !u!95 &9084145388864692119
 Animator:
   serializedVersion: 5
