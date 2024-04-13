@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -12,7 +13,13 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private GameObject _archer;
     [SerializeField] private GameObject _horseman;
 
+    [SerializeField] private GameObject mainMenuButtons;
+    [SerializeField] private GameObject settingsSliders;
+    [SerializeField] private Button backButton;
+
     private FaderExample _faderExample;
+
+    private bool _settingsShown;
 
     private void Start()
     {
@@ -23,6 +30,7 @@ public class ButtonManager : MonoBehaviour
     {
         SceneManager.LoadScene(4);
     }
+    
     public void NewGame()
     {
         PlayerPrefs.SetInt("TownHallLevel", 1);
@@ -51,7 +59,18 @@ public class ButtonManager : MonoBehaviour
     
     public void SettingsMenu()
     {
-        SceneManager.LoadScene("Settings");
+        // SceneManager.LoadScene("Settings");
+
+        mainMenuButtons.SetActive(false);
+        settingsSliders.SetActive(true);
+        backButton.gameObject.SetActive(true);
+    }
+
+    public void QuitSettingsMenu()
+    {
+        mainMenuButtons.SetActive(true);
+        settingsSliders.SetActive(false);
+        backButton.gameObject.SetActive(false);
     }
     
     public void QuitGame()
