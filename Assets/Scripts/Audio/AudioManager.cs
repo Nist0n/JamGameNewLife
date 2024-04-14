@@ -36,28 +36,28 @@ public class AudioManager : MonoBehaviour
         PlayMusic("Main Menu Music 1");
     }
 
-    public void ChangeMainMenuMusic()
+    public void ChangeMainMenuMusic(string soundName, string soundName2)
     {
-        Sound thunder = music[1];
+        Sound s = music.Find(x => x.name == soundName);
 
-        if (thunder != null)
+        if (s != null)
         {
-            musicSource.clip = thunder.audio;
-            musicSource.Play();
+            rainSource.clip = s.audio;
+            rainSource.Play();
         }
 
-        Sound rain = music[2];
+        Sound d = music.Find(x => x.name == soundName2);
 
-        if (rain != null)
+        if (d != null)
         {
-            rainSource.clip = rain.audio;
-            rainSource.PlayDelayed(musicSource.clip.length);
+            musicSource.clip = d.audio;
+            musicSource.PlayDelayed(rainSource.clip.length);
         }
     }
 
     public void PlayMusic(string soundName)
     {
-        rainSource.Stop();
+        musicSource.Stop();
         Sound s = music.Find(x => x.name == soundName);
 
         if (s != null)

@@ -25,7 +25,7 @@ public class RainStart : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Invoke("StartAnim", delay);
-            AudioManager.instance.ChangeMainMenuMusic();
+            AudioManager.instance.ChangeMainMenuMusic("Thunder", "Rain");
             menuChanged = true;
         }
     }
