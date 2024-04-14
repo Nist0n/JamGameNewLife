@@ -13,6 +13,10 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private GameObject _mage;
     [SerializeField] private GameObject _archer;
     [SerializeField] private GameObject _horseman;
+    [SerializeField] private GameObject _zombie;
+    [SerializeField] private GameObject _skeleton;
+    [SerializeField] private GameObject _necromancer;
+    [SerializeField] private GameObject _blackKnight;
 
     [SerializeField] private GameObject mainMenuButtons;
     [SerializeField] private GameObject settingsSliders;
@@ -37,11 +41,26 @@ public class ButtonManager : MonoBehaviour
         PlayerPrefs.SetInt("firstSession", 1);
         PlayerPrefs.SetInt("numOfLevel", 1);
         PlayerPrefs.SetString("mainSave", string.Empty);
+        
         _peasant.GetComponent<Class>().Count = 0;
         _archer.GetComponent<Class>().Count = 0;
         _mage.GetComponent<Class>().Count = 0;
         _knight.GetComponent<Class>().Count = 0;
         _horseman.GetComponent<Class>().Count = 0;
+        _necromancer.GetComponent<Class>().Count = 0;
+        _zombie.GetComponent<Class>().Count = 0;
+        _skeleton.GetComponent<Class>().Count = 0;
+        _blackKnight.GetComponent<Class>().Count = 0;
+        
+        _peasant.GetComponent<Character>().Count = 0;
+        _archer.GetComponent<Character>().Count = 0;
+        _mage.GetComponent<Character>().Count = 0;
+        _knight.GetComponent<Character>().Count = 0;
+        _horseman.GetComponent<Character>().Count = 0;
+        _necromancer.GetComponent<Character>().Count = 0;
+        _zombie.GetComponent<Character>().Count = 0;
+        _skeleton.GetComponent<Character>().Count = 0;
+        _blackKnight.GetComponent<Character>().Count = 0;
         
         AudioManager.instance.PlaySFX("Click");
         _faderExample.LoadScene("ForScenario", "Plot");

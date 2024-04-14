@@ -202,6 +202,81 @@ public class OurHand : MonoBehaviour
             }
         }
         
+        if (unit == "Некромант")
+        {
+            int temp = 0;
+            foreach (var ch in Army)
+            {
+                if (ch.name == "Некромант")
+                {
+                    ch.GetComponent<Class>().Count += count;
+                    temp++;
+                }
+            }
+
+            if (temp == 0)
+            {
+                Army.Add(_necromancer);
+                foreach (var ch in Army)
+                {
+                    if (ch.name == "Некромант")
+                    {
+                        ch.GetComponent<Class>().Count += count;
+                    }
+                }
+            }
+        }
+        
+        if (unit == "Скелет")
+        {
+            int temp = 0;
+            foreach (var ch in Army)
+            {
+                if (ch.name == "Скелет")
+                {
+                    ch.GetComponent<Class>().Count += count;
+                    temp++;
+                }
+            }
+
+            if (temp == 0)
+            {
+                Army.Add(_skeleton);
+                foreach (var ch in Army)
+                {
+                    if (ch.name == "Скелет")
+                    {
+                        ch.GetComponent<Class>().Count += count;
+                    }
+                }
+            }
+        }
+        
+        if (unit == "ТёмныйРыцарь")
+        {
+            int temp = 0;
+            foreach (var ch in Army)
+            {
+                if (ch.name == "ТёмныйРыцарь")
+                {
+                    ch.GetComponent<Class>().Count += count;
+                    temp++;
+                }
+            }
+
+            if (temp == 0)
+            {
+                Army.Add(_blackKnight);
+                foreach (var ch in Army)
+                {
+                    if (ch.name == "ТёмныйРыцарь")
+                    {
+                        ch.GetComponent<Class>().Count += count;
+                    }
+                }
+            }
+        }
+        
         Save();
     }
 

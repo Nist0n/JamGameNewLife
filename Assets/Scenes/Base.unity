@@ -3707,61 +3707,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 574314766}
   m_CullTransparentMesh: 0
---- !u!1 &583540513
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 583540516}
-  - component: {fileID: 583540515}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &583540515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 583540513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 035aaaefa5969ae42a7a21a0de3792cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Army: []
-  IsFull: 0
-  _peasant: {fileID: 2650603773729546059, guid: 01151176456f0b6498db85762604e960, type: 3}
-  _knight: {fileID: 6166154979358507343, guid: 1b2b109cecb3e204891ea69a84d81f7e, type: 3}
-  _mage: {fileID: 8878619142543118650, guid: 3f89160a23394f648ab9505959ebc61f, type: 3}
-  _archer: {fileID: 1758299019129750016, guid: 6e6f08bf47d03ef45bc92f1314118a7f, type: 3}
-  _horseman: {fileID: 5856479150619436511, guid: 71ec1006337cd7a4e9239abff6cf1733, type: 3}
-  _zombie: {fileID: 0}
-  _skeleton: {fileID: 0}
-  _necromancer: {fileID: 0}
-  _blackKnight: {fileID: 0}
---- !u!4 &583540516
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 583540513}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 298.10962, y: 79.85419, z: 14.188307}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &591309167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4939,7 +4884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8359b9350143aeb45b5cd2245e0d4b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ourHand: {fileID: 583540515}
+  _ourHand: {fileID: 0}
   positionsOfImages:
   - {fileID: 1047777344}
   - {fileID: 2129746073}
@@ -15175,6 +15120,10 @@ MonoBehaviour:
   _mage: {fileID: 0}
   _archer: {fileID: 0}
   _horseman: {fileID: 0}
+  _zombie: {fileID: 0}
+  _skeleton: {fileID: 0}
+  _necromancer: {fileID: 0}
+  _blackKnight: {fileID: 0}
   mainMenuButtons: {fileID: 0}
   settingsSliders: {fileID: 0}
   backButton: {fileID: 0}
@@ -18015,7 +17964,6 @@ SceneRoots:
   - {fileID: 321347231}
   - {fileID: 1756372084}
   - {fileID: 2022123700}
-  - {fileID: 583540516}
   - {fileID: 750175100}
   - {fileID: 1181413820}
   - {fileID: 1887428320}

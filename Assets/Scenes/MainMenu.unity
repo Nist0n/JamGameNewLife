@@ -2457,6 +2457,10 @@ MonoBehaviour:
   _mage: {fileID: 8878619142543118650, guid: 3f89160a23394f648ab9505959ebc61f, type: 3}
   _archer: {fileID: 1758299019129750016, guid: 6e6f08bf47d03ef45bc92f1314118a7f, type: 3}
   _horseman: {fileID: 5856479150619436511, guid: 71ec1006337cd7a4e9239abff6cf1733, type: 3}
+  _zombie: {fileID: 2247723811097150435, guid: c49ae7ea42186ff4681584a8febb9b2d, type: 3}
+  _skeleton: {fileID: 3318378275040698751, guid: 94a664bd4a7dc1540ae9757e1040f699, type: 3}
+  _necromancer: {fileID: 6173494086695928574, guid: c4c344ee85cd1e34d8afe830ef69eb81, type: 3}
+  _blackKnight: {fileID: 1432693357967250719, guid: 1967ec79d16d45048a90242b39a31735, type: 3}
   mainMenuButtons: {fileID: 1651370817}
   settingsSliders: {fileID: 1882461801}
   backButton: {fileID: 2021804172}
@@ -8316,6 +8320,10 @@ MonoBehaviour:
   _mage: {fileID: 8878619142543118650, guid: 3f89160a23394f648ab9505959ebc61f, type: 3}
   _archer: {fileID: 1758299019129750016, guid: 6e6f08bf47d03ef45bc92f1314118a7f, type: 3}
   _horseman: {fileID: 5856479150619436511, guid: 71ec1006337cd7a4e9239abff6cf1733, type: 3}
+  _zombie: {fileID: 2247723811097150435, guid: c49ae7ea42186ff4681584a8febb9b2d, type: 3}
+  _skeleton: {fileID: 3318378275040698751, guid: 94a664bd4a7dc1540ae9757e1040f699, type: 3}
+  _necromancer: {fileID: 6173494086695928574, guid: c4c344ee85cd1e34d8afe830ef69eb81, type: 3}
+  _blackKnight: {fileID: 1432693357967250719, guid: 1967ec79d16d45048a90242b39a31735, type: 3}
 --- !u!4 &1762211978
 Transform:
   m_ObjectHideFlags: 0
