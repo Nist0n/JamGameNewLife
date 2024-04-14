@@ -13,25 +13,25 @@ public class RewardsForBattles : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("numOfLevel") == 1)
         {
-            coins.text = "3500";
+            coins.text = "3800";
             leadership.text = "50";
         }
         
         if (PlayerPrefs.GetInt("numOfLevel") == 2)
         {
-            coins.text = "3650";
+            coins.text = "3950";
             leadership.text = "60";
         }
                 
         if (PlayerPrefs.GetInt("numOfLevel") == 3)
         {
-            coins.text = "3855";
+            coins.text = "4150";
             leadership.text = "65";
         }
                 
         if (PlayerPrefs.GetInt("numOfLevel") == 4)
         {
-            coins.text = "5500";
+            coins.text = "6500";
             leadership.text = "90";
         }
                 
@@ -43,25 +43,25 @@ public class RewardsForBattles : MonoBehaviour
                 
         if (PlayerPrefs.GetInt("numOfLevel") == 6)
         {
-            coins.text = "5000";
+            coins.text = "6000";
             leadership.text = "80";
         }
                 
         if (PlayerPrefs.GetInt("numOfLevel") == 7) 
         {
-            coins.text = "5200";
+            coins.text = "6500";
             leadership.text = "100";
         }
                 
         if (PlayerPrefs.GetInt("numOfLevel") == 8)
         {
-            coins.text = "5600";
+            coins.text = "6900";
             leadership.text = "105";
         }
                 
         if (PlayerPrefs.GetInt("numOfLevel") == 9)
         {
-            coins.text = "6000";
+            coins.text = "7500";
             leadership.text = "110";
         }
                 
