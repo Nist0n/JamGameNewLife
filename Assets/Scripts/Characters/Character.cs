@@ -20,7 +20,11 @@ public class Character : MonoBehaviour
         archer,
         mage,
         peasant,
-        horseman
+        horseman,
+        zombie,
+        skeleton,
+        blackKnight,
+        necromancer
     }
     
     public int Health;
