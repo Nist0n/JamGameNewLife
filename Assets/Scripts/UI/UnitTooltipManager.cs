@@ -55,6 +55,22 @@ namespace UI
                     cost = 800;
                     leadership = 180;
                     break;
+                case "Некромант":
+                    cost = 600;
+                    leadership = 200;
+                    break;
+                case "Скелет":
+                    cost = 20;
+                    leadership = 12;
+                    break;
+                case "Зомби":
+                    cost = 60;
+                    leadership = 30;
+                    break;
+                case "Тёмный Рыцарь":
+                    cost = 1000;
+                    leadership = 150;
+                    break;
                 default:
                     cost = 10;
                     leadership = 5;

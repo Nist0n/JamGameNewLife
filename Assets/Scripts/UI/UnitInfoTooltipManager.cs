@@ -79,6 +79,30 @@ namespace UI
                     speed = 5;
                     leadershipCost = 180;
                     break;
+                case "Некромант":
+                    hp = 140;
+                    damage = 30;
+                    speed = 2;
+                    leadershipCost = 200;
+                    break;
+                case "Скелет":
+                    hp = 12;
+                    damage = 4;
+                    speed = 2;
+                    leadershipCost = 12;
+                    break;
+                case "Зомби":
+                    hp = 31;
+                    damage = 9;
+                    speed = 2;
+                    leadershipCost = 30;
+                    break;
+                case "Тёмный Рыцарь":
+                    hp = 180;
+                    damage = 33;
+                    speed = 2;
+                    leadershipCost = 150;
+                    break;
                 default:
                     hp = 5;
                     damage = 1;
