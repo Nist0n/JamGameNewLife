@@ -1586,7 +1586,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 38964630}
         m_TargetAssemblyTypeName: PauseGame, Assembly-CSharp
         m_MethodName: SaveGame
         m_Mode: 1
@@ -2076,6 +2076,10 @@ MonoBehaviour:
   _mage: {fileID: 0}
   _archer: {fileID: 0}
   _horseman: {fileID: 0}
+  _zombie: {fileID: 0}
+  _skeleton: {fileID: 0}
+  _necromancer: {fileID: 0}
+  _blackKnight: {fileID: 0}
   mainMenuButtons: {fileID: 0}
   settingsSliders: {fileID: 0}
   backButton: {fileID: 0}
@@ -2534,7 +2538,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 38964630}
         m_TargetAssemblyTypeName: PauseGame, Assembly-CSharp
         m_MethodName: ExitMenu
         m_Mode: 1
@@ -3596,7 +3600,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 38964630}
         m_TargetAssemblyTypeName: PauseGame, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
@@ -4517,6 +4521,10 @@ MonoBehaviour:
   _mage: {fileID: 0}
   _archer: {fileID: 0}
   _horseman: {fileID: 0}
+  _zombie: {fileID: 0}
+  _skeleton: {fileID: 0}
+  _necromancer: {fileID: 0}
+  _blackKnight: {fileID: 0}
   mainMenuButtons: {fileID: 0}
   settingsSliders: {fileID: 0}
   backButton: {fileID: 0}
