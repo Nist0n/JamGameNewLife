@@ -41,6 +41,7 @@ public class ButtonManager : MonoBehaviour
         PlayerPrefs.SetInt("MineCoins", 0);
         PlayerPrefs.SetInt("firstSession", 1);
         PlayerPrefs.SetInt("numOfLevel", 1);
+        PlayerPrefs.SetInt("numOfChapter", 1);
         PlayerPrefs.SetString("mainSave", string.Empty);
         
         _peasant.GetComponent<Class>().Count = 0;
@@ -152,11 +153,62 @@ public class ButtonManager : MonoBehaviour
         AudioManager.instance.PlaySFX("Click");
         _faderExample.LoadScene("Level_5", song);
     }
+    
+    public void LoadLevel6()
+    {
+        string song = "Battle";
+        Random random = new Random();
+        int rand = random.Next(1, 2);
+        song += rand;
+        AudioManager.instance.PlaySFX("Click");
+        _faderExample.LoadScene("Level_6", song);
+    }
+    
+    public void LoadLevel7()
+    {
+        string song = "Battle";
+        Random random = new Random();
+        int rand = random.Next(1, 2);
+        song += rand;
+        AudioManager.instance.PlaySFX("Click");
+        _faderExample.LoadScene("Level_7", song);
+    }
+    
+    public void LoadLevel8()
+    {
+        string song = "Battle";
+        Random random = new Random();
+        int rand = random.Next(1, 2);
+        song += rand;
+        AudioManager.instance.PlaySFX("Click");
+        _faderExample.LoadScene("Level_8", song);
+    }
+    
+    public void LoadLevel9()
+    {
+        string song = "Battle";
+        Random random = new Random();
+        int rand = random.Next(1, 2);
+        song += rand;
+        AudioManager.instance.PlaySFX("Click");
+        _faderExample.LoadScene("Level_9", song);
+    }
+    
+    public void LoadLevel10()
+    {
+        string song = "Battle";
+        Random random = new Random();
+        int rand = random.Next(1, 2);
+        song += rand;
+        AudioManager.instance.PlaySFX("Click");
+        _faderExample.LoadScene("Level_10", song);
+    }
 
     public void LoadChapter1()
     {
         AudioManager.instance.PlaySFX("Click");
-        _faderExample.LoadScene("FirstChapter", "Main Menu Music 1");
+        if (PlayerPrefs.GetInt("numOfChapter") == 1) _faderExample.LoadScene("FirstChapter", "Main Menu Music 1");
+        if (PlayerPrefs.GetInt("numOfChapter") == 2) _faderExample.LoadScene("SecondChapter", "Main Menu Music 1");
     }
     
     public void ButtonBackBase()

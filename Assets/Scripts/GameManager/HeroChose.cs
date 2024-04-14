@@ -77,6 +77,7 @@ public class HeroChose : MonoBehaviour
                 _gameOver = true;
                 _ourHand.Save();
                 PlayerPrefs.SetInt("numOfLevel", PlayerPrefs.GetInt("numOfLevel") + 1);
+                if (PlayerPrefs.GetInt("numOfLevel") == 6) PlayerPrefs.SetInt("numOfChapter", PlayerPrefs.GetInt("numOfChapter") + 1);
                 AudioManager.instance.PlayMusic("Win");
                 loseScene.WinGame();
             }
