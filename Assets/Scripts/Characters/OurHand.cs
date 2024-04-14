@@ -252,12 +252,12 @@ public class OurHand : MonoBehaviour
             }
         }
         
-        if (unit == "ТёмныйРыцарь")
+        if (unit == "ТемныйРыцарь")
         {
             int temp = 0;
             foreach (var ch in Army)
             {
-                if (ch.name == "ТёмныйРыцарь")
+                if (ch.name == "ТемныйРыцарь")
                 {
                     ch.GetComponent<Class>().Count += count;
                     temp++;
@@ -269,7 +269,7 @@ public class OurHand : MonoBehaviour
                 Army.Add(_blackKnight);
                 foreach (var ch in Army)
                 {
-                    if (ch.name == "ТёмныйРыцарь")
+                    if (ch.name == "ТемныйРыцарь")
                     {
                         ch.GetComponent<Class>().Count += count;
                     }

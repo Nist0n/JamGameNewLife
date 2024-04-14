@@ -107,6 +107,42 @@ public class CheckArmy : MonoBehaviour
                 }
                 Debug.Log("create");
             }
+            
+            if (_ourHand.Army[i].name == "Некромант")
+            {
+                positionsOfImages[i].image.sprite = _ourHand.Army[i].GetComponent<ImageOfUintChar>().Sprite;
+                positionsOfImages[i].gameObject.SetActive(true);
+                if (positionsOfImages[i].gameObject.GetComponentInChildren<Buttons>() != null)
+                {
+                    positionsOfImages[i].gameObject.GetComponentInChildren<Buttons>().gameObject.SetActive(false);
+                    showKickbutton.ShowControls = false;
+                }
+                Debug.Log("create");
+            }
+            
+            if (_ourHand.Army[i].name == "ТемныйРыцарь")
+            {
+                positionsOfImages[i].image.sprite = _ourHand.Army[i].GetComponent<ImageOfUintChar>().Sprite;
+                positionsOfImages[i].gameObject.SetActive(true);
+                if (positionsOfImages[i].gameObject.GetComponentInChildren<Buttons>() != null)
+                {
+                    positionsOfImages[i].gameObject.GetComponentInChildren<Buttons>().gameObject.SetActive(false);
+                    showKickbutton.ShowControls = false;
+                }
+                Debug.Log("create");
+            }
+            
+            if (_ourHand.Army[i].name == "Скелет")
+            {
+                positionsOfImages[i].image.sprite = _ourHand.Army[i].GetComponent<ImageOfUintChar>().Sprite;
+                positionsOfImages[i].gameObject.SetActive(true);
+                if (positionsOfImages[i].gameObject.GetComponentInChildren<Buttons>() != null)
+                {
+                    positionsOfImages[i].gameObject.GetComponentInChildren<Buttons>().gameObject.SetActive(false);
+                    showKickbutton.ShowControls = false;
+                }
+                Debug.Log("create");
+            }
 
             if (positionsOfImages[i].image.sprite == null)
             {
