@@ -61,6 +61,8 @@ namespace Buildings
 
             UpdateValues();
             mineCoinsCountText.text = _addedCoins + "/" + _mineVaultLimit;
+            
+            collectButton.interactable = _addedCoins > 0;
         }
         
         public override void ToggleControls()
@@ -138,7 +140,6 @@ namespace Buildings
                     _addedCoins = _mineVaultLimit;
                 }
                 PlayerPrefs.SetInt(MineCoins, _addedCoins);
-                collectButton.interactable = true;
                 yield return new WaitForSeconds(delay);
             }
         }

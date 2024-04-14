@@ -86,7 +86,7 @@ namespace Buildings
             unitsCountText.gameObject.SetActive(unitsCountSlider.maxValue != 0);
             unitsCountText.text = unitsCountSlider.value.ToString(CultureInfo.CurrentCulture);
             
-            acceptButton.gameObject.SetActive(unitsCountSlider.value != 0);
+            acceptButton.gameObject.SetActive(unitsCountSlider.value != 0 && !_ourHand.IsFull);
             
             // addUnitButton.gameObject.SetActive(unitsCountSlider.maxValue != 0);
             // removeUnitButton.gameObject.SetActive(unitsCountSlider.maxValue != 0);
@@ -139,8 +139,6 @@ namespace Buildings
             {
                 _maxUnitsOfType -= unit;
             }
-            
-            _ourHand.UpdateHand();
 
             acceptResearchButton.interactable = _researchCost != 0 && _researchedUnit != string.Empty && _coins >= _researchCost;
             
@@ -173,6 +171,10 @@ namespace Buildings
 
             researchUnitsDropdown.gameObject.SetActive(researchUnitsDropdown.options.Count != 0 && researchRacesDropdown.gameObject.activeSelf);
             unitsDropdown.gameObject.SetActive(unitsDropdown.options.Count != 0 && racesDropdown.gameObject.activeSelf);
+            
+            researchControls.SetActive(unitsDropdown.options.Count > 0 && ResearchRacesShown);
+            
+            _ourHand.UpdateHand();
         }
         
         public void ToggleControls()
@@ -220,6 +222,9 @@ namespace Buildings
             researchRacesDropdown.gameObject.SetActive(ResearchRacesShown);
             researchUnitsDropdown.gameObject.SetActive(ResearchRacesShown);
             researchControls.SetActive(ResearchRacesShown);
+            
+            int pickedUnit = unitsDropdown.value;
+            _selectedUnit = unitsDropdown.options[pickedUnit].text;
         }
 
         public void OpenUnitsDropdown()
@@ -361,6 +366,9 @@ namespace Buildings
 
         public void AcceptResearchUnit()
         {
+            int pickedEntryIndex = researchUnitsDropdown.value;
+            _researchedUnit = researchUnitsDropdown.options[pickedEntryIndex].text;
+            
             AudioManager.instance.PlaySFX("Click");
             if (ResearchUnitKeys.Contains(_researchedUnit))
             {
@@ -368,19 +376,28 @@ namespace Buildings
                 _coins -= _researchCost;
                 PlayerData.UpdateCoins(_coins);
                 StartCoroutine(ShowMoneySpent(_researchCost));
-                var researchedOption = researchUnitsDropdown.options.Find(x => x.text == _researchedUnit);
-                List<Dropdown.OptionData> list = new();
-                foreach (var option in researchUnitsDropdown.options)
+
+                if (researchUnitsDropdown.options.Count == 1)
                 {
-                    if (option != researchedOption)
+                    researchUnitsDropdown.ClearOptions();
+                }
+                else
+                {
+                    var researchedOption = researchUnitsDropdown.options.Find(x => x.text == _researchedUnit);
+                    List<Dropdown.OptionData> list = new();
+                    foreach (var option in researchUnitsDropdown.options)
                     {
-                        list.Add(option);
+                        if (option != researchedOption)
+                        {
+                            list.Add(option);
+                        }
                     }
+                
+                    researchUnitsDropdown.ClearOptions();
+                    researchUnitsDropdown.AddOptions(list);
                 }
                 
-                researchUnitsDropdown.ClearOptions();
-                researchUnitsDropdown.AddOptions(list);
-                unitsDropdown.options.Add(researchedOption);
+                // unitsDropdown.options.Add(researchedOption);
             }
         }
 
@@ -393,6 +410,8 @@ namespace Buildings
                 if (ResearchUnitKeys.Contains(unit.text))
                 {
                     int status = PlayerPrefs.GetInt(unit.text);
+                    Debug.Log(unit.text);
+                    Debug.Log(status);
                     if (status == researched)
                     {
                         Dropdown.OptionData option = new Dropdown.OptionData(unit.text);
