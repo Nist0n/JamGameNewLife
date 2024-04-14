@@ -223,8 +223,8 @@ namespace Buildings
             researchUnitsDropdown.gameObject.SetActive(ResearchRacesShown);
             researchControls.SetActive(ResearchRacesShown);
             
-            int pickedUnit = unitsDropdown.value;
-            _selectedUnit = unitsDropdown.options[pickedUnit].text;
+            // int pickedUnit = unitsDropdown.value;
+            // _selectedUnit = unitsDropdown.options[pickedUnit].text;
         }
 
         public void OpenUnitsDropdown()
