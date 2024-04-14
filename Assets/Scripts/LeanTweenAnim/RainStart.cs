@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class RainStart : MonoBehaviour
 {
     [SerializeField] float delay;
-    [SerializeField] private AudioManager audioManager;
     public Animator animator;
 
     private bool menuChanged;
@@ -26,7 +25,7 @@ public class RainStart : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Invoke("StartAnim", delay);
-            audioManager.ChangeMainMenuMusic();
+            AudioManager.instance.ChangeMainMenuMusic();
             menuChanged = true;
         }
     }

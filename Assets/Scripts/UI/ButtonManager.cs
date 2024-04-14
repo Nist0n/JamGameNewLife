@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = System.Random;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -33,29 +34,27 @@ public class ButtonManager : MonoBehaviour
         PlayerPrefs.SetInt("Leadership", 550);
         PlayerPrefs.SetInt("MineLevel", 1);
         PlayerPrefs.SetInt("firstSession", 1);
-        PlayerPrefs.SetString("mainSave", String.Empty);
+        PlayerPrefs.SetString("mainSave", string.Empty);
         _peasant.GetComponent<Class>().Count = 0;
         _archer.GetComponent<Class>().Count = 0;
         _mage.GetComponent<Class>().Count = 0;
         _knight.GetComponent<Class>().Count = 0;
-
-        _faderExample.LoadScene("ForScenario");
+        _horseman.GetComponent<Class>().Count = 0;
+        
+        _faderExample.LoadScene("ForScenario", "Plot");
     }
     
     public void ContinueGame()
     {
-        _faderExample.LoadScene("LoadScene");
+        string song = "Town";
+        Random random = new Random();
+        int rand = random.Next(1, 4);
+        song += rand;
+        _faderExample.LoadScene("LoadScene", song);
     }
-    
-    public void MainMenu()
-    {
-        _faderExample.LoadScene("MainMenu");
-    }
-    
+
     public void SettingsMenu()
     {
-        // SceneManager.LoadScene("Settings");
-
         mainMenuButtons.SetActive(false);
         settingsSliders.SetActive(true);
         backButton.gameObject.SetActive(true);
@@ -76,11 +75,15 @@ public class ButtonManager : MonoBehaviour
 
     public void LoadLevel1()
     {
-        _faderExample.LoadScene("Level_1");
+        string song = "Battle";
+        Random random = new Random();
+        int rand = random.Next(1, 2);
+        song += rand;
+        _faderExample.LoadScene("Level_1", song);
     }
 
     public void LoadChapter1()
     {
-        _faderExample.LoadScene("FirstChapter");
+        _faderExample.LoadScene("FirstChapter", "Main Menu Music 1");
     }
 }

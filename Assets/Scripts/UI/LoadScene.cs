@@ -17,6 +17,6 @@ public class LoadScene : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         UnityEngine.Time.timeScale = 1;
-        _faderExample.LoadScene("Base");
+        _faderExample.LoadScene("Base", "");
     }
 }

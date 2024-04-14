@@ -22,13 +22,15 @@ public class FaderExample : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void LoadScene(string sceneName)
+    public void LoadScene(string sceneName, string song)
     {
         if (_isLoading)
         {
             return;
         }
 
+        AudioManager.instance.PlayMusic(song);
+        
         var currentSceneName = SceneManager.GetActiveScene().name;
         if (currentSceneName == sceneName)
         {

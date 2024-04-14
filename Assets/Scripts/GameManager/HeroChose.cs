@@ -68,6 +68,7 @@ public class HeroChose : MonoBehaviour
             {
                 _gameOver = true;
                 _ourHand.Save();
+                AudioManager.instance.PlayMusic("Lose");
                 loseScene.LoseGame();
             }
 
