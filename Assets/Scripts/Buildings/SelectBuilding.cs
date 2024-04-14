@@ -67,8 +67,8 @@ namespace Buildings
                                 ToggleButton(mineButton, false);
                                 ToggleButton(barracksButton, false);
                                 
-                                Barracks.RacesShown = true;
-                                Barracks.ResearchRacesShown = true;
+                                // Barracks.RacesShown = true;
+                                // Barracks.ResearchRacesShown = true;
                                 break;
                             case "Barracks":
                                 mineSelectionCircle.SetActive(false);
