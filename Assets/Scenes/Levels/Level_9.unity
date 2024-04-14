@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3058874, g: 0.17093557, b: 0.3328506, a: 1}
+  m_IndirectSpecularColor: {r: 0.25591806, g: 0.16941842, b: 0.32302156, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8362,7 +8362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8859212986750941099, guid: c4c344ee85cd1e34d8afe830ef69eb81, type: 3}
       propertyPath: Count
-      value: 57
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 9005070373424782012, guid: c4c344ee85cd1e34d8afe830ef69eb81, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9163,7 +9163,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8512087510251721249, guid: 1967ec79d16d45048a90242b39a31735, type: 3}
       propertyPath: Count
-      value: 54
+      value: 46
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9238,7 +9238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8859212986750941099, guid: c4c344ee85cd1e34d8afe830ef69eb81, type: 3}
       propertyPath: Count
-      value: 59
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 9005070373424782012, guid: c4c344ee85cd1e34d8afe830ef69eb81, type: 3}
       propertyPath: m_LocalRotation.w
