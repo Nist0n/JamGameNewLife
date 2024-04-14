@@ -33,8 +33,6 @@ namespace Buildings
 
             levelText.text = "Уровень: " + _level;
             _coins = PlayerPrefs.GetInt(PlayerData.CoinsData);
-            
-            UpdateValues();
         }
 
         private void FixedUpdate()
