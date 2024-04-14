@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1900,6 +1900,24 @@ MonoBehaviour:
   sounds:
   - name: Click
     audio: {fileID: 8300000, guid: 78dfc17520322264f9f5677048954aa1, type: 3}
+  - name: "\u0412\u0441\u0430\u0434\u043D\u0438\u043A"
+    audio: {fileID: 8300000, guid: 3fb8003eb7c3c604f8d10f008564a521, type: 3}
+  - name: "\u0420\u044B\u0446\u0430\u0440\u044C"
+    audio: {fileID: 8300000, guid: c8d0740f5c7f2b24e8e0765c2393e1f4, type: 3}
+  - name: "\u0417\u043E\u043C\u0431\u0438"
+    audio: {fileID: 8300000, guid: 0f6bb2c9dd0349f4c8dfcfe0c8e2e14b, type: 3}
+  - name: "\u041A\u0440\u0435\u0441\u0442\u044C\u044F\u043D\u0438\u043D"
+    audio: {fileID: 8300000, guid: 04f9cf70b97f8fe4e882341f81434a69, type: 3}
+  - name: "\u041B\u0443\u0447\u043D\u0438\u043A"
+    audio: {fileID: 8300000, guid: 64b7d98d54971fd43b3ce046a161b35e, type: 3}
+  - name: "\u041C\u0430\u0433"
+    audio: {fileID: 8300000, guid: 4ef60a1b2f38c0f4e9c116dd5882c110, type: 3}
+  - name: "\u0422\u0435\u043C\u043D\u044B\u0439\u0420\u044B\u0446\u0430\u0440\u044C"
+    audio: {fileID: 8300000, guid: 7fe7e389e5b27074bba209021ee501a4, type: 3}
+  - name: "\u041D\u0435\u043A\u0440\u043E\u043C\u0430\u043D\u0442"
+    audio: {fileID: 8300000, guid: a6f8ae5d4034f7a4d978caba74563b42, type: 3}
+  - name: "\u0421\u043A\u0435\u043B\u0435\u0442"
+    audio: {fileID: 8300000, guid: ca97cd7161b09fd4c9118229e0f4c0fd, type: 3}
 --- !u!4 &919135052
 Transform:
   m_ObjectHideFlags: 0
