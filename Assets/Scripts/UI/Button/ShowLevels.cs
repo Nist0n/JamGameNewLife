@@ -53,5 +53,50 @@ public class ShowLevels : MonoBehaviour
                 else level.SetActive(false);
             }
         }
+        
+        if (PlayerPrefs.GetInt("numOfLevel") == 6)
+        {
+            foreach (var level in levels)
+            {
+                if (level.name == "Level6") level.SetActive(true);
+                else level.SetActive(false);
+            }
+        }
+        
+        if (PlayerPrefs.GetInt("numOfLevel") == 7)
+        {
+            foreach (var level in levels)
+            {
+                if (level.name == "Level7") level.SetActive(true);
+                else level.SetActive(false);
+            }
+        }
+        
+        if (PlayerPrefs.GetInt("numOfLevel") == 8)
+        {
+            foreach (var level in levels)
+            {
+                if (level.name == "Level8") level.SetActive(true);
+                else level.SetActive(false);
+            }
+        }
+        
+        if (PlayerPrefs.GetInt("numOfLevel") == 9)
+        {
+            foreach (var level in levels)
+            {
+                if (level.name == "Level9") level.SetActive(true);
+                else level.SetActive(false);
+            }
+        }
+        
+        if (PlayerPrefs.GetInt("numOfLevel") == 10)
+        {
+            foreach (var level in levels)
+            {
+                if (level.name == "Level10") level.SetActive(true);
+                else level.SetActive(false);
+            }
+        }
     }
 }
