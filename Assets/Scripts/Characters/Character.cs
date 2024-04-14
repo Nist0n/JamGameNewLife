@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
+    [SerializeField] private Text floatingDamage;
+    
     private Text _text;
     private OurHand _ourHand;
     private HeroChose _heroChose;
@@ -77,6 +79,8 @@ public class Character : MonoBehaviour
             {
                 if (_class._character == unit.GetComponent<Class>()._character)
                 {
+                    floatingDamage.text = $"{killedCount}";
+                    unit.GetComponentInChildren<Animator>().SetTrigger("damage");
                     unit.GetComponent<Class>().Count = _class.Count;
                 }
             }
