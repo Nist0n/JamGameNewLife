@@ -5069,7 +5069,7 @@ GameObject:
   - component: {fileID: 2185282157887483120}
   - component: {fileID: 2066369632164177749}
   m_Layer: 0
-  m_Name: "\u0422\u0435\u043C\u043D\u044B\u0439\u0420\u044B\u0446\u0430\u0440\u044C"
+  m_Name: "\u0422\u0451\u043C\u043D\u044B\u0439 \u0420\u044B\u0446\u0430\u0440\u044C"
   m_TagString: hero
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5127,7 +5127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22083362487b54f46a8c957895987e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatingDamage: {fileID: 283817364811328959}
+  floatingDamage: {fileID: 4186006667192381894, guid: d458a829d23851e40ade03fbbf71f633, type: 3}
   Circle: {fileID: 598880701047830718}
   Health: 0
   Speed: 0
