@@ -140,6 +140,7 @@ public class HeroChose : MonoBehaviour
                 
                 if (PlayerPrefs.GetInt("numOfLevel") == 6) PlayerPrefs.SetInt("numOfChapter", PlayerPrefs.GetInt("numOfChapter") + 1);
                 
+                AudioManager.instance.musicSource.Stop();
                 AudioManager.instance.PlaySFX("Win");
                 loseScene.WinGame();
             }
