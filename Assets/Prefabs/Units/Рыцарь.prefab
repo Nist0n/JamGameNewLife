@@ -6332,7 +6332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22083362487b54f46a8c957895987e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatingDamage: {fileID: 0}
+  floatingDamage: {fileID: 3377922456710946681}
   Circle: {fileID: 8066741506152923509}
   Health: -1500
   Speed: 0

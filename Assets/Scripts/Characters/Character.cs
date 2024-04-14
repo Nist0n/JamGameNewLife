@@ -80,6 +80,7 @@ public class Character : MonoBehaviour
                 if (_class._character == unit.GetComponent<Class>()._character)
                 {
                     floatingDamage.text = $"{killedCount}";
+                    Debug.Log(unit.GetComponentInChildren<Animator>());
                     unit.GetComponentInChildren<Animator>().SetTrigger("damage");
                     unit.GetComponent<Class>().Count = _class.Count;
                 }

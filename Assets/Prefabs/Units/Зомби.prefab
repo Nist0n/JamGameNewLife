@@ -5140,8 +5140,8 @@ Transform:
   m_Children:
   - {fileID: 8638606149171995513}
   - {fileID: 5253611397295646405}
-  - {fileID: 736017556758201238}
   - {fileID: 6005583429388108825}
+  - {fileID: 736017556758201238}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!95 &3717771928505982292
@@ -5177,7 +5177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22083362487b54f46a8c957895987e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatingDamage: {fileID: 0}
+  floatingDamage: {fileID: 1130812217699010078}
   Circle: {fileID: 452119701646129274}
   Health: 0
   Speed: 0

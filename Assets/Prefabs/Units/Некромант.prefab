@@ -564,9 +564,9 @@ Transform:
   m_LocalScale: {x: 0.35477, y: 0.35477, z: 0.35477}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 9005070373424782012}
   - {fileID: 7793357381699852521}
   - {fileID: 4395439135331772837}
-  - {fileID: 9005070373424782012}
   - {fileID: 2625048136682386751}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -603,7 +603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22083362487b54f46a8c957895987e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatingDamage: {fileID: 0}
+  floatingDamage: {fileID: 4420731287013753151}
   Circle: {fileID: 2774157223338204012}
   Health: 0
   Speed: 0

@@ -424,8 +424,8 @@ Transform:
   m_Children:
   - {fileID: 4199711208567467330}
   - {fileID: 3719431204858241906}
-  - {fileID: 1987396522228980027}
   - {fileID: 4662811686467437339}
+  - {fileID: 1987396522228980027}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1620214427015548194
@@ -491,7 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22083362487b54f46a8c957895987e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatingDamage: {fileID: 0}
+  floatingDamage: {fileID: 1788229989758667216}
   Circle: {fileID: 7000232217034070421}
   Health: 0
   Speed: 0
