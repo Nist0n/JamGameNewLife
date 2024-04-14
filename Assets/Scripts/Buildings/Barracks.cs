@@ -403,6 +403,8 @@ namespace Buildings
                 
                     researchUnitsDropdown.ClearOptions();
                     researchUnitsDropdown.AddOptions(list);
+                    int a = researchUnitsDropdown.value;
+                    _researchedUnit = researchUnitsDropdown.options[a].text;
                 }
                 
                 // unitsDropdown.options.Add(researchedOption);
