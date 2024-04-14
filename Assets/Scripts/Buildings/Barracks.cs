@@ -147,7 +147,7 @@ namespace Buildings
             switch (_researchedUnit)
             {
                 case "Маг":
-                    _levelRequired = 4;
+                    _levelRequired = 3;
                     _researchCost = 3000;
                     break;
                 case "Всадник":
