@@ -180,7 +180,7 @@ namespace Buildings
             researchUnitsDropdown.gameObject.SetActive(researchUnitsDropdown.options.Count != 0 && researchRacesDropdown.gameObject.activeSelf);
             unitsDropdown.gameObject.SetActive(unitsDropdown.options.Count != 0 && racesDropdown.gameObject.activeSelf);
             
-            researchControls.SetActive(unitsDropdown.options.Count > 0 && ResearchRacesShown);
+            researchControls.SetActive(researchUnitsDropdown.options.Count > 0 && ResearchRacesShown);
             
             _ourHand.UpdateHand();
         }
