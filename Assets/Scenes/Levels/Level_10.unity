@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3058874, g: 0.17093557, b: 0.3328506, a: 1}
+  m_IndirectSpecularColor: {r: 0.25591806, g: 0.16941842, b: 0.32302156, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -481,7 +481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8512087510251721249, guid: 1967ec79d16d45048a90242b39a31735, type: 3}
       propertyPath: Count
-      value: 30
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3134,7 +3134,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7599938764942620236, guid: c49ae7ea42186ff4681584a8febb9b2d, type: 3}
       propertyPath: Count
-      value: 231
+      value: 107
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3425,7 +3425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6429381637338928298, guid: 94a664bd4a7dc1540ae9757e1040f699, type: 3}
       propertyPath: Count
-      value: 474
+      value: 234
       objectReference: {fileID: 0}
     - target: {fileID: 8975462674510729970, guid: 94a664bd4a7dc1540ae9757e1040f699, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5431,7 +5431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8859212986750941099, guid: c4c344ee85cd1e34d8afe830ef69eb81, type: 3}
       propertyPath: Count
-      value: 57
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 9005070373424782012, guid: c4c344ee85cd1e34d8afe830ef69eb81, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7365,7 +7365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8859212986750941099, guid: c4c344ee85cd1e34d8afe830ef69eb81, type: 3}
       propertyPath: Count
-      value: 78
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 9005070373424782012, guid: c4c344ee85cd1e34d8afe830ef69eb81, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8215,7 +8215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8512087510251721249, guid: 1967ec79d16d45048a90242b39a31735, type: 3}
       propertyPath: Count
-      value: 35
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

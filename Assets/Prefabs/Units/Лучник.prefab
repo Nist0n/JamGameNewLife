@@ -478,7 +478,7 @@ MonoBehaviour:
   Health: 0
   Damage: 0
   Speed: 0
-  Count: 2
+  Count: 0
 --- !u!114 &8377865789124538787
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5198,7 +5198,7 @@ MonoBehaviour:
   Health: 0
   Damage: 0
   Speed: 0
-  Count: 1
+  Count: 0
 --- !u!65 &542716053232161377
 BoxCollider:
   m_ObjectHideFlags: 0
