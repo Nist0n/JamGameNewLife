@@ -11,9 +11,18 @@ public class CheckArmy : MonoBehaviour
     [SerializeField] private Canvas _canvas;
     [SerializeField] private ShowKickbutton showKickbutton;
     [SerializeField] private GameObject toBattleButton;
+    [SerializeField] private GameObject dialog;
+    [SerializeField] private GameObject dialogStarter;
+    [SerializeField] private Image image;
     
     private void Start()
     {
+        if (PlayerPrefs.GetInt("firstSession") == 1)
+        {
+            dialog.SetActive(true);
+            image.gameObject.SetActive(true);
+            dialogStarter.SetActive(true);
+        }
         _ourHand = FindObjectOfType<OurHand>();
     }
 
