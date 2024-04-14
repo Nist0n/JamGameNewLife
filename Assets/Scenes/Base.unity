@@ -3711,7 +3711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 104cf4984bf97b640bb0d3cf172c988e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 1756372080}
+  canvas: {fileID: 1150950619}
   button: {fileID: 20891712}
 --- !u!114 &583540515
 MonoBehaviour:
