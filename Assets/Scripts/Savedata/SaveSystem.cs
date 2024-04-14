@@ -10,7 +10,6 @@ public static class SaveSystem
     {
         string jsonDataString = JsonUtility.ToJson(data, true);
         PlayerPrefs.SetString(key, jsonDataString);
-        PlayerPrefs.SetInt("firstSession", 2);
     }
 
     public static T LoadArmy<T>(string key) where T: new()
