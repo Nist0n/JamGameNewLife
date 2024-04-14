@@ -15,6 +15,10 @@ public class OurHand : MonoBehaviour
     [SerializeField] private GameObject _mage;
     [SerializeField] private GameObject _archer;
     [SerializeField] private GameObject _horseman;
+    [SerializeField] private GameObject _zombie;
+    [SerializeField] private GameObject _skeleton;
+    [SerializeField] private GameObject _necromancer;
+    [SerializeField] private GameObject _blackKnight;
 
     private const string SaveKey = "mainSave";
     

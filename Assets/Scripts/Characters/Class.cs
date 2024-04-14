@@ -48,5 +48,33 @@ public class Class : MonoBehaviour
             Damage = 29;
             Speed = 5;
         }
+        
+        if (_character == Character.Classes.zombie)
+        {
+            Health = 31;
+            Damage = 9;
+            Speed = 2;
+        }
+        
+        if (_character == Character.Classes.skeleton)
+        {
+            Health = 12;
+            Damage = 4;
+            Speed = 2;
+        }
+        
+        if (_character == Character.Classes.necromancer)
+        {
+            Health = 140;
+            Damage = 30;
+            Speed = 2;
+        }
+        
+        if (_character == Character.Classes.blackKnight)
+        {
+            Health = 180;
+            Damage = 33;
+            Speed = 2;
+        }
     }
 }
