@@ -58,6 +58,8 @@ namespace Buildings
         private int _researchCost;
         private string _researchedUnit = "Маг";
 
+        private int _levelRequired = 100;
+
         public static List<string> ResearchUnitKeys = new()
             { "Маг", "Всадник", "Скелет", "Зомби", "Некромант", "Тёмный Рыцарь" };
 
@@ -140,26 +142,32 @@ namespace Buildings
                 _maxUnitsOfType -= unit;
             }
 
-            acceptResearchButton.interactable = _researchCost != 0 && _researchedUnit != string.Empty && _coins >= _researchCost;
+            acceptResearchButton.interactable = _researchCost != 0 && _researchedUnit != string.Empty && _coins >= _researchCost && PlayerPrefs.GetInt("numOfLevel") >= _levelRequired;
             
             switch (_researchedUnit)
             {
                 case "Маг":
+                    _levelRequired = 4;
                     _researchCost = 3000;
                     break;
                 case "Всадник":
+                    _levelRequired = 5;
                     _researchCost = 4000;
                     break;
                 case "Скелет":
+                    _levelRequired = 7;
                     _researchCost = 7000;
                     break;
                 case "Зомби":
+                    _levelRequired = 7;
                     _researchCost = 8000;
                     break;
                 case "Некромант":
+                    _levelRequired = 8;
                     _researchCost = 12000;
                     break;
                 case "Тёмный Рыцарь":
+                    _levelRequired = 9;
                     _researchCost = 15000;
                     break;
                 default:
