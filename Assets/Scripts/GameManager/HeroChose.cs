@@ -215,6 +215,8 @@ public class HeroChose : MonoBehaviour
             yield return new WaitForSeconds(1);
             if (_gameOver == false)
             {
+                string enemyAttack = List[сurrentCharacter].GetComponent<Character>().gameObject.name;
+                AudioManager.instance.PlaySFX(enemyAttack);
                 HeroesGroup[rand].GetComponent<Character>().GetDamage(
                     List[сurrentCharacter].GetComponent<Character>().Damage,
                     List[сurrentCharacter].GetComponent<Character>().Count);
@@ -318,7 +320,10 @@ public class HeroChose : MonoBehaviour
                 _enemySelection = _raycastHit.transform;
                 if (_enemySelection.CompareTag("enemy") && CanAttack == true)
                 {
+                    string heroesAttack = List[сurrentCharacter].GetComponent<Character>().gameObject.name;
+                    Debug.Log(heroesAttack);
                     CanAttack = false;
+                    AudioManager.instance.PlaySFX(heroesAttack);
                     _enemySelection.GetComponent<Character>().GetDamage(_hero.Damage, _hero.Count);
                     List[сurrentCharacter].GetComponent<Character>().Circle.SetActive(false);;
                     _stageStarted = false;
