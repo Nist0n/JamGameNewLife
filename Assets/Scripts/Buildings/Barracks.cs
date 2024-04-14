@@ -188,7 +188,7 @@ namespace Buildings
         public void ToggleControls()
         {
             _controlsShown = !_controlsShown;
-            trainButton.gameObject.SetActive(_controlsShown && !_ourHand.IsFull);
+            trainButton.gameObject.SetActive(_controlsShown && (!_ourHand.IsFull || _ourHand.Units.ContainsKey(_selectedUnit)));
             researchButton.gameObject.SetActive(_controlsShown);
             
             RacesShown = false;
