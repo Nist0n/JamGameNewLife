@@ -1308,6 +1308,10 @@ MonoBehaviour:
   _mage: {fileID: 0}
   _archer: {fileID: 0}
   _horseman: {fileID: 0}
+  mainMenuButtons: {fileID: 0}
+  settingsSliders: {fileID: 0}
+  backButton: {fileID: 0}
+  _image: {fileID: 0}
 --- !u!114 &261183504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2772,7 +2776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 72423963}
-  unitsDropdown: {fileID: 353423403}
+  unitsDropdown: {fileID: 0}
 --- !u!114 &481179098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3113,10 +3117,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trainButton: {fileID: 1224770350}
   researchButton: {fileID: 1524583979}
-  racesDropdown: {fileID: 475969726}
-  unitsDropdown: {fileID: 353423403}
-  researchRacesDropdown: {fileID: 1240617531}
-  researchUnitsDropdown: {fileID: 950282711}
+  racesDropdown: {fileID: 0}
+  unitsDropdown: {fileID: 0}
+  researchRacesDropdown: {fileID: 0}
+  researchUnitsDropdown: {fileID: 0}
   unitsCountSlider: {fileID: 1625195679}
   unitsCountText: {fileID: 1290600649}
   coinsCountText: {fileID: 1139436022}
@@ -3735,7 +3739,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &612418783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4209,7 +4213,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 1be3a10633e7af0468018b5f113f298a, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -4221,7 +4225,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Continue
+  m_Text: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
 --- !u!222 &676534659
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5795,7 +5799,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 1be3a10633e7af0468018b5f113f298a, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -5807,7 +5811,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quit
+  m_Text: "\u0412\u044B\u0439\u0442\u0438"
 --- !u!222 &966311260
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7636,7 +7640,7 @@ GameObject:
   - component: {fileID: 1245747314}
   - component: {fileID: 1245747313}
   m_Layer: 5
-  m_Name: Button (Legacy) (2)
+  m_Name: Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7738,8 +7742,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: a454050719005b444b59a84eaafba779, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -9401,7 +9405,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 1be3a10633e7af0468018b5f113f298a, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -9413,7 +9417,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Save
+  m_Text: "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C"
 --- !u!222 &1415382058
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11095,7 +11099,7 @@ GameObject:
   - component: {fileID: 1721659144}
   - component: {fileID: 1721659143}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: Continue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11197,8 +11201,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: a454050719005b444b59a84eaafba779, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -11731,6 +11735,10 @@ MonoBehaviour:
   - {fileID: 1980662130}
   _canvas: {fileID: 315685413}
   showKickbutton: {fileID: 481348931}
+  toBattleButton: {fileID: 0}
+  dialog: {fileID: 0}
+  dialogStarter: {fileID: 0}
+  image: {fileID: 0}
 --- !u!4 &1795308386
 Transform:
   m_ObjectHideFlags: 0
@@ -13456,7 +13464,7 @@ GameObject:
   - component: {fileID: 1985583112}
   - component: {fileID: 1985583111}
   m_Layer: 5
-  m_Name: Button (Legacy) (1)
+  m_Name: Save
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13538,8 +13546,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: a454050719005b444b59a84eaafba779, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
