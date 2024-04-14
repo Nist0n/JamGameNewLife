@@ -224,6 +224,7 @@ public class OurHand : MonoBehaviour
         {
             if (unit.name == button.image.sprite.name)
             {
+                unit.GetComponent<Class>().Count = 0;
                 Army.Remove(unit);
                 button.image.sprite = null;
                 button.gameObject.GetComponentInChildren<Button>().gameObject.SetActive(false);
