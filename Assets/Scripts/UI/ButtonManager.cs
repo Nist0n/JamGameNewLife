@@ -35,6 +35,7 @@ public class ButtonManager : MonoBehaviour
         PlayerPrefs.SetInt("Leadership", 550);
         PlayerPrefs.SetInt("MineLevel", 1);
         PlayerPrefs.SetInt("firstSession", 1);
+        PlayerPrefs.SetInt("numOfLevel", 1);
         PlayerPrefs.SetString("mainSave", string.Empty);
         _peasant.GetComponent<Class>().Count = 0;
         _archer.GetComponent<Class>().Count = 0;
@@ -89,6 +90,46 @@ public class ButtonManager : MonoBehaviour
         song += rand;
         AudioManager.instance.PlaySFX("Click");
         _faderExample.LoadScene("Level_1", song);
+    }
+    
+    public void LoadLevel2()
+    {
+        string song = "Battle";
+        Random random = new Random();
+        int rand = random.Next(1, 2);
+        song += rand;
+        AudioManager.instance.PlaySFX("Click");
+        _faderExample.LoadScene("Level_2", song);
+    }
+    
+    public void LoadLevel3()
+    {
+        string song = "Battle";
+        Random random = new Random();
+        int rand = random.Next(1, 2);
+        song += rand;
+        AudioManager.instance.PlaySFX("Click");
+        _faderExample.LoadScene("Level_3", song);
+    }
+    
+    public void LoadLevel4()
+    {
+        string song = "Battle";
+        Random random = new Random();
+        int rand = random.Next(1, 2);
+        song += rand;
+        AudioManager.instance.PlaySFX("Click");
+        _faderExample.LoadScene("Level_4", song);
+    }
+    
+    public void LoadLevel5()
+    {
+        string song = "Battle";
+        Random random = new Random();
+        int rand = random.Next(1, 2);
+        song += rand;
+        AudioManager.instance.PlaySFX("Click");
+        _faderExample.LoadScene("Level_5", song);
     }
 
     public void LoadChapter1()

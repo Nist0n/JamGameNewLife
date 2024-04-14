@@ -177,6 +177,31 @@ public class OurHand : MonoBehaviour
             }
         }
         
+        if (unit == "Зомби")
+        {
+            int temp = 0;
+            foreach (var ch in Army)
+            {
+                if (ch.name == "Зомби")
+                {
+                    ch.GetComponent<Class>().Count += count;
+                    temp++;
+                }
+            }
+
+            if (temp == 0)
+            {
+                Army.Add(_zombie);
+                foreach (var ch in Army)
+                {
+                    if (ch.name == "Зомби")
+                    {
+                        ch.GetComponent<Class>().Count += count;
+                    }
+                }
+            }
+        }
+        
         Save();
     }
 

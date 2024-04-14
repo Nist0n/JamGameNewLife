@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &56952808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +159,10 @@ MonoBehaviour:
   _mage: {fileID: 0}
   _archer: {fileID: 0}
   _horseman: {fileID: 0}
+  _zombie: {fileID: 0}
+  _skeleton: {fileID: 0}
+  _necromancer: {fileID: 0}
+  _blackKnight: {fileID: 0}
 --- !u!4 &56952809
 Transform:
   m_ObjectHideFlags: 0
@@ -1013,7 +1017,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1613061520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1082,7 +1086,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1771546939
 MonoBehaviour:
   m_ObjectHideFlags: 0

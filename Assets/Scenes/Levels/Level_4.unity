@@ -639,6 +639,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u0420\u044B\u0446\u0430\u0440\u044C"
       objectReference: {fileID: 0}
+    - target: {fileID: 6166154979358507343, guid: 1b2b109cecb3e204891ea69a84d81f7e, type: 3}
+      propertyPath: m_TagString
+      value: enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6998438454448746080, guid: 1b2b109cecb3e204891ea69a84d81f7e, type: 3}
       propertyPath: Count
       value: 15
@@ -975,6 +979,10 @@ PrefabInstance:
     - target: {fileID: 1758299019129750016, guid: 6e6f08bf47d03ef45bc92f1314118a7f, type: 3}
       propertyPath: m_Name
       value: "\u041B\u0443\u0447\u043D\u0438\u043A"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758299019129750016, guid: 6e6f08bf47d03ef45bc92f1314118a7f, type: 3}
+      propertyPath: m_TagString
+      value: enemy
       objectReference: {fileID: 0}
     - target: {fileID: 2078431784741769021, guid: 6e6f08bf47d03ef45bc92f1314118a7f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1655,6 +1663,7 @@ MonoBehaviour:
   mainMenuButtons: {fileID: 0}
   settingsSliders: {fileID: 0}
   backButton: {fileID: 0}
+  _image: {fileID: 0}
 --- !u!1001 &501399928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3829,6 +3838,7 @@ MonoBehaviour:
   mainMenuButtons: {fileID: 0}
   settingsSliders: {fileID: 0}
   backButton: {fileID: 0}
+  _image: {fileID: 0}
 --- !u!1 &1238617167
 GameObject:
   m_ObjectHideFlags: 0
@@ -3975,6 +3985,10 @@ PrefabInstance:
     - target: {fileID: 5856479150619436511, guid: 71ec1006337cd7a4e9239abff6cf1733, type: 3}
       propertyPath: m_Name
       value: "\u0412\u0441\u0430\u0434\u043D\u0438\u043A"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856479150619436511, guid: 71ec1006337cd7a4e9239abff6cf1733, type: 3}
+      propertyPath: m_TagString
+      value: enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6376971160188659820, guid: 71ec1006337cd7a4e9239abff6cf1733, type: 3}
       propertyPath: Count
@@ -4179,6 +4193,10 @@ PrefabInstance:
     - target: {fileID: 8878619142543118650, guid: 3f89160a23394f648ab9505959ebc61f, type: 3}
       propertyPath: m_Name
       value: "\u041C\u0430\u0433"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8878619142543118650, guid: 3f89160a23394f648ab9505959ebc61f, type: 3}
+      propertyPath: m_TagString
+      value: enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4865,6 +4883,10 @@ PrefabInstance:
     - target: {fileID: 6166154979358507343, guid: 1b2b109cecb3e204891ea69a84d81f7e, type: 3}
       propertyPath: m_Name
       value: "\u0420\u044B\u0446\u0430\u0440\u044C"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6166154979358507343, guid: 1b2b109cecb3e204891ea69a84d81f7e, type: 3}
+      propertyPath: m_TagString
+      value: enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6998438454448746080, guid: 1b2b109cecb3e204891ea69a84d81f7e, type: 3}
       propertyPath: Count
