@@ -37,7 +37,7 @@ namespace Buildings
 
         private void FixedUpdate()
         {
-            if (_level == 4)
+            if (_level == 5)
             {
                 upgradeButton.gameObject.SetActive(false);
             }
@@ -49,7 +49,7 @@ namespace Buildings
         public override void ToggleControls()
         {
             _controlsShown = !_controlsShown;
-            if (_level < 4)
+            if (_level < 5)
             {
                 upgradeButton.gameObject.SetActive(_controlsShown);
             }
@@ -86,6 +86,10 @@ namespace Buildings
                 case 4:
                     _leadership = 700;
                     LevelUpCost = 75000;
+                    break;
+                case 5:
+                    _leadership = 500;
+                    LevelUpCost = 50000;
                     break;
             }
             
