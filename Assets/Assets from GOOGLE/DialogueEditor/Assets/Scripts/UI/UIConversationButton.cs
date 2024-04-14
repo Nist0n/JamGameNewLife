@@ -210,6 +210,8 @@ namespace DialogueEditor
 
         private void DoClickBehaviour()
         {
+            AudioManager.instance.PlaySFX("Click");
+            
             switch (m_buttonType)
             {
                 case eButtonType.Speech:

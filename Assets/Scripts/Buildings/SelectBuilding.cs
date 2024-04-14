@@ -42,6 +42,8 @@ namespace Buildings
                     Barracks.ResearchRacesShown = false;
                     if (hit.collider.gameObject.CompareTag("Building"))
                     {
+                        AudioManager.instance.PlaySFX("Click");
+                        
                         _selectedBuilding = hit.collider.gameObject;
                         switch (_selectedBuilding.name)
                         {

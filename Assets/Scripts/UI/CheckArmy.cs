@@ -28,6 +28,8 @@ public class CheckArmy : MonoBehaviour
 
     public void OpenMenu()
     {
+        AudioManager.instance.PlaySFX("Click");
+        
         toBattleButton.gameObject.SetActive(false);
         
         _canvas.gameObject.SetActive(true);
@@ -114,6 +116,8 @@ public class CheckArmy : MonoBehaviour
 
     public void CloseMenu()
     {
+        AudioManager.instance.PlaySFX("Click");
+        
         for (int i = 0; i < positionsOfImages.Length; i++)
         {
             positionsOfImages[i].gameObject.SetActive(true);
@@ -126,6 +130,8 @@ public class CheckArmy : MonoBehaviour
 
     public void Kick(Button button)
     {
+        AudioManager.instance.PlaySFX("Click");
+        
         _ourHand.KickHero(button);
     }
 }

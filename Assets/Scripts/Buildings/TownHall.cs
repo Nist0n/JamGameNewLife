@@ -59,6 +59,8 @@ namespace Buildings
 
         public override void Upgrade()
         {
+            AudioManager.instance.PlaySFX("Click");
+            
             _coins -= LevelUpCost;
             PlayerData.UpdateCoins(_coins);
 

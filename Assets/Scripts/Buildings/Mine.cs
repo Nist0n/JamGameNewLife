@@ -77,6 +77,8 @@ namespace Buildings
         
         public override void Upgrade()
         {
+            AudioManager.instance.PlaySFX("Click");
+            
             _coins -= LevelUpCost;
             PlayerData.UpdateCoins(_coins);
             
@@ -106,6 +108,8 @@ namespace Buildings
         
         public void CollectFromMine()
         {
+            AudioManager.instance.PlaySFX("Click");
+            
             collectButton.interactable = false;
             StartCoroutine(ShowAddedCoins());
             _coins += _addedCoins;

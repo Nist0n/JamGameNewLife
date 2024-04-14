@@ -41,6 +41,7 @@ public class ButtonManager : MonoBehaviour
         _knight.GetComponent<Class>().Count = 0;
         _horseman.GetComponent<Class>().Count = 0;
         
+        AudioManager.instance.PlaySFX("Click");
         _faderExample.LoadScene("ForScenario", "Plot");
     }
     
@@ -50,11 +51,13 @@ public class ButtonManager : MonoBehaviour
         Random random = new Random();
         int rand = random.Next(1, 4);
         song += rand;
+        AudioManager.instance.PlaySFX("Click");
         _faderExample.LoadScene("LoadScene", song);
     }
 
     public void SettingsMenu()
     {
+        AudioManager.instance.PlaySFX("Click");
         mainMenuButtons.SetActive(false);
         settingsSliders.SetActive(true);
         backButton.gameObject.SetActive(true);
@@ -62,6 +65,7 @@ public class ButtonManager : MonoBehaviour
 
     public void QuitSettingsMenu()
     {
+        AudioManager.instance.PlaySFX("Click");
         mainMenuButtons.SetActive(true);
         settingsSliders.SetActive(false);
         backButton.gameObject.SetActive(false);
@@ -69,6 +73,7 @@ public class ButtonManager : MonoBehaviour
     
     public void QuitGame()
     {
+        AudioManager.instance.PlaySFX("Click");
         Application.Quit();
         Debug.Log("Quit");
     }
@@ -79,11 +84,13 @@ public class ButtonManager : MonoBehaviour
         Random random = new Random();
         int rand = random.Next(1, 2);
         song += rand;
+        AudioManager.instance.PlaySFX("Click");
         _faderExample.LoadScene("Level_1", song);
     }
 
     public void LoadChapter1()
     {
+        AudioManager.instance.PlaySFX("Click");
         _faderExample.LoadScene("FirstChapter", "Main Menu Music 1");
     }
 }

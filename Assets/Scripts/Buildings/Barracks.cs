@@ -125,6 +125,7 @@ namespace Buildings
 
         public void ToggleRaceDropdown()
         {
+            AudioManager.instance.PlaySFX("Click");
             RacesShown = !RacesShown;
             racesDropdown.gameObject.SetActive(RacesShown);
             
@@ -141,6 +142,7 @@ namespace Buildings
 
         public void OpenUnitsDropdown()
         {
+            AudioManager.instance.PlaySFX("Click");
             int pickedEntryIndex = racesDropdown.value;
             string selectedRace = racesDropdown.options[pickedEntryIndex].text;
 
@@ -163,12 +165,14 @@ namespace Buildings
 
         public void SelectUnit()
         {
+            AudioManager.instance.PlaySFX("Click");
             int pickedEntryIndex = unitsDropdown.value;
             _selectedUnit = unitsDropdown.options[pickedEntryIndex].text;
         }
 
         public void TrainUnits()
         {
+            AudioManager.instance.PlaySFX("Click");
             int count = Convert.ToInt32(unitsCountSlider.value);
 
             if (_units.ContainsKey(_selectedUnit))
@@ -191,12 +195,14 @@ namespace Buildings
 
         public void IncreaseUnitCount()
         {
+            AudioManager.instance.PlaySFX("Click");
             unitsCountSlider.value++;
             unitsCountText.text = unitsCountSlider.value.ToString(CultureInfo.CurrentCulture);
         }
 
         public void DecreaseUnitCount()
         {
+            AudioManager.instance.PlaySFX("Click");
             unitsCountSlider.value--;
             unitsCountText.text = unitsCountSlider.value.ToString(CultureInfo.CurrentCulture);
         }
@@ -213,6 +219,7 @@ namespace Buildings
 
         public void ToggleResearchDropdown()
         {
+            AudioManager.instance.PlaySFX("Click");
             RacesShown = false;
             racesDropdown.gameObject.SetActive(RacesShown);
             unitsDropdown.gameObject.SetActive(RacesShown);
@@ -226,6 +233,7 @@ namespace Buildings
         
         public void SelectResearchRace()
         {
+            AudioManager.instance.PlaySFX("Click");
             int pickedEntryIndex = researchRacesDropdown.value;
             string selectedRace = researchRacesDropdown.options[pickedEntryIndex].text;
             
