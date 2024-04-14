@@ -1932,7 +1932,7 @@ MonoBehaviour:
     audio: {fileID: 8300000, guid: 0f6bb2c9dd0349f4c8dfcfe0c8e2e14b, type: 3}
   - name: "\u0420\u044B\u0446\u0430\u0440\u044C(Clone)"
     audio: {fileID: 8300000, guid: c8d0740f5c7f2b24e8e0765c2393e1f4, type: 3}
-  - name: "\u0422\u0435\u043C\u043D\u044B\u0439\u0420\u044B\u0446\u0430\u0440\u044C(Clone)"
+  - name: "\u0422\u0451\u043C\u043D\u044B\u0439 \u0420\u044B\u0446\u0430\u0440\u044C(Clone)"
     audio: {fileID: 8300000, guid: 7fe7e389e5b27074bba209021ee501a4, type: 3}
   - name: "\u041D\u0435\u043A\u0440\u043E\u043C\u0430\u043D\u0442(Clone)"
     audio: {fileID: 8300000, guid: a6f8ae5d4034f7a4d978caba74563b42, type: 3}
