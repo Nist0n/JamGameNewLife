@@ -88,7 +88,7 @@ namespace Buildings
             unitsCountText.gameObject.SetActive(unitsCountSlider.maxValue != 0);
             unitsCountText.text = unitsCountSlider.value.ToString(CultureInfo.CurrentCulture);
             
-            acceptButton.gameObject.SetActive(unitsCountSlider.value != 0 && (!_ourHand.IsFull || _ourHand.Units.ContainsKey(_selectedUnit));
+            acceptButton.gameObject.SetActive(unitsCountSlider.value != 0 && (!_ourHand.IsFull || _ourHand.Units.ContainsKey(_selectedUnit)));
             
             // addUnitButton.gameObject.SetActive(unitsCountSlider.maxValue != 0);
             // removeUnitButton.gameObject.SetActive(unitsCountSlider.maxValue != 0);
