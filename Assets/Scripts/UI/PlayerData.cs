@@ -33,7 +33,7 @@ namespace UI
         
         public static void UpdateLeadership(int leadership)
         {
-            PlayerPrefs.SetInt(LeadershipData, leadership);
+            PlayerPrefs.SetInt(LeadershipData, PlayerPrefs.GetInt(LeadershipData) + leadership);
         }
     }
 }

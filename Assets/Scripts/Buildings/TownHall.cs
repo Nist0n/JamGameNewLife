@@ -78,11 +78,11 @@ namespace Buildings
             switch (_level) 
             {
                 case 2:
-                    _leadership = 1080;
+                    _leadership = 340;
                     LevelUpCost = 37500;
                     break;
                 case 3:
-                    _leadership = 1440;
+                    _leadership = 450;
                     LevelUpCost = 50000;
                     break;
             }
