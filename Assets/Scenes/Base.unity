@@ -6468,6 +6468,7 @@ GameObject:
   m_Component:
   - component: {fileID: 980491395}
   - component: {fileID: 980491396}
+  - component: {fileID: 980491397}
   m_Layer: 5
   m_Name: BattleButton
   m_TagString: Untagged
@@ -6505,6 +6506,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9dcf320f0a299148a84679681eaee9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &980491397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980491394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d04d113286f7de41b476083d149ea77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &984013303
