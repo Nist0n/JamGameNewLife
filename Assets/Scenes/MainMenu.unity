@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2457,7 +2457,7 @@ MonoBehaviour:
   _mage: {fileID: 8878619142543118650, guid: 3f89160a23394f648ab9505959ebc61f, type: 3}
   _archer: {fileID: 1758299019129750016, guid: 6e6f08bf47d03ef45bc92f1314118a7f, type: 3}
   _horseman: {fileID: 5856479150619436511, guid: 71ec1006337cd7a4e9239abff6cf1733, type: 3}
-  mainMenuButtons: {fileID: 1651370817}
+  mainMenuButtons: {fileID: 934757975}
   settingsSliders: {fileID: 1882461801}
   backButton: {fileID: 2021804172}
 --- !u!4 &1040909969

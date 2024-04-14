@@ -19,6 +19,7 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private Button backButton;
 
     private FaderExample _faderExample;
+    public Image _image;
 
     private bool _settingsShown;
 
@@ -58,6 +59,7 @@ public class ButtonManager : MonoBehaviour
     public void SettingsMenu()
     {
         AudioManager.instance.PlaySFX("Click");
+        _image.enabled = false;
         mainMenuButtons.SetActive(false);
         settingsSliders.SetActive(true);
         backButton.gameObject.SetActive(true);
@@ -66,6 +68,7 @@ public class ButtonManager : MonoBehaviour
     public void QuitSettingsMenu()
     {
         AudioManager.instance.PlaySFX("Click");
+        _image.enabled = true;
         mainMenuButtons.SetActive(true);
         settingsSliders.SetActive(false);
         backButton.gameObject.SetActive(false);
