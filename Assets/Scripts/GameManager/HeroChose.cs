@@ -76,6 +76,7 @@ public class HeroChose : MonoBehaviour
             {
                 _gameOver = true;
                 _ourHand.Save();
+                PlayerPrefs.SetInt("numOfLevel", PlayerPrefs.GetInt("numOfLevel") + 1);
                 loseScene.WinGame();
             }
 
