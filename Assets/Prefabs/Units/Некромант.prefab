@@ -637,7 +637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9beaf006c39c8b14f8c7794dd31c451b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 0}
+  Sprite: {fileID: 21300000, guid: 25089f63b69281944832c20ecd41dbe2, type: 3}
 --- !u!65 &8416346530982777801
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -5069,7 +5069,7 @@ GameObject:
   - component: {fileID: 2185282157887483120}
   - component: {fileID: 2066369632164177749}
   m_Layer: 0
-  m_Name: "\u0422\u0451\u043C\u043D\u044B\u0439\u0420\u044B\u0446\u0430\u0440\u044C"
+  m_Name: "\u0422\u0435\u043C\u043D\u044B\u0439\u0420\u044B\u0446\u0430\u0440\u044C"
   m_TagString: hero
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5161,7 +5161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9beaf006c39c8b14f8c7794dd31c451b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 0}
+  Sprite: {fileID: 21300000, guid: 0865db4c5b4805c4db63c1253fa80ac4, type: 3}
 --- !u!65 &2066369632164177749
 BoxCollider:
   m_ObjectHideFlags: 0
