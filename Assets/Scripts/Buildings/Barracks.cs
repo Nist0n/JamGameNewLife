@@ -107,6 +107,8 @@ namespace Buildings
             {
                 _maxUnitsOfType -= unit;
             }
+            
+            _ourHand.UpdateHand();
         }
         
         public void ToggleControls()
