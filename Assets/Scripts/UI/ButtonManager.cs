@@ -156,4 +156,14 @@ public class ButtonManager : MonoBehaviour
         AudioManager.instance.PlaySFX("Click");
         _faderExample.LoadScene("FirstChapter", "Main Menu Music 1");
     }
+    
+    public void ButtonBackBase()
+    {
+        string song = "Town";
+        Random random = new Random();
+        int rand = random.Next(1, 4);
+        song += rand;
+        AudioManager.instance.PlaySFX("Click");
+        _faderExample.LoadScene("Base", song);
+    }
 }
