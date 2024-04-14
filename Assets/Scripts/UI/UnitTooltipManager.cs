@@ -28,6 +28,12 @@ namespace UI
             
             int cost;
             int leadership;
+
+            if (unitsDropdown.options.Count == 0)
+            {
+                return;
+            }
+            
             int pickedEntryIndex = unitsDropdown.value;
             string selectedUnit = unitsDropdown.options[pickedEntryIndex].text;
 

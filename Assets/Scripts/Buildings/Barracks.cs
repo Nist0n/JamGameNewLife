@@ -26,8 +26,7 @@ namespace Buildings
         [SerializeField] private TMP_Text sumText;
 
         [SerializeField] private List<Dropdown.OptionData> humanOptions = new();
-        [SerializeField] private List<Dropdown.OptionData> gnomeOptions = new();
-        [SerializeField] private List<Dropdown.OptionData> orcOptions = new();
+        [SerializeField] private List<Dropdown.OptionData> undeadOptions = new();
 
         [SerializeField] private GameObject addUnitControls;
 
@@ -35,6 +34,10 @@ namespace Buildings
         
         [SerializeField] private Button addUnitButton;
         [SerializeField] private Button removeUnitButton;
+        
+        [SerializeField] private GameObject researchControls;
+        [SerializeField] private TMP_Text researchCoinsCheckout;
+        [SerializeField] private Button acceptResearchButton;
 
         private OurHand _ourHand;
 
@@ -51,6 +54,15 @@ namespace Buildings
         private int _maxUnitsOfType;
 
         private Dictionary<string, int> _units = new();
+
+        private int _researchCost;
+        private string _researchedUnit = "Маг";
+
+        public static List<string> ResearchUnitKeys = new()
+            { "Маг", "Всадник", "Скелет", "Зомби", "Некромант", "Тёмный Рыцарь" };
+
+        private readonly List<Dropdown.OptionData> _starterOptions = new()
+            { new("Крестьянин"), new("Рыцарь"), new("Лучник") };
         
         private void Start()
         {
@@ -75,7 +87,11 @@ namespace Buildings
             unitsCountText.text = unitsCountSlider.value.ToString(CultureInfo.CurrentCulture);
             
             acceptButton.gameObject.SetActive(unitsCountSlider.value != 0);
-
+            
+            // addUnitButton.gameObject.SetActive(unitsCountSlider.maxValue != 0);
+            // removeUnitButton.gameObject.SetActive(unitsCountSlider.maxValue != 0);
+            // unitsCountSlider.gameObject.GetComponentInChildren<Image>().enabled = unitsCountSlider.maxValue != 0;
+            
             sumText.gameObject.SetActive(unitsCountSlider.maxValue != 0);
             sumText.text = (unitsCountSlider.value * _unitCoinsCost).ToString(CultureInfo.InvariantCulture);
             
@@ -97,6 +113,22 @@ namespace Buildings
                     _unitCoinsCost = 800;
                     _maxUnitsOfType = _leadership / 180;
                     break;
+                case "Скелет":
+                    _unitCoinsCost = 20;
+                    _maxUnitsOfType = _leadership / 12;
+                    break;
+                case "Зомби":
+                    _unitCoinsCost = 60;
+                    _maxUnitsOfType = _leadership / 30;
+                    break;
+                case "Некромант":
+                    _unitCoinsCost = 600;
+                    _maxUnitsOfType = _leadership / 200;
+                    break;
+                case "Тёмный Рыцарь":
+                    _unitCoinsCost = 1000;
+                    _maxUnitsOfType = _leadership / 150;
+                    break;
                 default:
                     _unitCoinsCost = 10;
                     _maxUnitsOfType = _leadership / 5;
@@ -109,12 +141,44 @@ namespace Buildings
             }
             
             _ourHand.UpdateHand();
+
+            acceptResearchButton.interactable = _researchCost != 0 && _researchedUnit != string.Empty && _coins >= _researchCost;
+            
+            switch (_researchedUnit)
+            {
+                case "Маг":
+                    _researchCost = 3000;
+                    break;
+                case "Всадник":
+                    _researchCost = 4000;
+                    break;
+                case "Скелет":
+                    _researchCost = 7000;
+                    break;
+                case "Зомби":
+                    _researchCost = 8000;
+                    break;
+                case "Некромант":
+                    _researchCost = 12000;
+                    break;
+                case "Тёмный Рыцарь":
+                    _researchCost = 15000;
+                    break;
+                default:
+                    _researchCost = 0;
+                    break;
+            }
+            
+            researchCoinsCheckout.text = _researchCost.ToString();
+
+            researchUnitsDropdown.gameObject.SetActive(researchUnitsDropdown.options.Count != 0 && researchRacesDropdown.gameObject.activeSelf);
+            unitsDropdown.gameObject.SetActive(unitsDropdown.options.Count != 0 && racesDropdown.gameObject.activeSelf);
         }
         
         public void ToggleControls()
         {
             _controlsShown = !_controlsShown;
-            trainButton.gameObject.SetActive(_controlsShown);
+            trainButton.gameObject.SetActive(_controlsShown && !_ourHand.IsFull);
             researchButton.gameObject.SetActive(_controlsShown);
             
             RacesShown = false;
@@ -131,6 +195,21 @@ namespace Buildings
             RacesShown = !RacesShown;
             racesDropdown.gameObject.SetActive(RacesShown);
             
+            unitsDropdown.ClearOptions();
+            int pickedEntryIndex = racesDropdown.value;
+            string selectedRace = racesDropdown.options[pickedEntryIndex].text;
+
+            switch (selectedRace)
+            {
+                case "Люди":
+                    unitsDropdown.AddOptions(_starterOptions);
+                    unitsDropdown.AddOptions(GetResearchableUnits(humanOptions));
+                    break;
+                case "Нежить":
+                    unitsDropdown.AddOptions(GetResearchableUnits(undeadOptions));
+                    break;
+            }
+            
             unitsDropdown.gameObject.SetActive(RacesShown);
             
             addUnitControls.gameObject.SetActive(false);
@@ -140,6 +219,7 @@ namespace Buildings
             ResearchRacesShown = false;
             researchRacesDropdown.gameObject.SetActive(ResearchRacesShown);
             researchUnitsDropdown.gameObject.SetActive(ResearchRacesShown);
+            researchControls.SetActive(ResearchRacesShown);
         }
 
         public void OpenUnitsDropdown()
@@ -152,13 +232,11 @@ namespace Buildings
             switch (selectedRace)
             {
                 case "Люди":
-                    unitsDropdown.AddOptions(humanOptions);
+                    unitsDropdown.AddOptions(_starterOptions);
+                    unitsDropdown.AddOptions(GetResearchableUnits(humanOptions));
                     break;
-                case "Гномы":
-                    unitsDropdown.AddOptions(gnomeOptions);
-                    break;
-                case "Орки":
-                    unitsDropdown.AddOptions(orcOptions);
+                case "Нежить":
+                    unitsDropdown.AddOptions(GetResearchableUnits(undeadOptions));
                     break;
             }
             
@@ -229,6 +307,21 @@ namespace Buildings
             
             ResearchRacesShown = !ResearchRacesShown;
             researchRacesDropdown.gameObject.SetActive(ResearchRacesShown);
+            researchControls.SetActive(ResearchRacesShown);
+            
+            researchUnitsDropdown.ClearOptions();
+            int pickedEntryIndex = researchRacesDropdown.value;
+            string selectedRace = researchRacesDropdown.options[pickedEntryIndex].text;
+            
+            switch (selectedRace)
+            {
+                case "Люди":
+                    researchUnitsDropdown.AddOptions(GetResearchableUnits(humanOptions, 0));
+                    break;
+                case "Нежить":
+                    researchUnitsDropdown.AddOptions(GetResearchableUnits(undeadOptions, 0));
+                    break;
+            }
             
             researchUnitsDropdown.gameObject.SetActive(ResearchRacesShown);
         }
@@ -243,17 +336,72 @@ namespace Buildings
             switch (selectedRace)
             {
                 case "Люди":
-                    researchUnitsDropdown.AddOptions(humanOptions);
+                    researchUnitsDropdown.AddOptions(GetResearchableUnits(humanOptions, 0));
                     break;
-                case "Гномы":
-                    researchUnitsDropdown.AddOptions(gnomeOptions);
-                    break;
-                case "Орки":
-                    researchUnitsDropdown.AddOptions(orcOptions);
+                case "Нежить":
+                    researchUnitsDropdown.AddOptions(GetResearchableUnits(undeadOptions, 0));
                     break;
             }
             
             researchUnitsDropdown.gameObject.SetActive(true);
+
+            if (researchUnitsDropdown.options.Count > 0)
+            {
+                int pickedResearchUnit = researchUnitsDropdown.value;
+                _researchedUnit = researchUnitsDropdown.options[pickedResearchUnit].text;
+            }
+        }
+
+        public void SelectResearchUnit()
+        {
+            AudioManager.instance.PlaySFX("Click");
+            int pickedEntryIndex = researchUnitsDropdown.value;
+            _researchedUnit = researchUnitsDropdown.options[pickedEntryIndex].text;
+        }
+
+        public void AcceptResearchUnit()
+        {
+            AudioManager.instance.PlaySFX("Click");
+            if (ResearchUnitKeys.Contains(_researchedUnit))
+            {
+                PlayerPrefs.SetInt(_researchedUnit, 1);
+                _coins -= _researchCost;
+                PlayerData.UpdateCoins(_coins);
+                StartCoroutine(ShowMoneySpent(_researchCost));
+                var researchedOption = researchUnitsDropdown.options.Find(x => x.text == _researchedUnit);
+                List<Dropdown.OptionData> list = new();
+                foreach (var option in researchUnitsDropdown.options)
+                {
+                    if (option != researchedOption)
+                    {
+                        list.Add(option);
+                    }
+                }
+                
+                researchUnitsDropdown.ClearOptions();
+                researchUnitsDropdown.AddOptions(list);
+                unitsDropdown.options.Add(researchedOption);
+            }
+        }
+
+        private List<Dropdown.OptionData> GetResearchableUnits(List<Dropdown.OptionData> raceList, int researched = 1)
+        {
+            List<Dropdown.OptionData> list = new();
+
+            foreach (var unit in raceList)
+            {
+                if (ResearchUnitKeys.Contains(unit.text))
+                {
+                    int status = PlayerPrefs.GetInt(unit.text);
+                    if (status == researched)
+                    {
+                        Dropdown.OptionData option = new Dropdown.OptionData(unit.text);
+                        list.Add(option);
+                    }
+                }
+            }
+
+            return list;
         }
     }
 }

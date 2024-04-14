@@ -11,6 +11,7 @@ public class ShowKickbutton : MonoBehaviour
 
     public void ToggleControls()
     {
+        AudioManager.instance.PlaySFX("Click");
         ShowControls = !ShowControls;
         kickButton.gameObject.SetActive(ShowControls);
     }

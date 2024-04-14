@@ -19,6 +19,7 @@ namespace Buildings
         [SerializeField] private Button barracksButton;
         
         [SerializeField] private GameObject addUnitControls;
+        [SerializeField] private GameObject researchControls;
 
         private void Awake()
         {
@@ -38,6 +39,7 @@ namespace Buildings
                 if (Physics.Raycast(ray, out RaycastHit hit))
                 {
                     addUnitControls.SetActive(false);
+                    researchControls.SetActive(false);
                     Barracks.RacesShown = false;
                     Barracks.ResearchRacesShown = false;
                     if (hit.collider.gameObject.CompareTag("Building"))

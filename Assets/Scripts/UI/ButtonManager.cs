@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Buildings;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -43,6 +44,11 @@ public class ButtonManager : MonoBehaviour
         PlayerPrefs.SetInt("numOfLevel", 1);
         PlayerPrefs.SetInt("numOfChapter", 1);
         PlayerPrefs.SetString("mainSave", string.Empty);
+
+        foreach (string key in Barracks.ResearchUnitKeys)
+        {
+            PlayerPrefs.SetInt(key, 0);
+        }
         
         _peasant.GetComponent<Class>().Count = 0;
         _archer.GetComponent<Class>().Count = 0;
