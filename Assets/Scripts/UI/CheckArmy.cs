@@ -120,7 +120,7 @@ public class CheckArmy : MonoBehaviour
                 Debug.Log("create");
             }
             
-            if (_ourHand.Army[i].name == "ТемныйРыцарь")
+            if (_ourHand.Army[i].name == "Тёмный Рыцарь")
             {
                 positionsOfImages[i].image.sprite = _ourHand.Army[i].GetComponent<ImageOfUintChar>().Sprite;
                 positionsOfImages[i].gameObject.SetActive(true);
