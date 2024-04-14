@@ -18,7 +18,7 @@ namespace Buildings
 
         private int _level = 1;
         public static int LevelUpCost = 25000;
-        private int _leadership = 550;
+        private int _leadership = 0;
 
         private bool _controlsShown;
 
