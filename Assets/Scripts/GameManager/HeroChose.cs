@@ -216,7 +216,6 @@ public class HeroChose : MonoBehaviour
             if (_gameOver == false)
             {
                 string enemyAttack = List[сurrentCharacter].GetComponent<Character>().gameObject.name;
-                Debug.Log(enemyAttack);
                 AudioManager.instance.PlaySFX(enemyAttack);
                 HeroesGroup[rand].GetComponent<Character>().GetDamage(
                     List[сurrentCharacter].GetComponent<Character>().Damage,
