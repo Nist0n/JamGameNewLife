@@ -11,6 +11,7 @@ namespace Buildings
     public class Mine : Building
     {
         private const string MineLevel = "MineLevel";
+        private const string MineCoins = "MineCoins";
 
         [SerializeField] private Button upgradeButton;
         [SerializeField] private Button collectButton;
@@ -39,6 +40,11 @@ namespace Buildings
                 _mineLevel = PlayerPrefs.GetInt(MineLevel);
             }
             levelText.text = "Уровень: " + _mineLevel;
+
+            if (PlayerPrefs.HasKey(MineCoins))
+            {
+                _addedCoins = PlayerPrefs.GetInt(MineCoins);
+            }
 
             StartCoroutine(MineMoney(_timeBetweenPay));
         }
@@ -131,6 +137,7 @@ namespace Buildings
                 {
                     _addedCoins = _mineVaultLimit;
                 }
+                PlayerPrefs.SetInt(MineCoins, _addedCoins);
                 collectButton.interactable = true;
                 yield return new WaitForSeconds(delay);
             }

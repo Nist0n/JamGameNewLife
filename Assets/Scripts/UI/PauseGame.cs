@@ -26,12 +26,14 @@ public class PauseGame : MonoBehaviour
         _isPaused = false;
         canvas.SetActive(false);
         button.SetActive(true);
+        AudioManager.instance.PlaySFX("Click");
     }
 
     public void SaveGame()
     {
         SaveSystem.Save("mainSave", GetSaveSnapshot());
         button.SetActive(false);
+        AudioManager.instance.PlaySFX("Click");
     }
     
     private ArmyData GetSaveSnapshot()
@@ -50,6 +52,8 @@ public class PauseGame : MonoBehaviour
         _isPaused = false;
         canvas.SetActive(false);
         button.SetActive(true);
+        AudioManager.instance.PlaySFX("Click");
+        AudioManager.instance.PlayMusic("Main Menu Music 1");
         SceneManager.LoadScene("MainMenu");
     }
 }

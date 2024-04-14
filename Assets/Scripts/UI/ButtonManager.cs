@@ -38,6 +38,7 @@ public class ButtonManager : MonoBehaviour
         PlayerPrefs.SetInt("Coins", 1000);
         PlayerPrefs.SetInt("Leadership", 550);
         PlayerPrefs.SetInt("MineLevel", 1);
+        PlayerPrefs.SetInt("MineCoins", 0);
         PlayerPrefs.SetInt("firstSession", 1);
         PlayerPrefs.SetInt("numOfLevel", 1);
         PlayerPrefs.SetString("mainSave", string.Empty);
@@ -73,6 +74,7 @@ public class ButtonManager : MonoBehaviour
         int rand = random.Next(1, 4);
         song += rand;
         AudioManager.instance.PlaySFX("Click");
+        // OurHand.instance.UpdateHand();
         _faderExample.LoadScene("LoadScene", song);
     }
 

@@ -22,7 +22,7 @@ public class OurHand : MonoBehaviour
 
     private const string SaveKey = "mainSave";
     
-    private static OurHand instance;
+    public static OurHand instance;
     
     private void Awake()
     {
@@ -287,18 +287,16 @@ public class OurHand : MonoBehaviour
         if (data != null)
         {
             this.Army = data.Army;
-            foreach (var unit in Army)
-            {
-                int count = unit.GetComponent<Class>().Count;
-                if (Units.ContainsKey(unit.name))
-                {
-                    Units[unit.name] += count;
-                }
-                else
-                {
-                    Units.Add(unit.name, count);  
-                }
-            }
+            UpdateHand();
+        }
+    }
+
+    public void UpdateHand()
+    {
+        foreach (var unit in Army)
+        {
+            int count = unit.GetComponent<Class>().Count;
+            Units[unit.name] = count;
         }
     }
 
@@ -331,6 +329,7 @@ public class OurHand : MonoBehaviour
                 unit.GetComponent<Class>().Count = 0;
                 unit.GetComponent<Character>().Count = 0;
                 Army.Remove(unit);
+                Units.Remove(unit.name);
                 button.image.sprite = null;
                 button.gameObject.GetComponentInChildren<Button>().gameObject.SetActive(false);
                 button.gameObject.SetActive(false);
