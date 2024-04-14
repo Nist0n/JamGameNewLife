@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseGame : MonoBehaviour
 {
-    private bool _isPaused = false;
+    private bool _isPaused = true;
     [SerializeField] private GameObject canvas;
     [SerializeField] private GameObject button;
     void Update()
@@ -14,16 +14,18 @@ public class PauseGame : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             _isPaused = !_isPaused;
-            Time.timeScale = Convert.ToInt16(_isPaused);
-            canvas.SetActive(_isPaused);
+            if (_isPaused) Time.timeScale = 1;
+            if (!_isPaused) Time.timeScale = 0;
+            canvas.SetActive(!_isPaused);
             button.SetActive(true);
         }
     }
 
     public void ResumeGame()
     {
-        Time.timeScale = 1;
-        _isPaused = false;
+        _isPaused = !_isPaused;
+        if (_isPaused) Time.timeScale = 1;
+        if (!_isPaused) Time.timeScale = 0;
         canvas.SetActive(false);
         button.SetActive(true);
         AudioManager.instance.PlaySFX("Click");
@@ -48,8 +50,9 @@ public class PauseGame : MonoBehaviour
     
     public void ExitMenu()
     {
-        Time.timeScale = 1;
-        _isPaused = false;
+        _isPaused = !_isPaused;
+        if (_isPaused) Time.timeScale = 1;
+        if (!_isPaused) Time.timeScale = 0;
         canvas.SetActive(false);
         button.SetActive(true);
         AudioManager.instance.PlaySFX("Click");
