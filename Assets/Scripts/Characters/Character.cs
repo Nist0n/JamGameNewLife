@@ -77,7 +77,6 @@ public class Character : MonoBehaviour
             {
                 if (_class._character == unit.GetComponent<Class>()._character)
                 {
-                    unit.GetComponentInChildren<Animator>().SetTrigger("damage");
                     unit.GetComponent<Class>().Count = _class.Count;
                 }
             }
