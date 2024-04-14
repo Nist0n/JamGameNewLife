@@ -229,6 +229,7 @@ GameObject:
   - component: {fileID: 278103796}
   - component: {fileID: 278103795}
   - component: {fileID: 278103794}
+  - component: {fileID: 278103798}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -323,6 +324,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &278103798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278103793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bda1a29dfbed18546854c0298ceae0d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels:
+  - {fileID: 2016089189}
+  - {fileID: 562642356}
+  - {fileID: 1760918972}
+  - {fileID: 1183789327}
+  - {fileID: 471437080}
 --- !u!1 &403676095
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,12 +448,12 @@ GameObject:
   - component: {fileID: 471437082}
   - component: {fileID: 471437085}
   m_Layer: 5
-  m_Name: Button (Legacy) (1)
+  m_Name: Level1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &471437081
 RectTransform:
   m_ObjectHideFlags: 0
@@ -565,6 +584,9 @@ MonoBehaviour:
   _mage: {fileID: 0}
   _archer: {fileID: 0}
   _horseman: {fileID: 0}
+  mainMenuButtons: {fileID: 0}
+  settingsSliders: {fileID: 0}
+  backButton: {fileID: 0}
 --- !u!1 &562642356
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,12 +601,12 @@ GameObject:
   - component: {fileID: 562642358}
   - component: {fileID: 562642361}
   m_Layer: 5
-  m_Name: Button (Legacy) (4)
+  m_Name: Level4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &562642357
 RectTransform:
   m_ObjectHideFlags: 0
@@ -715,6 +737,9 @@ MonoBehaviour:
   _mage: {fileID: 0}
   _archer: {fileID: 0}
   _horseman: {fileID: 0}
+  mainMenuButtons: {fileID: 0}
+  settingsSliders: {fileID: 0}
+  backButton: {fileID: 0}
 --- !u!1 &597601993
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,12 +822,12 @@ GameObject:
   - component: {fileID: 1183789329}
   - component: {fileID: 1183789332}
   m_Layer: 5
-  m_Name: Button (Legacy) (2)
+  m_Name: Level2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1183789328
 RectTransform:
   m_ObjectHideFlags: 0
@@ -933,6 +958,9 @@ MonoBehaviour:
   _mage: {fileID: 0}
   _archer: {fileID: 0}
   _horseman: {fileID: 0}
+  mainMenuButtons: {fileID: 0}
+  settingsSliders: {fileID: 0}
+  backButton: {fileID: 0}
 --- !u!1 &1760918972
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,12 +975,12 @@ GameObject:
   - component: {fileID: 1760918974}
   - component: {fileID: 1760918977}
   m_Layer: 5
-  m_Name: Button (Legacy) (3)
+  m_Name: Level3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1760918973
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1083,6 +1111,9 @@ MonoBehaviour:
   _mage: {fileID: 0}
   _archer: {fileID: 0}
   _horseman: {fileID: 0}
+  mainMenuButtons: {fileID: 0}
+  settingsSliders: {fileID: 0}
+  backButton: {fileID: 0}
 --- !u!1 &2016089189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,12 +1128,12 @@ GameObject:
   - component: {fileID: 2016089191}
   - component: {fileID: 2016089194}
   m_Layer: 5
-  m_Name: Button (Legacy) (5)
+  m_Name: Level5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2016089190
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1233,6 +1264,9 @@ MonoBehaviour:
   _mage: {fileID: 0}
   _archer: {fileID: 0}
   _horseman: {fileID: 0}
+  mainMenuButtons: {fileID: 0}
+  settingsSliders: {fileID: 0}
+  backButton: {fileID: 0}
 --- !u!1 &2147110479
 GameObject:
   m_ObjectHideFlags: 0
