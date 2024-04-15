@@ -17,7 +17,7 @@ namespace Buildings
         [SerializeField] private TMP_Text coinsText;
 
         private int _level = 1;
-        public static int LevelUpCost = 25000;
+        public static int LevelUpCost;
         private int _leadership = 0;
 
         private bool _controlsShown;
@@ -30,6 +30,8 @@ namespace Buildings
             {
                 _level = PlayerPrefs.GetInt(TownHallLevel);
             }
+
+            if (PlayerPrefs.GetInt("TownHallLevel") == 1) LevelUpCost = 25000;
 
             levelText.text = "Уровень: " + _level;
             _coins = PlayerPrefs.GetInt(PlayerData.CoinsData);
