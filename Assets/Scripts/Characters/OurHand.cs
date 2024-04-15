@@ -299,18 +299,15 @@ public class OurHand : MonoBehaviour
             Units[unit.name] = count;
         }
 
-        if (Army.Count == 0)
-        {
-            Units[_mage.name] = 0;
-            Units[_peasant.name] = 0;
-            Units[_knight.name] = 0;
-            Units[_archer.name] = 0;
-            Units[_horseman.name] = 0;
-            Units[_zombie.name] = 0;
-            Units[_skeleton.name] = 0;
-            Units[_blackKnight.name] = 0;
-            Units[_necromancer.name] = 0;
-        }
+        if (_horseman.GetComponent<Class>().Count == 0) Units[_horseman.name] = 0;
+        if (_mage.GetComponent<Class>().Count == 0) Units[_mage.name] = 0;
+        if (_peasant.GetComponent<Class>().Count == 0) Units[_peasant.name] = 0;
+        if (_knight.GetComponent<Class>().Count == 0) Units[_knight.name] = 0;
+        if (_blackKnight.GetComponent<Class>().Count == 0) Units[_blackKnight.name] = 0;
+        if (_archer.GetComponent<Class>().Count == 0) Units[_archer.name] = 0;
+        if (_zombie.GetComponent<Class>().Count == 0) Units[_zombie.name] = 0;
+        if (_skeleton.GetComponent<Class>().Count == 0) Units[_skeleton.name] = 0;
+        if (_necromancer.GetComponent<Class>().Count == 0) Units[_necromancer.name] = 0;
     }
 
     public void Save()
