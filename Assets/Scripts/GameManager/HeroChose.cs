@@ -79,54 +79,54 @@ public class HeroChose : MonoBehaviour
                 
                 if (PlayerPrefs.GetInt("numOfLevel") == 1)
                 {
-                    PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 3800);
-                    PlayerPrefs.SetInt("Leadership", PlayerPrefs.GetInt("Leadership") + 50);
+                    PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 4500);
+                    PlayerPrefs.SetInt("Leadership", PlayerPrefs.GetInt("Leadership") + 80);
                 }
                 if (PlayerPrefs.GetInt("numOfLevel") == 2)
                 {
-                    PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 3950);
-                    PlayerPrefs.SetInt("Leadership", PlayerPrefs.GetInt("Leadership") + 60);
+                    PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 4800);
+                    PlayerPrefs.SetInt("Leadership", PlayerPrefs.GetInt("Leadership") + 85);
                 }
                 
                 if (PlayerPrefs.GetInt("numOfLevel") == 3)
                 {
-                    PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 4150);
-                    PlayerPrefs.SetInt("Leadership", PlayerPrefs.GetInt("Leadership") + 65);
+                    PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 5300);
+                    PlayerPrefs.SetInt("Leadership", PlayerPrefs.GetInt("Leadership") + 90);
                 }
                 
                 if (PlayerPrefs.GetInt("numOfLevel") == 4)
                 {
-                    PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 6500);
-                    PlayerPrefs.SetInt("Leadership", PlayerPrefs.GetInt("Leadership") + 90);
+                    PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 7500);
+                    PlayerPrefs.SetInt("Leadership", PlayerPrefs.GetInt("Leadership") + 110);
                 }
                 
                 if (PlayerPrefs.GetInt("numOfLevel") == 5)
                 {
-                    PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 10000);
-                    PlayerPrefs.SetInt("Leadership", PlayerPrefs.GetInt("Leadership") + 120);
+                    PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 12500);
+                    PlayerPrefs.SetInt("Leadership", PlayerPrefs.GetInt("Leadership") + 150);
                 }
                 
                 if (PlayerPrefs.GetInt("numOfLevel") == 6)
                 {
-                    PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 6000);
+                    PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 7500);
                     PlayerPrefs.SetInt("Leadership", PlayerPrefs.GetInt("Leadership") + 80);
                 }
                 
                 if (PlayerPrefs.GetInt("numOfLevel") == 7)
                 {
-                    PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 6500);
+                    PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 7000);
                     PlayerPrefs.SetInt("Leadership", PlayerPrefs.GetInt("Leadership") + 100);
                 }
                 
                 if (PlayerPrefs.GetInt("numOfLevel") == 8)
                 {
-                    PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 6900);
+                    PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 7500);
                     PlayerPrefs.SetInt("Leadership", PlayerPrefs.GetInt("Leadership") + 105);
                 }
                 
                 if (PlayerPrefs.GetInt("numOfLevel") == 9)
                 {
-                    PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 7500);
+                    PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 8000);
                     PlayerPrefs.SetInt("Leadership", PlayerPrefs.GetInt("Leadership") + 110);
                 }
                 
