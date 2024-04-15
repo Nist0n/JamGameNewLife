@@ -298,6 +298,19 @@ public class OurHand : MonoBehaviour
             int count = unit.GetComponent<Class>().Count;
             Units[unit.name] = count;
         }
+
+        if (Army.Count == 0)
+        {
+            Units[_mage.name] = 0;
+            Units[_peasant.name] = 0;
+            Units[_knight.name] = 0;
+            Units[_archer.name] = 0;
+            Units[_horseman.name] = 0;
+            Units[_zombie.name] = 0;
+            Units[_skeleton.name] = 0;
+            Units[_blackKnight.name] = 0;
+            Units[_necromancer.name] = 0;
+        }
     }
 
     public void Save()
